@@ -20,7 +20,7 @@ namespace Guan
             this.GetThisSize();
             this.m_menuLeft.Items.Add("Add " + Config.OperationDot);
             this.m_menuLeft.Items.Add("Add " + Config.OperationLine);
-            this.m_menuLeft.Items.Add("Add " + Config.OperationPannel);
+            this.m_menuLeft.Items.Add("Add " + Config.OperationPanel);
             this.m_menuLeft.Items.Add("Add " + Config.OperationSolid);
             this.m_menuLeft.Items.Add("Add " + Config.OperationBright);
             this.m_menuLeft.Items.Add("Up");
@@ -81,13 +81,13 @@ namespace Guan
                     for (int j = 0; j < num; j++)
                     {
                         FrameCartoonProperty frameCartoonProperty = this.m_element[i].property[j];
-                        if (frameCartoonProperty.lenth == 0)
+                        if (frameCartoonProperty.length == 0)
                         {
                             this.m_element[i].property.RemoveAt(j);
                             j--;
                             num--;
                         }
-                        else if ((long)(frameCartoonProperty.startIndex + frameCartoonProperty.lenth) > (long)((ulong)this.MaxFrameNum))
+                        else if ((long)(frameCartoonProperty.startIndex + frameCartoonProperty.length) > (long)((ulong)this.MaxFrameNum))
                         {
                             if ((long)frameCartoonProperty.startIndex >= (long)((ulong)this.MaxFrameNum))
                             {
@@ -97,7 +97,7 @@ namespace Guan
                             }
                             else
                             {
-                                frameCartoonProperty.lenth = (int)(this.MaxFrameNum - (uint)frameCartoonProperty.startIndex);
+                                frameCartoonProperty.length = (int)(this.MaxFrameNum - (uint)frameCartoonProperty.startIndex);
                             }
                         }
                     }
@@ -134,8 +134,8 @@ namespace Guan
                     case FrameCartoonType.line:
                         frameCartoonProperty = new PropertyElementLine();
                         break;
-                    case FrameCartoonType.pannel:
-                        frameCartoonProperty = new PropertyElementPannel();
+                    case FrameCartoonType.panel:
+                        frameCartoonProperty = new PropertyElementPanel();
                         break;
                     case FrameCartoonType.solid:
                         frameCartoonProperty = new PropertyElementSolid();
@@ -146,7 +146,7 @@ namespace Guan
                     default:
                         return;
                     }
-                    frameCartoonProperty.lenth = 1;
+                    frameCartoonProperty.length = 1;
                     frameCartoonProperty.startIndex = this.m_selectRight.index;
                     this.m_element[this.m_selectRight.eleNum].property.Insert(this.m_selectRight.proNum, frameCartoonProperty);
                     if (this.m_selectStatus.m_status == ControlTimershaft.SelectElement.status.select && this.m_selectStatus.eleNum == this.m_selectRight.eleNum && this.m_selectStatus.proNum >= this.m_selectRight.proNum)
@@ -212,8 +212,8 @@ namespace Guan
             if (e.ClickedItem.Equals(this.m_menuLeft.Items[2]))
             {
                 FrameCartoonElement frameCartoonElement3 = new FrameCartoonElement();
-                frameCartoonElement3.m_type = FrameCartoonType.pannel;
-                frameCartoonElement3.name = Config.OperationPannel;
+                frameCartoonElement3.m_type = FrameCartoonType.panel;
+                frameCartoonElement3.name = Config.OperationPanel;
                 this.m_element.Add(frameCartoonElement3);
                 if (this.m_fileIsChanged != null)
                 {
@@ -422,7 +422,7 @@ namespace Guan
                         for (int k = 0; k < count2; k++)
                         {
                             FrameCartoonProperty frameCartoonProperty = this.m_element[j].property[k];
-                            Rectangle rectangle = new Rectangle(frameCartoonProperty.startIndex * 8 + this.LeftLinePosition - this.startX, this.GetLeftTextTop(j) - this.startY, frameCartoonProperty.lenth * 8, 20);
+                            Rectangle rectangle = new Rectangle(frameCartoonProperty.startIndex * 8 + this.LeftLinePosition - this.startX, this.GetLeftTextTop(j) - this.startY, frameCartoonProperty.length * 8, 20);
                             if (this.m_selectStatus.m_status == ControlTimershaft.SelectElement.status.select && this.m_selectStatus.eleNum == j && this.m_selectStatus.proNum == k)
                             {
                                 graphics2.FillRectangle(Brushes.DarkGoldenrod, rectangle);
@@ -533,7 +533,7 @@ namespace Guan
                         {
                             this.m_selectBuff.proNum = j;
                             FrameCartoonProperty frameCartoonProperty = this.m_element[i].property[j];
-                            if (frameCartoonProperty.lenth > 0)
+                            if (frameCartoonProperty.length > 0)
                             {
                                 int num2 = frameCartoonProperty.startIndex * 8 + this.LeftLinePosition;
                                 if (point.X >= num2 && point.X <= num2 + 3)
@@ -541,7 +541,7 @@ namespace Guan
                                     this.m_selectBuff.m_status = ControlTimershaft.SelectElement.status.left;
                                     return ControlTimershaft.MovingStatus.SizeChange;
                                 }
-                                int num3 = num2 + frameCartoonProperty.lenth * 8;
+                                int num3 = num2 + frameCartoonProperty.length * 8;
                                 if (point.X >= num3 - 3 && point.X <= num3)
                                 {
                                     this.m_selectBuff.m_status = ControlTimershaft.SelectElement.status.right;
@@ -604,7 +604,7 @@ namespace Guan
             {
                 return 0;
             }
-            return this.m_element[index1].property[index2 - 1].startIndex + this.m_element[index1].property[index2 - 1].lenth;
+            return this.m_element[index1].property[index2 - 1].startIndex + this.m_element[index1].property[index2 - 1].length;
         }
 
         private Rectangle GetRightRect(int index)
@@ -646,7 +646,7 @@ namespace Guan
                             {
                                 if (rightIndex >= this.GetElementMin(this.m_selectBuff.eleNum, this.m_selectBuff.proNum))
                                 {
-                                    frameCartoonProperty.lenth += frameCartoonProperty.startIndex - rightIndex;
+                                    frameCartoonProperty.length += frameCartoonProperty.startIndex - rightIndex;
                                     frameCartoonProperty.startIndex = rightIndex;
                                     if (this.m_fileIsChanged != null)
                                     {
@@ -659,10 +659,10 @@ namespace Guan
                             else if (rightIndex > frameCartoonProperty.startIndex)
                             {
                                 int num = rightIndex - frameCartoonProperty.startIndex;
-                                if (frameCartoonProperty.lenth > num)
+                                if (frameCartoonProperty.length > num)
                                 {
                                     frameCartoonProperty.startIndex = rightIndex;
-                                    frameCartoonProperty.lenth -= num;
+                                    frameCartoonProperty.length -= num;
                                     if (this.m_fileIsChanged != null)
                                     {
                                         this.m_fileIsChanged(true);
@@ -674,11 +674,11 @@ namespace Guan
                         }
                         else if (this.m_selectBuff.m_status == ControlTimershaft.SelectElement.status.right)
                         {
-                            if (rightIndex > frameCartoonProperty.startIndex + frameCartoonProperty.lenth)
+                            if (rightIndex > frameCartoonProperty.startIndex + frameCartoonProperty.length)
                             {
                                 if (rightIndex <= this.GetElementMax(this.m_selectBuff.eleNum, this.m_selectBuff.proNum))
                                 {
-                                    frameCartoonProperty.lenth = rightIndex - frameCartoonProperty.startIndex;
+                                    frameCartoonProperty.length = rightIndex - frameCartoonProperty.startIndex;
                                     if (this.m_fileIsChanged != null)
                                     {
                                         this.m_fileIsChanged(true);
@@ -687,12 +687,12 @@ namespace Guan
                                     return;
                                 }
                             }
-                            else if (rightIndex < frameCartoonProperty.startIndex + frameCartoonProperty.lenth)
+                            else if (rightIndex < frameCartoonProperty.startIndex + frameCartoonProperty.length)
                             {
                                 int num2 = rightIndex - frameCartoonProperty.startIndex;
                                 if (num2 > 0)
                                 {
-                                    frameCartoonProperty.lenth = num2;
+                                    frameCartoonProperty.length = num2;
                                     if (this.m_fileIsChanged != null)
                                     {
                                         this.m_fileIsChanged(true);
@@ -713,7 +713,7 @@ namespace Guan
                         if (num3 >= 0 && this.m_element.Count > this.m_selectBuff.eleNum && this.m_element[this.m_selectBuff.eleNum].property.Count > this.m_selectBuff.proNum)
                         {
                             FrameCartoonProperty frameCartoonProperty2 = this.m_element[this.m_selectBuff.eleNum].property[this.m_selectBuff.proNum];
-                            if (this.m_selectBuff.m_status == ControlTimershaft.SelectElement.status.select && num3 != frameCartoonProperty2.startIndex && num3 + frameCartoonProperty2.lenth <= this.GetElementMax(this.m_selectBuff.eleNum, this.m_selectBuff.proNum) && num3 >= this.GetElementMin(this.m_selectBuff.eleNum, this.m_selectBuff.proNum))
+                            if (this.m_selectBuff.m_status == ControlTimershaft.SelectElement.status.select && num3 != frameCartoonProperty2.startIndex && num3 + frameCartoonProperty2.length <= this.GetElementMax(this.m_selectBuff.eleNum, this.m_selectBuff.proNum) && num3 >= this.GetElementMin(this.m_selectBuff.eleNum, this.m_selectBuff.proNum))
                             {
                                 frameCartoonProperty2.startIndex = num3;
                                 if (this.m_fileIsChanged != null)
@@ -776,7 +776,7 @@ namespace Guan
                             for (int j = 0; j < count2; j++)
                             {
                                 FrameCartoonProperty frameCartoonProperty = this.m_element[i].property[j];
-                                if (num >= frameCartoonProperty.startIndex && num < frameCartoonProperty.startIndex + frameCartoonProperty.lenth)
+                                if (num >= frameCartoonProperty.startIndex && num < frameCartoonProperty.startIndex + frameCartoonProperty.length)
                                 {
                                     this.m_selectRight.eleNum = i;
                                     this.m_selectRight.proNum = j;

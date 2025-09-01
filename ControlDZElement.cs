@@ -315,9 +315,9 @@ namespace Guan
             }
         }
 
-        private void AboutMirror()
+        private void LeftRightMirror()
         {
-            ClassCalc.BufferAboutMirror(this.datBuff);
+            ClassCalc.BufferLeftRightMirror(this.datBuff);
             this.OnPaint();
             if (this.m_dataChanged != null)
             {
@@ -325,9 +325,9 @@ namespace Guan
             }
         }
 
-        private void UpdownMirror()
+        private void UpDownMirror()
         {
-            ClassCalc.BufferUpdownMirror(this.datBuff);
+            ClassCalc.BufferUpDownMirror(this.datBuff);
             this.OnPaint();
             if (this.m_dataChanged != null)
             {
@@ -374,12 +374,12 @@ namespace Guan
             }
             if (e.ClickedItem.Equals(this.m_menu.Items[7]))
             {
-                this.AboutMirror();
+                this.LeftRightMirror();
                 return;
             }
             if (e.ClickedItem.Equals(this.m_menu.Items[8]))
             {
-                this.UpdownMirror();
+                this.UpDownMirror();
             }
         }
 

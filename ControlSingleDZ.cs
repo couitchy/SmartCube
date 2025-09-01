@@ -28,7 +28,7 @@ namespace Guan
 
         private void m_dz_m_dataChanged()
         {
-            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, 0, FrameView.font, PaintMode.Copy);
+            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, 0, FrameView.front, PaintMode.Copy);
             this.m_dx.OnPaint();
             if (this.m_fileIsChanged != null)
             {
@@ -42,7 +42,7 @@ namespace Guan
             this.datBuff8 = this.m_res.buff;
             this.m_dx.SetBright(100);
             this.m_dx.ClrBuffer();
-            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, 0, FrameView.font, PaintMode.Copy);
+            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, 0, FrameView.front, PaintMode.Copy);
             this.m_dx.OnPaint();
             this.m_dz.ShowControl(this.datBuff8);
             base.Visible = true;
@@ -51,7 +51,7 @@ namespace Guan
         public void UpdateDX()
         {
             this.m_dx.ClrBuffer();
-            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, 0, FrameView.font, PaintMode.Copy);
+            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, 0, FrameView.front, PaintMode.Copy);
             this.m_dx.SetBright(100);
             this.m_dx.OnPaint();
         }

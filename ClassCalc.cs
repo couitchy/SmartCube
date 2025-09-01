@@ -86,7 +86,7 @@ namespace Guan
             }
         }
 
-        public static void BufferAboutMirror(byte[] buff)
+        public static void BufferLeftRightMirror(byte[] buff)
         {
             byte[] array = new byte[8];
             for (int i = 0; i < array.Length; i++)
@@ -111,7 +111,7 @@ namespace Guan
             }
         }
 
-        public static void BufferUpdownMirror(byte[] buff)
+        public static void BufferUpDownMirror(byte[] buff)
         {
             byte[] array = new byte[8];
             for (int i = 0; i < array.Length; i++)
@@ -214,7 +214,7 @@ namespace Guan
             }
         }
 
-        public static void BufferSolidAboutMirror(byte[] buff)
+        public static void BufferSolidLeftRightMirror(byte[] buff)
         {
             byte[] array = new byte[64];
             for (int i = 0; i < array.Length; i++)
@@ -266,7 +266,7 @@ namespace Guan
             }
             switch (view)
             {
-            case FrameView.font:
+            case FrameView.front:
             {
                 for (int j = 0; j < 8; j++)
                 {
@@ -320,7 +320,7 @@ namespace Guan
         {
             switch (view)
             {
-            case FrameView.font:
+            case FrameView.front:
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -410,7 +410,7 @@ namespace Guan
         {
             switch (view)
             {
-            case FrameView.font:
+            case FrameView.front:
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -482,7 +482,7 @@ namespace Guan
         {
             if (x >= 0 && x < 8 && y >= 0 && y < 8 && z >= 0 && z < 8)
             {
-                if (view == FrameView.font)
+                if (view == FrameView.front)
                 {
                     if (mode == PaintMode.OnlySet)
                     {
@@ -632,7 +632,7 @@ namespace Guan
             }
         }
 
-        public static void PannelToBuffer3D(byte[] buff3D, byte[] buffSingle, int x, int y, int z, FrameView view, PaintFun fun, PaintMode mode)
+        public static void PanelToBuffer3D(byte[] buff3D, byte[] buffSingle, int x, int y, int z, FrameView view, PaintFun fun, PaintMode mode)
         {
             try
             {
@@ -657,13 +657,13 @@ namespace Guan
                     {
                         ClassCalc.BufferSingleRote270(array);
                     }
-                    else if (fun == PaintFun.AboutMirror)
+                    else if (fun == PaintFun.LeftRightMirror)
                     {
-                        ClassCalc.BufferAboutMirror(array);
+                        ClassCalc.BufferLeftRightMirror(array);
                     }
-                    else if (fun == PaintFun.UpdownMirror)
+                    else if (fun == PaintFun.UpDownMirror)
                     {
-                        ClassCalc.BufferUpdownMirror(array);
+                        ClassCalc.BufferUpDownMirror(array);
                     }
                     if (x < 0)
                     {
@@ -758,11 +758,11 @@ namespace Guan
                     {
                         ClassCalc.BufferSolidRote270(array);
                     }
-                    else if (fun == PaintFun.AboutMirror)
+                    else if (fun == PaintFun.LeftRightMirror)
                     {
-                        ClassCalc.BufferSolidAboutMirror(array);
+                        ClassCalc.BufferSolidLeftRightMirror(array);
                     }
-                    else if (fun == PaintFun.UpdownMirror)
+                    else if (fun == PaintFun.UpDownMirror)
                     {
                         ClassCalc.BufferSolidUpdownMirror(array);
                     }
@@ -923,7 +923,7 @@ namespace Guan
         {
             try
             {
-                if (m_bright.lenth == 1)
+                if (m_bright.length == 1)
                 {
                     value = m_bright.startBright;
                 }
@@ -931,7 +931,7 @@ namespace Guan
                 {
                     int startBright = m_bright.startBright;
                     int endBright = m_bright.endBright;
-                    value = (endBright - startBright) * frameIndex / (m_bright.lenth - 1) + startBright;
+                    value = (endBright - startBright) * frameIndex / (m_bright.length - 1) + startBright;
                 }
             }
             catch (Exception ex)
@@ -967,7 +967,7 @@ namespace Guan
                     {
                         FrameCartoonProperty frameCartoonProperty = frameCartoonElement.property[j];
                         int num = frameIndex - frameCartoonProperty.startIndex;
-                        if (frameCartoonProperty.lenth > 0 && frameCartoonProperty.startIndex <= frameIndex && frameCartoonProperty.startIndex + frameCartoonProperty.lenth > frameIndex)
+                        if (frameCartoonProperty.length > 0 && frameCartoonProperty.startIndex <= frameIndex && frameCartoonProperty.startIndex + frameCartoonProperty.length > frameIndex)
                         {
                             if (type == FrameCartoonType.dot)
                             {
@@ -975,7 +975,7 @@ namespace Guan
                                 int num2 = 0;
                                 int num3 = 0;
                                 int num4 = 0;
-                                if (ClassCalc.GetDotPosition(m_index, propertyElementDot.startX, propertyElementDot.endX, propertyElementDot.lenth, propertyElementDot.indexX, num, ref num2) && ClassCalc.GetDotPosition(m_index, propertyElementDot.startY, propertyElementDot.endY, propertyElementDot.lenth, propertyElementDot.indexY, num, ref num3) && ClassCalc.GetDotPosition(m_index, propertyElementDot.startZ, propertyElementDot.endZ, propertyElementDot.lenth, propertyElementDot.indexZ, num, ref num4))
+                                if (ClassCalc.GetDotPosition(m_index, propertyElementDot.startX, propertyElementDot.endX, propertyElementDot.length, propertyElementDot.indexX, num, ref num2) && ClassCalc.GetDotPosition(m_index, propertyElementDot.startY, propertyElementDot.endY, propertyElementDot.length, propertyElementDot.indexY, num, ref num3) && ClassCalc.GetDotPosition(m_index, propertyElementDot.startZ, propertyElementDot.endZ, propertyElementDot.length, propertyElementDot.indexZ, num, ref num4))
                                 {
                                     ClassCalc.PointToBuffer3D(disBuff, num2, num3, num4, propertyElementDot.view, propertyElementDot.fun2);
                                 }
@@ -989,34 +989,34 @@ namespace Guan
                                 int num8 = 0;
                                 int num9 = 0;
                                 int num10 = 0;
-                                if (ClassCalc.GetDotPosition(m_index, propertyElementLine.startX1, propertyElementLine.endX1, propertyElementLine.lenth, propertyElementLine.indexX, num, ref num5) && ClassCalc.GetDotPosition(m_index, propertyElementLine.startY1, propertyElementLine.endY1, propertyElementLine.lenth, propertyElementLine.indexY, num, ref num6) && ClassCalc.GetDotPosition(m_index, propertyElementLine.startZ1, propertyElementLine.endZ1, propertyElementLine.lenth, propertyElementLine.indexZ, num, ref num7) && ClassCalc.GetDotPosition(m_index, propertyElementLine.startX2, propertyElementLine.endX2, propertyElementLine.lenth, propertyElementLine.indexX, num, ref num8) && ClassCalc.GetDotPosition(m_index, propertyElementLine.startY2, propertyElementLine.endY2, propertyElementLine.lenth, propertyElementLine.indexY, num, ref num9) && ClassCalc.GetDotPosition(m_index, propertyElementLine.startZ2, propertyElementLine.endZ2, propertyElementLine.lenth, propertyElementLine.indexZ, num, ref num10))
+                                if (ClassCalc.GetDotPosition(m_index, propertyElementLine.startX1, propertyElementLine.endX1, propertyElementLine.length, propertyElementLine.indexX, num, ref num5) && ClassCalc.GetDotPosition(m_index, propertyElementLine.startY1, propertyElementLine.endY1, propertyElementLine.length, propertyElementLine.indexY, num, ref num6) && ClassCalc.GetDotPosition(m_index, propertyElementLine.startZ1, propertyElementLine.endZ1, propertyElementLine.length, propertyElementLine.indexZ, num, ref num7) && ClassCalc.GetDotPosition(m_index, propertyElementLine.startX2, propertyElementLine.endX2, propertyElementLine.length, propertyElementLine.indexX, num, ref num8) && ClassCalc.GetDotPosition(m_index, propertyElementLine.startY2, propertyElementLine.endY2, propertyElementLine.length, propertyElementLine.indexY, num, ref num9) && ClassCalc.GetDotPosition(m_index, propertyElementLine.startZ2, propertyElementLine.endZ2, propertyElementLine.length, propertyElementLine.indexZ, num, ref num10))
                                 {
                                     ClassCalc.LineToBuffer3D(disBuff, num5, num6, num7, num8, num9, num10, propertyElementLine.view, propertyElementLine.fun2);
                                 }
                             }
-                            else if (type == FrameCartoonType.pannel)
+                            else if (type == FrameCartoonType.panel)
                             {
-                                PropertyElementPannel propertyElementPannel = (PropertyElementPannel)frameCartoonProperty;
+                                PropertyElementPanel propertyElementPanel = (PropertyElementPanel)frameCartoonProperty;
                                 int num11 = 0;
                                 int num12 = 0;
                                 int num13 = 0;
                                 int num14 = 0;
-                                if (ClassCalc.GetDotPosition(m_index, propertyElementPannel.startX, propertyElementPannel.endX, propertyElementPannel.lenth, propertyElementPannel.indexX, num, ref num11) && ClassCalc.GetDotPosition(m_index, propertyElementPannel.startY, propertyElementPannel.endY, propertyElementPannel.lenth, propertyElementPannel.indexY, num, ref num12) && ClassCalc.GetDotPosition(m_index, propertyElementPannel.startZ, propertyElementPannel.endZ, propertyElementPannel.lenth, propertyElementPannel.indexZ, num, ref num13))
+                                if (ClassCalc.GetDotPosition(m_index, propertyElementPanel.startX, propertyElementPanel.endX, propertyElementPanel.length, propertyElementPanel.indexX, num, ref num11) && ClassCalc.GetDotPosition(m_index, propertyElementPanel.startY, propertyElementPanel.endY, propertyElementPanel.length, propertyElementPanel.indexY, num, ref num12) && ClassCalc.GetDotPosition(m_index, propertyElementPanel.startZ, propertyElementPanel.endZ, propertyElementPanel.length, propertyElementPanel.indexZ, num, ref num13))
                                 {
-                                    if (propertyElementPannel.useIndex)
+                                    if (propertyElementPanel.useIndex)
                                     {
-                                        if (!ClassCalc.GetResBuff(m_index, ResourceType.singleGraph, propertyElementPannel.resIndexStart, propertyElementPannel.resIndexEnd, propertyElementPannel.lenth, propertyElementPannel.res, num, ref num14))
+                                        if (!ClassCalc.GetResBuff(m_index, ResourceType.singleGraph, propertyElementPanel.resIndexStart, propertyElementPanel.resIndexEnd, propertyElementPanel.length, propertyElementPanel.res, num, ref num14))
                                         {
                                             num14 = 0;
                                         }
                                     }
                                     else
                                     {
-                                        num14 = propertyElementPannel.res;
+                                        num14 = propertyElementPanel.res;
                                     }
                                     if (num14 != 0)
                                     {
-                                        ClassCalc.PannelToBuffer3D(disBuff, m_res.m_resSingle[num14 - 1].buff, num11, num12, num13, propertyElementPannel.view, propertyElementPannel.fun1, propertyElementPannel.fun2);
+                                        ClassCalc.PanelToBuffer3D(disBuff, m_res.m_resSingle[num14 - 1].buff, num11, num12, num13, propertyElementPanel.view, propertyElementPanel.fun1, propertyElementPanel.fun2);
                                     }
                                 }
                             }
@@ -1027,11 +1027,11 @@ namespace Guan
                                 int num16 = 0;
                                 int num17 = 0;
                                 int num18 = 0;
-                                if (ClassCalc.GetDotPosition(m_index, propertyElementSolid.startX, propertyElementSolid.endX, propertyElementSolid.lenth, propertyElementSolid.indexX, num, ref num15) && ClassCalc.GetDotPosition(m_index, propertyElementSolid.startY, propertyElementSolid.endY, propertyElementSolid.lenth, propertyElementSolid.indexY, num, ref num16) && ClassCalc.GetDotPosition(m_index, propertyElementSolid.startZ, propertyElementSolid.endZ, propertyElementSolid.lenth, propertyElementSolid.indexZ, num, ref num17))
+                                if (ClassCalc.GetDotPosition(m_index, propertyElementSolid.startX, propertyElementSolid.endX, propertyElementSolid.length, propertyElementSolid.indexX, num, ref num15) && ClassCalc.GetDotPosition(m_index, propertyElementSolid.startY, propertyElementSolid.endY, propertyElementSolid.length, propertyElementSolid.indexY, num, ref num16) && ClassCalc.GetDotPosition(m_index, propertyElementSolid.startZ, propertyElementSolid.endZ, propertyElementSolid.length, propertyElementSolid.indexZ, num, ref num17))
                                 {
                                     if (propertyElementSolid.useIndex)
                                     {
-                                        if (!ClassCalc.GetResBuff(m_index, ResourceType.solidGraph, propertyElementSolid.resIndexStart, propertyElementSolid.resIndexEnd, propertyElementSolid.lenth, propertyElementSolid.res, num, ref num18))
+                                        if (!ClassCalc.GetResBuff(m_index, ResourceType.solidGraph, propertyElementSolid.resIndexStart, propertyElementSolid.resIndexEnd, propertyElementSolid.length, propertyElementSolid.res, num, ref num18))
                                         {
                                             num18 = 0;
                                         }

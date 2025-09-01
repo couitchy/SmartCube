@@ -57,7 +57,7 @@ namespace Guan
                         {
                             listByte4.GetData((ushort)frameIndexElement.index);
                         }
-                        if (listByte4.GetLenth() % 4 != 0)
+                        if (listByte4.GetLength() % 4 != 0)
                         {
                             listByte4.GetData(0);
                         }
@@ -76,7 +76,7 @@ namespace Guan
                         {
                             listByte5.GetData((ushort)frameIndexElement2.index);
                         }
-                        if (listByte5.GetLenth() % 4 != 0)
+                        if (listByte5.GetLength() % 4 != 0)
                         {
                             listByte5.GetData(0);
                         }
@@ -95,7 +95,7 @@ namespace Guan
                         {
                             listByte6.GetData((ushort)frameIndexElement3.index);
                         }
-                        if (listByte6.GetLenth() % 4 != 0)
+                        if (listByte6.GetLength() % 4 != 0)
                         {
                             listByte6.GetData(0);
                         }
@@ -133,7 +133,7 @@ namespace Guan
                                     foreach (FrameCartoonProperty frameCartoonProperty in frameCartoonElement.property)
                                     {
                                         listByte10.GetData((ushort)frameCartoonProperty.startIndex);
-                                        listByte10.GetData((ushort)frameCartoonProperty.lenth);
+                                        listByte10.GetData((ushort)frameCartoonProperty.length);
                                         if (frameCartoonElement.m_type == FrameCartoonType.dot)
                                         {
                                             PropertyElementDot propertyElementDot = (PropertyElementDot)frameCartoonProperty;
@@ -174,31 +174,31 @@ namespace Guan
                                             listByte10.GetData(0);
                                             listByte10.GetData(0);
                                         }
-                                        else if (frameCartoonElement.m_type == FrameCartoonType.pannel)
+                                        else if (frameCartoonElement.m_type == FrameCartoonType.panel)
                                         {
-                                            PropertyElementPannel propertyElementPannel = (PropertyElementPannel)frameCartoonProperty;
-                                            listByte10.GetData((byte)propertyElementPannel.indexX);
-                                            listByte10.GetData((byte)propertyElementPannel.startX);
-                                            listByte10.GetData((byte)propertyElementPannel.endX);
-                                            listByte10.GetData((byte)propertyElementPannel.indexY);
-                                            listByte10.GetData((byte)propertyElementPannel.startY);
-                                            listByte10.GetData((byte)propertyElementPannel.endY);
-                                            listByte10.GetData((byte)propertyElementPannel.indexZ);
-                                            listByte10.GetData((byte)propertyElementPannel.startZ);
-                                            listByte10.GetData((byte)propertyElementPannel.endZ);
-                                            listByte10.GetData((byte)propertyElementPannel.resIndexStart);
-                                            if (propertyElementPannel.useIndex)
+                                            PropertyElementPanel propertyElementPanel = (PropertyElementPanel)frameCartoonProperty;
+                                            listByte10.GetData((byte)propertyElementPanel.indexX);
+                                            listByte10.GetData((byte)propertyElementPanel.startX);
+                                            listByte10.GetData((byte)propertyElementPanel.endX);
+                                            listByte10.GetData((byte)propertyElementPanel.indexY);
+                                            listByte10.GetData((byte)propertyElementPanel.startY);
+                                            listByte10.GetData((byte)propertyElementPanel.endY);
+                                            listByte10.GetData((byte)propertyElementPanel.indexZ);
+                                            listByte10.GetData((byte)propertyElementPanel.startZ);
+                                            listByte10.GetData((byte)propertyElementPanel.endZ);
+                                            listByte10.GetData((byte)propertyElementPanel.resIndexStart);
+                                            if (propertyElementPanel.useIndex)
                                             {
-                                                listByte10.GetData((ushort)(propertyElementPannel.res | 32768));
+                                                listByte10.GetData((ushort)(propertyElementPanel.res | 32768));
                                             }
                                             else
                                             {
-                                                listByte10.GetData((ushort)(propertyElementPannel.res & 32767));
+                                                listByte10.GetData((ushort)(propertyElementPanel.res & 32767));
                                             }
-                                            listByte10.GetData((byte)propertyElementPannel.resIndexEnd);
-                                            listByte10.GetData((byte)propertyElementPannel.view);
-                                            listByte10.GetData((byte)propertyElementPannel.fun2);
-                                            listByte10.GetData((byte)propertyElementPannel.fun1);
+                                            listByte10.GetData((byte)propertyElementPanel.resIndexEnd);
+                                            listByte10.GetData((byte)propertyElementPanel.view);
+                                            listByte10.GetData((byte)propertyElementPanel.fun2);
+                                            listByte10.GetData((byte)propertyElementPanel.fun1);
                                         }
                                         else if (frameCartoonElement.m_type == FrameCartoonType.solid)
                                         {
@@ -233,41 +233,41 @@ namespace Guan
                                             listByte10.GetData((ushort)propertyElementBright.endBright);
                                         }
                                     }
-                                    listByte9.GetData((uint)(listByte10.GetLenth() + 4));
+                                    listByte9.GetData((uint)(listByte10.GetLength() + 4));
                                     listByte9.GetData(listByte10);
                                 }
                             }
-                            listByte8.GetData((uint)(listByte9.GetLenth() + 4));
+                            listByte8.GetData((uint)(listByte9.GetLength() + 4));
                             listByte8.GetData(listByte9);
                         }
                     }
-                    listByte7.GetData((uint)(listByte8.GetLenth() + 8));
+                    listByte7.GetData((uint)(listByte8.GetLength() + 8));
                     listByte7.GetData((ushort)frameCartoonControl.groups.Count);
                     listByte7.GetData((ushort)frameCartoonControl.loopCount);
                     listByte7.GetData(listByte8);
                 }
             }
-            if (listByte7.GetLenth() == 0)
+            if (listByte7.GetLength() == 0)
             {
                 info = "No Cartoon!";
                 return false;
             }
-            int num2 = listByte.GetLenth() + 24;
+            int num2 = listByte.GetLength() + 24;
             listByte.GetData((ushort)num2);
             listByte.GetData((ushort)this.m_res.m_res.m_resSingle.Count);
-            num2 += listByte2.GetLenth();
+            num2 += listByte2.GetLength();
             listByte.GetData((ushort)num2);
             listByte.GetData((ushort)this.m_res.m_res.m_resSolid.Count);
-            num2 += listByte3.GetLenth();
+            num2 += listByte3.GetLength();
             listByte.GetData((ushort)num2);
             listByte.GetData((ushort)this.m_res.m_index.m_indexSingle.Count);
-            num2 += listByte4.GetLenth();
+            num2 += listByte4.GetLength();
             listByte.GetData((ushort)num2);
             listByte.GetData((ushort)this.m_res.m_index.m_indexSolid.Count);
-            num2 += listByte5.GetLenth();
+            num2 += listByte5.GetLength();
             listByte.GetData((ushort)num2);
             listByte.GetData((ushort)this.m_res.m_index.m_indexNumber.Count);
-            num2 += listByte6.GetLenth();
+            num2 += listByte6.GetLength();
             listByte.GetData((ushort)num2);
             listByte.GetData((ushort)this.m_res.m_control.m_cartoon.Count);
             ClassHex.listByte listByte11 = new ClassHex.listByte();
@@ -278,8 +278,8 @@ namespace Guan
             listByte11.GetData(listByte5);
             listByte11.GetData(listByte6);
             listByte11.GetData(listByte7);
-            int lenth = listByte11.GetLenth();
-            if ((long)lenth > (long)((ulong)Config.outputLenLimit))
+            int length = listByte11.GetLength();
+            if ((long)length > (long)((ulong)Config.outputLenLimit))
             {
                 info = "Data length mismatch!";
                 return false;
@@ -294,7 +294,7 @@ namespace Guan
                 info = "HEX file generation failed!";
                 return false;
             }
-            float num3 = (float)lenth * 100f / Config.outputLenLimit;
+            float num3 = (float)length * 100f / Config.outputLenLimit;
             info = string.Format("Generation succeeded\r\nUsed memory:{0:F2}% ", num3);
             return true;
         }
@@ -429,7 +429,7 @@ namespace Guan
             uint outputLenMax = Config.outputLenMax;
             uint num = Config.outputStartVale;
             Random random = new Random();
-            while ((long)dat.GetLenth() < (long)((ulong)outputLenMax))
+            while ((long)dat.GetLength() < (long)((ulong)outputLenMax))
             {
                 dat.GetData((byte)random.Next(0, 255));
             }
@@ -499,7 +499,7 @@ namespace Guan
                 this.m_list.Clear();
             }
 
-            public int GetLenth()
+            public int GetLength()
             {
                 return this.m_list.Count;
             }

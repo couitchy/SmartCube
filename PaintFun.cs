@@ -8,7 +8,7 @@ namespace Guan
         Rotate90,
         Rotate180,
         Rotate270,
-        AboutMirror,
-        UpdownMirror
+        LeftRightMirror,
+        UpDownMirror
     }
 }

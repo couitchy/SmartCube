@@ -178,10 +178,10 @@ namespace Guan
                 propertyElementLine.view = this.m_line.view;
                 break;
             }
-            case FrameCartoonType.pannel:
+            case FrameCartoonType.panel:
             {
-                PropertyElementPannel propertyElementPannel = (PropertyElementPannel)this.m_objBuff;
-                if (propertyElementPannel.indexX != this.m_single.indexX)
+                PropertyElementPanel propertyElementPanel = (PropertyElementPanel)this.m_objBuff;
+                if (propertyElementPanel.indexX != this.m_single.indexX)
                 {
                     if (this.m_single.indexX == 0)
                     {
@@ -193,9 +193,9 @@ namespace Guan
                         this.m_single.StartX = 1;
                         this.m_single.EndX = 1;
                     }
-                    propertyElementPannel.indexX = this.m_single.indexX;
+                    propertyElementPanel.indexX = this.m_single.indexX;
                 }
-                if (propertyElementPannel.indexY != this.m_single.indexY)
+                if (propertyElementPanel.indexY != this.m_single.indexY)
                 {
                     if (this.m_single.indexY == 0)
                     {
@@ -207,9 +207,9 @@ namespace Guan
                         this.m_single.StartY = 1;
                         this.m_single.EndY = 1;
                     }
-                    propertyElementPannel.indexY = this.m_single.indexY;
+                    propertyElementPanel.indexY = this.m_single.indexY;
                 }
-                if (propertyElementPannel.indexZ != this.m_single.indexZ)
+                if (propertyElementPanel.indexZ != this.m_single.indexZ)
                 {
                     if (this.m_single.indexZ == 0)
                     {
@@ -221,36 +221,36 @@ namespace Guan
                         this.m_single.StartZ = 1;
                         this.m_single.EndZ = 1;
                     }
-                    propertyElementPannel.indexZ = this.m_single.indexZ;
+                    propertyElementPanel.indexZ = this.m_single.indexZ;
                 }
-                if (propertyElementPannel.useIndex != this.m_single.useIndex)
+                if (propertyElementPanel.useIndex != this.m_single.useIndex)
                 {
                     this.m_single.res = 0;
                     this.m_single.resIndexStart = 1;
                     this.m_single.resIndexEnd = 1;
                     this.m_single.Update();
-                    propertyElementPannel.useIndex = this.m_single.useIndex;
+                    propertyElementPanel.useIndex = this.m_single.useIndex;
                 }
-                if (propertyElementPannel.res != this.m_single.res)
+                if (propertyElementPanel.res != this.m_single.res)
                 {
                     if (this.m_single.useIndex)
                     {
                         this.m_single.resIndexStart = 1;
                         this.m_single.resIndexEnd = 1;
                     }
-                    propertyElementPannel.res = this.m_single.res;
+                    propertyElementPanel.res = this.m_single.res;
                 }
-                propertyElementPannel.startX = this.m_single.startX;
-                propertyElementPannel.startY = this.m_single.startY;
-                propertyElementPannel.startZ = this.m_single.startZ;
-                propertyElementPannel.endX = this.m_single.endX;
-                propertyElementPannel.endY = this.m_single.endY;
-                propertyElementPannel.endZ = this.m_single.endZ;
-                propertyElementPannel.resIndexStart = this.m_single.resIndexStart;
-                propertyElementPannel.resIndexEnd = this.m_single.resIndexEnd;
-                propertyElementPannel.fun1 = this.m_single.fun1;
-                propertyElementPannel.fun2 = this.m_single.fun2;
-                propertyElementPannel.view = this.m_single.view;
+                propertyElementPanel.startX = this.m_single.startX;
+                propertyElementPanel.startY = this.m_single.startY;
+                propertyElementPanel.startZ = this.m_single.startZ;
+                propertyElementPanel.endX = this.m_single.endX;
+                propertyElementPanel.endY = this.m_single.endY;
+                propertyElementPanel.endZ = this.m_single.endZ;
+                propertyElementPanel.resIndexStart = this.m_single.resIndexStart;
+                propertyElementPanel.resIndexEnd = this.m_single.resIndexEnd;
+                propertyElementPanel.fun1 = this.m_single.fun1;
+                propertyElementPanel.fun2 = this.m_single.fun2;
+                propertyElementPanel.view = this.m_single.view;
                 break;
             }
             case FrameCartoonType.solid:
@@ -404,25 +404,25 @@ namespace Guan
                 this.propertyGrid1.SelectedObject = this.m_line;
                 return;
             }
-            case FrameCartoonType.pannel:
+            case FrameCartoonType.panel:
             {
-                PropertyElementPannel propertyElementPannel = (PropertyElementPannel)this.m_objBuff;
-                this.m_single.indexX = propertyElementPannel.indexX;
-                this.m_single.indexY = propertyElementPannel.indexY;
-                this.m_single.indexZ = propertyElementPannel.indexZ;
-                this.m_single.startX = propertyElementPannel.startX;
-                this.m_single.startY = propertyElementPannel.startY;
-                this.m_single.startZ = propertyElementPannel.startZ;
-                this.m_single.endX = propertyElementPannel.endX;
-                this.m_single.endY = propertyElementPannel.endY;
-                this.m_single.endZ = propertyElementPannel.endZ;
-                this.m_single.useIndex = propertyElementPannel.useIndex;
-                this.m_single.res = propertyElementPannel.res;
-                this.m_single.resIndexStart = propertyElementPannel.resIndexStart;
-                this.m_single.resIndexEnd = propertyElementPannel.resIndexEnd;
-                this.m_single.fun1 = propertyElementPannel.fun1;
-                this.m_single.fun2 = propertyElementPannel.fun2;
-                this.m_single.view = propertyElementPannel.view;
+                PropertyElementPanel propertyElementPanel = (PropertyElementPanel)this.m_objBuff;
+                this.m_single.indexX = propertyElementPanel.indexX;
+                this.m_single.indexY = propertyElementPanel.indexY;
+                this.m_single.indexZ = propertyElementPanel.indexZ;
+                this.m_single.startX = propertyElementPanel.startX;
+                this.m_single.startY = propertyElementPanel.startY;
+                this.m_single.startZ = propertyElementPanel.startZ;
+                this.m_single.endX = propertyElementPanel.endX;
+                this.m_single.endY = propertyElementPanel.endY;
+                this.m_single.endZ = propertyElementPanel.endZ;
+                this.m_single.useIndex = propertyElementPanel.useIndex;
+                this.m_single.res = propertyElementPanel.res;
+                this.m_single.resIndexStart = propertyElementPanel.resIndexStart;
+                this.m_single.resIndexEnd = propertyElementPanel.resIndexEnd;
+                this.m_single.fun1 = propertyElementPanel.fun1;
+                this.m_single.fun2 = propertyElementPanel.fun2;
+                this.m_single.view = propertyElementPanel.view;
                 this.m_single.Update();
                 this.propertyGrid1.SelectedObject = this.m_single;
                 return;
@@ -1585,7 +1585,7 @@ namespace Guan
                 Rotate90,
                 Rotate180,
                 Rotate270,
-                AboutMirror,
+                LeftRightMirror,
                 UpDownMirror
             }
 
@@ -1996,7 +1996,7 @@ namespace Guan
                 Rotate90,
                 Rotate180,
                 Rotate270,
-                AboutMirror,
+                LeftRightMirror,
                 UpDownMirror
             }
 

@@ -86,7 +86,7 @@ namespace Guan
             return false;
         }
 
-        private void AddOnePannel(Control control, ControlEdit.ListClass list)
+        private void AddOnePanel(Control control, ControlEdit.ListClass list)
         {
             int count = this.tabControlEdit.TabPages.Count;
             this.tabControlEdit.TabPages.Add(list.name);
@@ -112,7 +112,7 @@ namespace Guan
                 listClass.obj = res;
                 ControlSingleDZ controlSingleDZ = new ControlSingleDZ(this.m_dx, this, listClass, this.m_fileIsChanged);
                 controlSingleDZ.ShowControl(res);
-                this.AddOnePannel(controlSingleDZ, listClass);
+                this.AddOnePanel(controlSingleDZ, listClass);
             }
         }
 
@@ -125,7 +125,7 @@ namespace Guan
                 listClass.obj = res;
                 Control3DDZ control3DDZ = new Control3DDZ(this.m_dx, this, listClass, this.m_fileIsChanged);
                 control3DDZ.ShowControl(res);
-                this.AddOnePannel(control3DDZ, listClass);
+                this.AddOnePanel(control3DDZ, listClass);
             }
         }
 
@@ -149,7 +149,7 @@ namespace Guan
                     listClass.m_type = ControlEdit.TableType.numberIndex;
                 }
                 Control control = new ControlResIndex(type, this, res, this.m_res.m_res, this.m_fileIsChanged);
-                this.AddOnePannel(control, listClass);
+                this.AddOnePanel(control, listClass);
             }
         }
 
@@ -162,7 +162,7 @@ namespace Guan
                 listClass.obj = res;
                 Control control = new ControlCartoon1(res, this.m_fileIsChanged);
                 listClass.m_type = ControlEdit.TableType.cartoon;
-                this.AddOnePannel(control, listClass);
+                this.AddOnePanel(control, listClass);
             }
         }
 
@@ -175,7 +175,7 @@ namespace Guan
                 listClass.obj = res;
                 Control control = new ControlCartoon2(res, this.m_res.m_res, this.m_res.m_index, this.m_dx, this.m_fileIsChanged);
                 listClass.m_type = ControlEdit.TableType.cartoonElement;
-                this.AddOnePannel(control, listClass);
+                this.AddOnePanel(control, listClass);
             }
         }
 
@@ -311,21 +311,21 @@ namespace Guan
                             foreach (FrameCartoonElement frameCartoonElement in frameCartoonGroup.ele)
                             {
                                 FrameCartoonType type = frameCartoonElement.m_type;
-                                if (type == FrameCartoonType.pannel)
+                                if (type == FrameCartoonType.panel)
                                 {
                                     int count = frameCartoonElement.property.Count;
                                     for (int i = 0; i < count; i++)
                                     {
-                                        PropertyElementPannel propertyElementPannel = (PropertyElementPannel)frameCartoonElement.property[i];
-                                        if (!propertyElementPannel.useIndex)
+                                        PropertyElementPanel propertyElementPanel = (PropertyElementPanel)frameCartoonElement.property[i];
+                                        if (!propertyElementPanel.useIndex)
                                         {
-                                            if (propertyElementPannel.res == num)
+                                            if (propertyElementPanel.res == num)
                                             {
-                                                propertyElementPannel.res = 0;
+                                                propertyElementPanel.res = 0;
                                             }
-                                            else if (propertyElementPannel.res > num)
+                                            else if (propertyElementPanel.res > num)
                                             {
-                                                propertyElementPannel.res--;
+                                                propertyElementPanel.res--;
                                             }
                                         }
                                     }
@@ -583,53 +583,53 @@ namespace Guan
                                     }
                                 }
                             }
-                            else if (type2 == FrameCartoonType.pannel)
+                            else if (type2 == FrameCartoonType.panel)
                             {
-                                PropertyElementPannel propertyElementPannel = (PropertyElementPannel)frameCartoonElement.property[i];
+                                PropertyElementPanel propertyElementPanel = (PropertyElementPanel)frameCartoonElement.property[i];
                                 if (type == FrameIndexType.number)
                                 {
-                                    if (propertyElementPannel.indexX == index)
+                                    if (propertyElementPanel.indexX == index)
                                     {
-                                        propertyElementPannel.indexX = 0;
-                                        propertyElementPannel.startX = 0;
-                                        propertyElementPannel.endX = 0;
+                                        propertyElementPanel.indexX = 0;
+                                        propertyElementPanel.startX = 0;
+                                        propertyElementPanel.endX = 0;
                                     }
-                                    else if (propertyElementPannel.indexX > index)
+                                    else if (propertyElementPanel.indexX > index)
                                     {
-                                        propertyElementPannel.indexX--;
+                                        propertyElementPanel.indexX--;
                                     }
-                                    if (propertyElementPannel.indexY == index)
+                                    if (propertyElementPanel.indexY == index)
                                     {
-                                        propertyElementPannel.indexY = 0;
-                                        propertyElementPannel.startY = 0;
-                                        propertyElementPannel.endY = 0;
+                                        propertyElementPanel.indexY = 0;
+                                        propertyElementPanel.startY = 0;
+                                        propertyElementPanel.endY = 0;
                                     }
-                                    else if (propertyElementPannel.indexY > index)
+                                    else if (propertyElementPanel.indexY > index)
                                     {
-                                        propertyElementPannel.indexY--;
+                                        propertyElementPanel.indexY--;
                                     }
-                                    if (propertyElementPannel.indexZ == index)
+                                    if (propertyElementPanel.indexZ == index)
                                     {
-                                        propertyElementPannel.indexZ = 0;
-                                        propertyElementPannel.startZ = 0;
-                                        propertyElementPannel.endZ = 0;
+                                        propertyElementPanel.indexZ = 0;
+                                        propertyElementPanel.startZ = 0;
+                                        propertyElementPanel.endZ = 0;
                                     }
-                                    else if (propertyElementPannel.indexZ > index)
+                                    else if (propertyElementPanel.indexZ > index)
                                     {
-                                        propertyElementPannel.indexZ--;
+                                        propertyElementPanel.indexZ--;
                                     }
                                 }
-                                else if (type == FrameIndexType.single && propertyElementPannel.useIndex)
+                                else if (type == FrameIndexType.single && propertyElementPanel.useIndex)
                                 {
-                                    if (propertyElementPannel.res == index)
+                                    if (propertyElementPanel.res == index)
                                     {
-                                        propertyElementPannel.res = 0;
-                                        propertyElementPannel.resIndexStart = 1;
-                                        propertyElementPannel.resIndexEnd = 1;
+                                        propertyElementPanel.res = 0;
+                                        propertyElementPanel.resIndexStart = 1;
+                                        propertyElementPanel.resIndexEnd = 1;
                                     }
-                                    else if (propertyElementPannel.res > index)
+                                    else if (propertyElementPanel.res > index)
                                     {
-                                        propertyElementPannel.res--;
+                                        propertyElementPanel.res--;
                                     }
                                 }
                             }

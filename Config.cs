@@ -60,11 +60,19 @@ namespace Guan
             }
         }
 
-        public static string FileSuffix
+        public static string FileSuffix1
         {
             get
             {
                 return "gpro8";
+            }
+        }
+
+        public static string FileSuffix2
+        {
+            get
+            {
+                return "xml";
             }
         }
 
@@ -188,7 +196,7 @@ namespace Guan
             }
         }
 
-        public static string OperationPannel
+        public static string OperationPanel
         {
             get
             {

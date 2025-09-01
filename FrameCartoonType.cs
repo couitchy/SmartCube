@@ -7,7 +7,7 @@ namespace Guan
     {
         dot,
         line,
-        pannel,
+        panel,
         solid,
         bright
     }

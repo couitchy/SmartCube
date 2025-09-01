@@ -7,6 +7,6 @@ namespace Guan
     {
         public int startIndex;
 
-        public int lenth;
+        public int length;
     }
 }

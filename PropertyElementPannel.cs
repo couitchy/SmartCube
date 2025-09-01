@@ -3,7 +3,7 @@
 namespace Guan
 {
     [Serializable]
-    public class PropertyElementPannel : FrameCartoonProperty
+    public class PropertyElementPanel : FrameCartoonProperty
     {
         public int indexX;
 

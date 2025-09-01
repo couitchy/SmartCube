@@ -83,7 +83,7 @@ namespace Guan
             try
             {
                 this.m_parent = control;
-                this.device = new Device(0, DeviceType.Hardware, control, CreateFlags.SoftwareVertexProcessing, new PresentParameters[]
+                this.device = new Device(0, DeviceType.Hardware, control, CreateFlags.MixedVertexProcessing, new PresentParameters[]
                 {
                     new PresentParameters
                     {

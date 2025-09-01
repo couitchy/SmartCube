@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Guan
 {
@@ -68,17 +69,29 @@ namespace Guan
                 {
                     OpenFileDialog openFileDialog = new OpenFileDialog();
                     openFileDialog.InitialDirectory = Environment.CurrentDirectory;
-                    openFileDialog.Filter = string.Format("Project(*.{0})|*.{0}", Config.FileSuffix);
+                    openFileDialog.Filter = string.Format("Project (*.{0})|*.{0}|Project (*.{1})|*.{1}", Config.FileSuffix1, Config.FileSuffix2);
                     DialogResult dialogResult = openFileDialog.ShowDialog();
                     if (dialogResult != DialogResult.OK)
                     {
                         return false;
                     }
                     this.m_path = openFileDialog.FileName;
+                    this.m_format = openFileDialog.FilterIndex;
                 }
+                AllResource allResource = null;
                 FileStream fileStream = new FileStream(this.m_path, FileMode.Open);
-                BinaryFormatter binaryFormatter = new BinaryFormatter();
-                AllResource allResource = binaryFormatter.Deserialize(fileStream) as AllResource;
+                switch (this.m_format)
+                {
+                    case 1:
+                        BinaryFormatter binaryFormatter = new BinaryFormatter();
+                        allResource = (AllResource)binaryFormatter.Deserialize(fileStream);
+                        break;
+                    case 2:
+                        XmlSerializer xmlSerializer = new XmlSerializer(typeof(AllResource));
+                        allResource = (AllResource)xmlSerializer.Deserialize(fileStream);
+                        break;
+                    default: break;
+                }
                 this.m_res.Clear();
                 try
                 {
@@ -123,17 +136,28 @@ namespace Guan
                 {
                     SaveFileDialog saveFileDialog = new SaveFileDialog();
                     saveFileDialog.InitialDirectory = Environment.CurrentDirectory;
-                    saveFileDialog.Filter = string.Format("Project(*.{0})|*.{0}", Config.FileSuffix);
+                    saveFileDialog.Filter = string.Format("Project (*.{0})|*.{0}|Project (*.{1})|*.{1}", Config.FileSuffix1, Config.FileSuffix2);
                     DialogResult dialogResult = saveFileDialog.ShowDialog();
                     if (dialogResult != DialogResult.OK)
                     {
                         return false;
                     }
                     this.m_path = saveFileDialog.FileName;
+                    this.m_format = saveFileDialog.FilterIndex;
                 }
                 FileStream fileStream = new FileStream(this.m_path, FileMode.OpenOrCreate);
-                BinaryFormatter binaryFormatter = new BinaryFormatter();
-                binaryFormatter.Serialize(fileStream, this.m_res);
+                switch (this.m_format)
+                {
+                    case 1:
+                        BinaryFormatter binaryFormatter = new BinaryFormatter();
+                        binaryFormatter.Serialize(fileStream, this.m_res);
+                        break;
+                    case 2:
+                        XmlSerializer xmlSerializer = new XmlSerializer(typeof(AllResource));
+                        xmlSerializer.Serialize(fileStream, this.m_res);
+                        break;
+                    default: break;
+                }
                 fileStream.Close();
             }
             catch
@@ -378,6 +402,8 @@ namespace Guan
         private ControlEdit m_edit;
 
         private string m_path = "";
+
+        private int m_format = 1;
 
         private bool fileIsChanged;
 

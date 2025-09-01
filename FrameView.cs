@@ -4,7 +4,7 @@ namespace Guan
 {
     public enum FrameView
     {
-        font,
+        front,
         top,
         left
     }

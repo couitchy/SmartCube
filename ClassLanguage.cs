@@ -72,7 +72,7 @@ namespace Guan
             ClassLanguage.m_dictionary.Add("MeunStrip_Paste", new string[] { "粘贴(CTRL+V)", "", "" });
             ClassLanguage.m_dictionary.Add("MeunStrip_AddDot", new string[] { "添加点操作", "", "" });
             ClassLanguage.m_dictionary.Add("MeunStrip_AddLine", new string[] { "添加线操作", "", "" });
-            ClassLanguage.m_dictionary.Add("MeunStrip_AddPannel", new string[] { "添加平面操作", "", "" });
+            ClassLanguage.m_dictionary.Add("MeunStrip_AddPanel", new string[] { "添加平面操作", "", "" });
             ClassLanguage.m_dictionary.Add("MeunStrip_AddSolid", new string[] { "添加立体操作", "", "" });
             ClassLanguage.m_dictionary.Add("MeunStrip_AddBright", new string[] { "添加亮度操作", "", "" });
             ClassLanguage.m_dictionary.Add("MeunStrip_Up", new string[] { "上移", "", "" });
@@ -90,7 +90,7 @@ namespace Guan
             ClassLanguage.m_dictionary.Add("Shaft_Function", new string[] { "操 作", "", "" });
             ClassLanguage.m_dictionary.Add("Shaft_F_Dot", new string[] { "点操作", "", "" });
             ClassLanguage.m_dictionary.Add("Shaft_F_Line", new string[] { "线操作", "", "" });
-            ClassLanguage.m_dictionary.Add("Shaft_F_Pannel", new string[] { "平面操作", "", "" });
+            ClassLanguage.m_dictionary.Add("Shaft_F_Panel", new string[] { "平面操作", "", "" });
             ClassLanguage.m_dictionary.Add("Shaft_F_Solid", new string[] { "立体操作", "", "" });
             ClassLanguage.m_dictionary.Add("Shaft_F_Bright", new string[] { "亮度操作", "", "" });
         }
