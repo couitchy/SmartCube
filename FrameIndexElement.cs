@@ -2,9 +2,9 @@
 
 namespace Guan
 {
-	[Serializable]
-	public class FrameIndexElement
-	{
-		public int index;
-	}
+    [Serializable]
+    public class FrameIndexElement
+    {
+        public int index;
+    }
 }

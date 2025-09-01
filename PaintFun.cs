@@ -2,13 +2,13 @@
 
 namespace Guan
 {
-	public enum PaintFun
-	{
-		Null,
-		Rotate90,
-		Rotate180,
-		Rotate270,
-		AboutMirror,
-		UpdownMirror
-	}
+    public enum PaintFun
+    {
+        Null,
+        Rotate90,
+        Rotate180,
+        Rotate270,
+        AboutMirror,
+        UpdownMirror
+    }
 }

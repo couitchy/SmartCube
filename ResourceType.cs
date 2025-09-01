@@ -2,9 +2,9 @@
 
 namespace Guan
 {
-	public enum ResourceType
-	{
-		singleGraph,
-		solidGraph
-	}
+    public enum ResourceType
+    {
+        singleGraph,
+        solidGraph
+    }
 }

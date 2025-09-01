@@ -2,23 +2,23 @@
 
 namespace Guan
 {
-	[Serializable]
-	public class AllResource
-	{
-		public void Clear()
-		{
-			this.m_head.Clear();
-			this.m_res.Clear();
-			this.m_index.Clear();
-			this.m_control.Clear();
-		}
+    [Serializable]
+    public class AllResource
+    {
+        public void Clear()
+        {
+            this.m_head.Clear();
+            this.m_res.Clear();
+            this.m_index.Clear();
+            this.m_control.Clear();
+        }
 
-		public FrameHead m_head = new FrameHead();
+        public FrameHead m_head = new FrameHead();
 
-		public FrameResource m_res = new FrameResource();
+        public FrameResource m_res = new FrameResource();
 
-		public FrameIndex m_index = new FrameIndex();
+        public FrameIndex m_index = new FrameIndex();
 
-		public FrameControl m_control = new FrameControl();
-	}
+        public FrameControl m_control = new FrameControl();
+    }
 }

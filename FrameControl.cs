@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 namespace Guan
 {
-	[Serializable]
-	public class FrameControl
-	{
-		public void Clear()
-		{
-			this.m_cartoon.Clear();
-		}
+    [Serializable]
+    public class FrameControl
+    {
+        public void Clear()
+        {
+            this.m_cartoon.Clear();
+        }
 
-		public List<FrameCartoonControl> m_cartoon = new List<FrameCartoonControl>();
-	}
+        public List<FrameCartoonControl> m_cartoon = new List<FrameCartoonControl>();
+    }
 }

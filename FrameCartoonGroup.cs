@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace Guan
 {
-	[Serializable]
-	public class FrameCartoonGroup
-	{
-		public string name = "";
+    [Serializable]
+    public class FrameCartoonGroup
+    {
+        public string name = "";
 
-		public uint frameCount;
+        public uint frameCount;
 
-		public uint delay = 100U;
+        public uint delay = 100U;
 
-		public uint loopCount = 1U;
+        public uint loopCount = 1U;
 
-		public bool cleanDisplay = true;
+        public bool cleanDisplay = true;
 
-		public List<FrameCartoonElement> ele = new List<FrameCartoonElement>();
-	}
+        public List<FrameCartoonElement> ele = new List<FrameCartoonElement>();
+    }
 }

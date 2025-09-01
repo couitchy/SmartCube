@@ -2,10 +2,10 @@
 
 namespace Guan
 {
-	public enum FrameIndexType
-	{
-		single,
-		solid,
-		number
-	}
+    public enum FrameIndexType
+    {
+        single,
+        solid,
+        number
+    }
 }

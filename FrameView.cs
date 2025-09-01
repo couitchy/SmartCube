@@ -2,10 +2,10 @@
 
 namespace Guan
 {
-	public enum FrameView
-	{
-		font,
-		top,
-		left
-	}
+    public enum FrameView
+    {
+        font,
+        top,
+        left
+    }
 }

@@ -2,11 +2,11 @@
 
 namespace Guan
 {
-	[Serializable]
-	public class PropertyElementBright : FrameCartoonProperty
-	{
-		public int startBright;
+    [Serializable]
+    public class PropertyElementBright : FrameCartoonProperty
+    {
+        public int startBright;
 
-		public int endBright;
-	}
+        public int endBright;
+    }
 }

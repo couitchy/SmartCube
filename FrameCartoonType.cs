@@ -2,13 +2,13 @@
 
 namespace Guan
 {
-	[Serializable]
-	public enum FrameCartoonType
-	{
-		dot,
-		line,
-		pannel,
-		solid,
-		bright
-	}
+    [Serializable]
+    public enum FrameCartoonType
+    {
+        dot,
+        line,
+        pannel,
+        solid,
+        bright
+    }
 }

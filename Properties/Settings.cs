@@ -5,18 +5,18 @@ using System.Runtime.CompilerServices;
 
 namespace Guan.Properties
 {
-	[CompilerGenerated]
-	[GeneratedCode("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
-	internal sealed partial class Settings : ApplicationSettingsBase
-	{
-		public static Settings Default
-		{
-			get
-			{
-				return Settings.defaultInstance;
-			}
-		}
+    [CompilerGenerated]
+    [GeneratedCode("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "11.0.0.0")]
+    internal sealed partial class Settings : ApplicationSettingsBase
+    {
+        public static Settings Default
+        {
+            get
+            {
+                return Settings.defaultInstance;
+            }
+        }
 
-		private static Settings defaultInstance = (Settings)SettingsBase.Synchronized(new Settings());
-	}
+        private static Settings defaultInstance = (Settings)SettingsBase.Synchronized(new Settings());
+    }
 }

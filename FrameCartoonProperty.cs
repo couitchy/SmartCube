@@ -2,11 +2,11 @@
 
 namespace Guan
 {
-	[Serializable]
-	public class FrameCartoonProperty
-	{
-		public int startIndex;
+    [Serializable]
+    public class FrameCartoonProperty
+    {
+        public int startIndex;
 
-		public int lenth;
-	}
+        public int lenth;
+    }
 }

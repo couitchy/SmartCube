@@ -2,11 +2,11 @@
 
 namespace Guan
 {
-	[Serializable]
-	public class ResourceSolid
-	{
-		public string name = "";
+    [Serializable]
+    public class ResourceSolid
+    {
+        public string name = "";
 
-		public byte[] buff = new byte[64];
-	}
+        public byte[] buff = new byte[64];
+    }
 }

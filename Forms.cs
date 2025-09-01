@@ -4,11 +4,11 @@ using Guan.Properties;
 
 namespace Guan
 {
-	public partial class Forms : Form
-	{
-		public Forms()
-		{
-			base.Icon = Resources.光立方;
-		}
-	}
+    public partial class Forms : Form
+    {
+        public Forms()
+        {
+            base.Icon = Resources.光立方;
+        }
+    }
 }

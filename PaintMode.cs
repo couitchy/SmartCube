@@ -2,11 +2,11 @@
 
 namespace Guan
 {
-	public enum PaintMode
-	{
-		OnlySet,
-		OnlyClr,
-		Xor,
-		Copy
-	}
+    public enum PaintMode
+    {
+        OnlySet,
+        OnlyClr,
+        Xor,
+        Copy
+    }
 }
