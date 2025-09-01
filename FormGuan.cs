@@ -17,7 +17,6 @@ namespace Guan
             this.Text = Config.Title;
             this.FormGuan_m_fileIsChanged(false);
             this.m_fileIsChanged += this.FormGuan_m_fileIsChanged;
-            this.ControlInit();
         }
 
         public FormGuan()
@@ -51,21 +50,6 @@ namespace Guan
                 this.fileIsChanged = flag;
                 this.Text = Config.Title;
             }
-        }
-
-        private void ControlInit()
-        {
-            ControlDX controlDX = new ControlDX(this.panelPreview);
-            this.panelPreview.Controls.Add(controlDX);
-            this.m_dx1.InitializeGraphics(controlDX);
-            this.m_dx1.SetBright(100);
-            this.m_edit = new ControlEdit(this.m_dx1, this.m_res, this.m_fileIsChanged);
-            this.m_edit.Location = new Point(5, 10);
-            this.splitContainer3.Panel2.Controls.Add(this.m_edit);
-            this.m_resourceTree = new ReSourceTree(this.m_res.m_res, this.treeViewResource, this.m_edit, this.m_fileIsChanged);
-            this.m_indexTree = new IndexTree1(this.m_res.m_index, this.treeViewIndex, this.m_edit, this.m_fileIsChanged);
-            this.m_controlTree = new CartoonTree(this.m_res, this.m_res.m_control, this.treeViewCartoon, this.m_edit, this.m_fileIsChanged);
-            this.compileToolStripMenuItem.Enabled = Config.enableOutput;
         }
 
         private void UpdateAllControl()
@@ -166,7 +150,7 @@ namespace Guan
             {
                 if (this.fileIsChanged)
                 {
-                    DialogResult dialogResult = MessageBox.Show("Project has been modified, do I have to save and close the first?", "Warning", MessageBoxButtons.YesNoCancel);
+                    DialogResult dialogResult = MessageBox.Show("Project has been modified, do I have to save it first?", "Warning", MessageBoxButtons.YesNoCancel);
                     if (dialogResult == DialogResult.Yes)
                     {
                         if (!this.SaveFile(false))
@@ -208,7 +192,7 @@ namespace Guan
             {
                 if (this.fileIsChanged)
                 {
-                    DialogResult dialogResult2 = MessageBox.Show("Project has been modified, do I have to save and close the first?", "Warning", MessageBoxButtons.YesNoCancel);
+                    DialogResult dialogResult2 = MessageBox.Show("Project has been modified, do I have to save it first?", "Warning", MessageBoxButtons.YesNoCancel);
                     if (dialogResult2 == DialogResult.Yes)
                     {
                         if (!this.SaveFile(false))
@@ -285,7 +269,7 @@ namespace Guan
                     ClassHex classHex = new ClassHex(this.m_head, this.m_res);
                     string text;
                     bool flag = classHex.IsChangeOK(this.m_head.GetBit(AllResourceHead.bitValue.OutPutCFile), out text);
-                    MessageBox.Show(text, flag ? "Succeed" : "Failure");
+                    MessageBox.Show(text, flag ? "Success" : "Failure");
                     return;
                 }
                 if (toolStripMenuItem.Equals(this.exitToolStripMenuItem))
@@ -345,7 +329,7 @@ namespace Guan
         {
             if (this.fileIsChanged)
             {
-                DialogResult dialogResult = MessageBox.Show("Project has been modified, do I have to save to exit the first?", "Warning", MessageBoxButtons.YesNoCancel);
+                DialogResult dialogResult = MessageBox.Show("Project has been modified, do I have to save it first?", "Warning", MessageBoxButtons.YesNoCancel);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (!this.SaveFile(false))
@@ -361,12 +345,29 @@ namespace Guan
                 }
             }
         }
+        private void FormGuan_Load(object sender, EventArgs e)
+        {
+            m_dx1 = new DX9();
+            m_head = new AllResourceHead();
+            m_res = new AllResource();
+            ControlDX controlDX = new ControlDX(this.panelPreview);
+            this.panelPreview.Controls.Add(controlDX);
+            this.m_dx1.InitializeGraphics(controlDX);
+            this.m_dx1.SetBright(100);
+            this.m_edit = new ControlEdit(this.m_dx1, this.m_res, this.m_fileIsChanged);
+            this.m_edit.Location = new Point(5, 10);
+            this.splitContainer3.Panel2.Controls.Add(this.m_edit);
+            this.m_resourceTree = new ReSourceTree(this.m_res.m_res, this.treeViewResource, this.m_edit, this.m_fileIsChanged);
+            this.m_indexTree = new IndexTree1(this.m_res.m_index, this.treeViewIndex, this.m_edit, this.m_fileIsChanged);
+            this.m_controlTree = new CartoonTree(this.m_res, this.m_res.m_control, this.treeViewCartoon, this.m_edit, this.m_fileIsChanged);
+            this.compileToolStripMenuItem.Enabled = Config.enableOutput;
+        }
 
-        private DX9 m_dx1 = new DX9();
+        private DX9 m_dx1;
 
-        private AllResourceHead m_head = new AllResourceHead();
+        private AllResourceHead m_head;
 
-        private AllResource m_res = new AllResource();
+        private AllResource m_res;
 
         private ReSourceTree m_resourceTree;
 
@@ -381,5 +382,6 @@ namespace Guan
         private bool fileIsChanged;
 
         public delegate void FileIsChanged(bool flag);
+
     }
 }

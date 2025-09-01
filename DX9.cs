@@ -12,42 +12,68 @@ namespace Guan
         {
             if (bright >= 100)
             {
-                this.m_colorTrue = Color.FromArgb(255, 255, 0, 0);
+                this.m_colorRed = Color.FromArgb(255, 255, 0, 0);
+                this.m_colorGreen = Color.FromArgb(255, 0, 255, 0);
+                this.m_colorBlue = Color.FromArgb(255, 0, 0, 255);
             }
             else if (bright == 0)
             {
-                this.m_colorTrue = Color.FromArgb(255, 0, 0, 0);
+                this.m_colorRed = Color.FromArgb(255, 0, 0, 0);
+                this.m_colorGreen = Color.FromArgb(255, 0, 0, 0);
+                this.m_colorBlue = Color.FromArgb(255, 0, 0, 0);
             }
             else
             {
-                this.m_colorTrue = Color.FromArgb(255, (int)(byte.MaxValue * bright / 100), 0, 0);
+                int val = (int)(byte.MaxValue * bright / 100);
+                this.m_colorRed = Color.FromArgb(255, val, 0, 0);
+                this.m_colorGreen = Color.FromArgb(255, 0, val, 0);
+                this.m_colorBlue = Color.FromArgb(255, 0, 0, val);
             }
-            this.m_bigMaterial.Diffuse = this.m_colorTrue;
+            this.m_redMaterial.Diffuse = this.m_colorRed;
+            this.m_greenMaterial.Diffuse = this.m_colorGreen;
+            this.m_blueMaterial.Diffuse = this.m_colorBlue;
         }
 
         public void SetPoint(int x, int y, int z, bool flag)
         {
             int num = z * 64 + y * 8 + x;
-            this.IsOnFlag[num] = flag;
+            this.Pixels[num] = this.FindState(x, y, z, flag);
         }
 
         public void SetPointNot(int x, int y, int z)
         {
             int num = z * 64 + y * 8 + x;
-            this.IsOnFlag[num] = !this.IsOnFlag[num];
+            this.Pixels[num] = this.FindState(x, y, z, (this.Pixels[num] == PixelState.Off));
         }
 
-        public bool GetPoint(int x, int y, int z)
+        public PixelState GetPoint(int x, int y, int z)
         {
             int num = z * 64 + y * 8 + x;
-            return this.IsOnFlag[num];
+            return this.Pixels[num];
+        }
+
+        private PixelState FindState(int x, int y, int z, bool on)
+        {
+            if (!on)
+            {
+                return PixelState.Off;
+            }
+            else
+            {
+                if ( x == 0 || x == 7 || z == 0 || z == 7)
+                    return PixelState.Blue;
+                else if ( z % 2 != 0)
+                    return PixelState.Green;
+                else
+                    return PixelState.Red;
+            }
         }
 
         public void ClrBuffer()
         {
             for (int i = 0; i < 512; i++)
             {
-                this.IsOnFlag[i] = false;
+                this.Pixels[i] = PixelState.Off;
             }
         }
 
@@ -70,13 +96,23 @@ namespace Guan
                 this.device.RenderState.ZBufferEnable = true;
                 for (int i = 0; i < 512; i++)
                 {
-                    this.IsOnFlag[i] = false;
+                    this.Pixels[i] = PixelState.Off;
                 }
-                this.m_bigMaterial.Diffuse = this.m_colorTrue;
-                this.m_smallMaterial.Diffuse = this.m_colorFalse;
-                if (this.m_bigSphere == null)
+                this.m_redMaterial.Diffuse = this.m_colorRed;
+                this.m_greenMaterial.Diffuse = this.m_colorGreen;
+                this.m_blueMaterial.Diffuse = this.m_colorBlue;
+                this.m_offMaterial.Diffuse = this.m_colorOff;
+                if (this.m_bigRedSphere == null)
                 {
-                    this.m_bigSphere = Mesh.Sphere(this.device, 1f, 30, 15);
+                    this.m_bigRedSphere = Mesh.Sphere(this.device, 1f, 30, 15);
+                }
+                if (this.m_bigGreenSphere == null)
+                {
+                    this.m_bigGreenSphere = Mesh.Sphere(this.device, 1f, 30, 15);
+                }
+                if (this.m_bigBlueSphere == null)
+                {
+                    this.m_bigBlueSphere = Mesh.Sphere(this.device, 1f, 30, 15);
                 }
                 if (this.m_smallSphere == null)
                 {
@@ -237,15 +273,25 @@ namespace Guan
             for (int i = 0; i < 512; i++)
             {
                 this.SetWorldTransform(this.spherePositions[i].M41, this.spherePositions[i].M42, this.spherePositions[i].M43);
-                if (this.IsOnFlag[i])
+                switch (this.Pixels[i])
                 {
-                    this.device.Material = this.m_bigMaterial;
-                    this.m_bigSphere.DrawSubset(0);
-                }
-                else
-                {
-                    this.device.Material = this.m_smallMaterial;
-                    this.m_smallSphere.DrawSubset(0);
+                    case PixelState.Off:
+                        this.device.Material = this.m_offMaterial;
+                        this.m_smallSphere.DrawSubset(0);
+                        break;
+                    case PixelState.Red:
+                        this.device.Material = this.m_redMaterial;
+                        this.m_bigRedSphere.DrawSubset(0);
+                        break;
+                    case PixelState.Green:
+                        this.device.Material = this.m_greenMaterial;
+                        this.m_bigGreenSphere.DrawSubset(0);
+                        break;
+                    case PixelState.Blue:
+                        this.device.Material = this.m_blueMaterial;
+                        this.m_bigBlueSphere.DrawSubset(0);
+                        break;
+                    default: break;
                 }
             }
         }
@@ -259,11 +305,21 @@ namespace Guan
             this.device.Transform.World = matrix;
         }
 
+        public enum PixelState
+        {
+            Off,
+            Blue,
+            Red,
+            Green
+        }
+
         private const int sphereNumber = 512;
 
         private Device device;
 
-        private Mesh m_bigSphere;
+        private Mesh m_bigRedSphere;
+        private Mesh m_bigGreenSphere;
+        private Mesh m_bigBlueSphere;
 
         private Mesh m_smallSphere;
 
@@ -271,19 +327,23 @@ namespace Guan
 
         private Control m_parent;
 
-        private Material m_bigMaterial = new Material();
+        private Material m_redMaterial = new Material();
+        private Material m_greenMaterial = new Material();
+        private Material m_blueMaterial = new Material();
 
-        private Material m_smallMaterial = new Material();
+        private Material m_offMaterial = new Material();
 
         private Material commonSphereMaterial = new Material();
 
-        private bool[] IsOnFlag = new bool[512];
+        private PixelState[] Pixels = new PixelState[512];
 
         private Size lastSize;
 
-        private Color m_colorTrue = Color.Black;
+        private Color m_colorRed = Color.Black;
+        private Color m_colorGreen = Color.Black;
+        private Color m_colorBlue = Color.Black;
 
-        private readonly Color m_colorFalse = Color.Black;
+        private readonly Color m_colorOff = Color.Black;
 
         private int m_downX;
 

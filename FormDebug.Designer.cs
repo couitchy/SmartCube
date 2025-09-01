@@ -2,15 +2,6 @@
 {
     public partial class FormDebug : global::Guan.Forms
     {
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             new global::System.ComponentModel.ComponentResourceManager(typeof(global::Guan.FormDebug));
@@ -24,6 +15,5 @@
             base.ResumeLayout(false);
         }
 
-        private global::System.ComponentModel.IContainer components;
     }
 }

@@ -689,15 +689,6 @@ namespace Guan
             }
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             this.tabControlEdit = new TabControl();
@@ -740,8 +731,6 @@ namespace Guan
         private DX9 m_dx;
 
         private AllResource m_res = new AllResource();
-
-        private IContainer components;
 
         private TabControl tabControlEdit;
 

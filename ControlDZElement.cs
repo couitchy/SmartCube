@@ -30,13 +30,13 @@ namespace Guan
             this.InitLeds();
             this.m_menu.Items.Add("Clear");
             this.m_menu.Items.Add("Display all");
-            this.m_menu.Items.Add("Display adverse");
+            this.m_menu.Items.Add("Display inverse");
             this.m_menu.Items.Add("Copy(CTRL+C)");
             this.m_menu.Items.Add("Paste(CTRL+V)");
             this.m_menu.Items.Add("Clockwise rotation");
-            this.m_menu.Items.Add("Reverse the clock rotation");
-            this.m_menu.Items.Add("About the mirror");
-            this.m_menu.Items.Add("Up and down the mirror");
+            this.m_menu.Items.Add("Anticlockwise rotation");
+            this.m_menu.Items.Add("Left/right mirror");
+            this.m_menu.Items.Add("Up/down mirror");
             this.m_menu.ItemClicked += this.m_menu_ItemClicked;
             base.MouseWheel += this.ControlDZElement_MouseWheel;
             this.HideControl();
@@ -383,15 +383,6 @@ namespace Guan
             }
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             base.SuspendLayout();
@@ -425,8 +416,6 @@ namespace Guan
         private bool IsButtonDown;
 
         private bool IsChange;
-
-        private IContainer components;
 
         public delegate void DataChanged();
 

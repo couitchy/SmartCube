@@ -52,15 +52,6 @@ namespace Guan
             }
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             this.labelCount = new Label();
@@ -88,8 +79,6 @@ namespace Guan
         }
 
         private FrameCartoonControl m_res;
-
-        private IContainer components;
 
         private Label labelCount;
 

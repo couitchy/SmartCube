@@ -13,7 +13,7 @@ namespace Guan
             this.m_tree = tree;
             this.m_edit = edit;
             this.m_fileIsChanged = fileIsChanged;
-            this.m_tree.Nodes.Add(Config.IndexPannel);
+            this.m_tree.Nodes.Add(Config.IndexPanel);
             this.m_tree.Nodes.Add(Config.IndexSolid);
             this.m_tree.Nodes.Add(Config.IndexValue);
             this.m_tree.MouseDown += this.m_tree_MouseDown;

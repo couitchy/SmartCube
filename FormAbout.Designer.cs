@@ -2,15 +2,6 @@
 {
     public partial class FormAbout : global::Guan.Forms
     {
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             this.label4 = new global::System.Windows.Forms.Label();
@@ -74,8 +65,6 @@
             base.ResumeLayout(false);
             base.PerformLayout();
         }
-
-        private global::System.ComponentModel.IContainer components;
 
         private global::System.Windows.Forms.Label label4;
 

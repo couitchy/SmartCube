@@ -171,15 +171,6 @@ namespace Guan
             this.m_Property.ResourceUpdate();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             this.labelFrameCount = new Label();
@@ -280,8 +271,6 @@ namespace Guan
         private DX9 m_dx;
 
         private ControlProperty m_Property;
-
-        private IContainer components;
 
         private ControlTimershaft m_timershaft;
 

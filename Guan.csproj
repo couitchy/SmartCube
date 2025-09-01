@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{C77879CA-8DEB-426E-AB81-CC2164419CF9}</ProjectGuid>
+    <ProjectGuid>{61F01124-97CF-465D-B0B6-D3A2245B20C9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Guan</RootNamespace>

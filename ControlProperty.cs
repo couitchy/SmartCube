@@ -460,15 +460,6 @@ namespace Guan
             }
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             this.propertyGrid1 = new PropertyGrid();
@@ -508,14 +499,12 @@ namespace Guan
 
         private ControlProperty.BrightClass m_bright;
 
-        private IContainer components;
-
         private PropertyGrid propertyGrid1;
 
         private class BrightClass
         {
             [Category("Brightness property")]
-            [Description("Bright value of start")]
+            [Description("Brightness value start")]
             public int StartBright
             {
                 get
@@ -531,8 +520,8 @@ namespace Guan
                 }
             }
 
-            [Description("Bright value of end")]
             [Category("Brightness property")]
+            [Description("Brightness value end")]
             public int EndBright
             {
                 get
@@ -564,7 +553,7 @@ namespace Guan
             public void Update()
             {
                 this.strBuffX.Clear();
-                this.strBuffX.Add("Not use index talbe");
+                this.strBuffX.Add("Index table not in use");
                 foreach (ResourceIndex resourceIndex in this.m_index.m_indexNumber)
                 {
                     this.strBuffX.Add(resourceIndex.name);
@@ -572,8 +561,8 @@ namespace Guan
             }
 
             [Category("Location X")]
+            [Description("Using the index table, following value as index")]
             [TypeConverter(typeof(ControlProperty.DotClass.MeterAddressConverter))]
-            [Description("Using the index table, the following values for the index number")]
             public string UseIndexTable_X
             {
                 get
@@ -602,8 +591,8 @@ namespace Guan
                 return false;
             }
 
-            [Description("")]
             [Category("Location X")]
+            [Description("")]
             public int StartX
             {
                 get
@@ -635,9 +624,9 @@ namespace Guan
                 }
             }
 
-            [TypeConverter(typeof(ControlProperty.DotClass.MeterAddressConverter))]
             [Category("Location Y")]
-            [Description("Using the index table, the following values for the index number")]
+            [Description("Using the index table, following value as index")]
+            [TypeConverter(typeof(ControlProperty.DotClass.MeterAddressConverter))]
             public string UseIndexTable_Y
             {
                 get
@@ -683,7 +672,7 @@ namespace Guan
             }
 
             [Category("Location Z")]
-            [Description("Using the index table, the following values for the index number")]
+            [Description("Using the index table, following value as index")]
             [TypeConverter(typeof(ControlProperty.DotClass.MeterAddressConverter))]
             public string UseIndexTable_Z
             {
@@ -729,8 +718,8 @@ namespace Guan
                 }
             }
 
-            [Description("X, Y, Z reference surface")]
             [Category("Property")]
+            [Description("X, Y, Z reference surface")]
             public ControlProperty.DotClass.viewEnum Angle_of_view
             {
                 get
@@ -827,7 +816,7 @@ namespace Guan
             public void Update()
             {
                 this.strBuffX.Clear();
-                this.strBuffX.Add("Not use index talbe");
+                this.strBuffX.Add("Index table not in use");
                 foreach (ResourceIndex resourceIndex in this.m_index.m_indexNumber)
                 {
                     this.strBuffX.Add(resourceIndex.name);
@@ -850,9 +839,9 @@ namespace Guan
                 return false;
             }
 
-            [TypeConverter(typeof(ControlProperty.LineClass.MeterAddressConverter))]
             [Category("Location X")]
-            [Description("Using the index table, the following values for the index number")]
+            [Description("Using the index table, following value as index")]
+            [TypeConverter(typeof(ControlProperty.LineClass.MeterAddressConverter))]
             public string UseIndexTable_X
             {
                 get
@@ -933,8 +922,8 @@ namespace Guan
                 }
             }
 
-            [Description("Using the index table, the following values for the index number")]
             [Category("Location Y")]
+            [Description("Using the index table, following value as index")]
             [TypeConverter(typeof(ControlProperty.LineClass.MeterAddressConverter))]
             public string UseIndexTable_Y
             {
@@ -965,8 +954,8 @@ namespace Guan
                 }
             }
 
-            [Description("Line end Y")]
             [Category("Location Y")]
+            [Description("Line end Y")]
             public int StartY2
             {
                 get
@@ -982,8 +971,8 @@ namespace Guan
                 }
             }
 
-            [Description("Line start Y")]
             [Category("Location Y")]
+            [Description("Line start Y")]
             public int EndY1
             {
                 get
@@ -999,8 +988,8 @@ namespace Guan
                 }
             }
 
-            [Description("Line end Y")]
             [Category("Location Y")]
+            [Description("Line end Y")]
             public int EndY2
             {
                 get
@@ -1017,8 +1006,8 @@ namespace Guan
             }
 
             [Category("Location Z")]
+            [Description("Using the index table, following value as index")]
             [TypeConverter(typeof(ControlProperty.LineClass.MeterAddressConverter))]
-            [Description("Using the index table, the following values for the index number")]
             public string UseIndexTable_Z
             {
                 get
@@ -1048,8 +1037,8 @@ namespace Guan
                 }
             }
 
-            [Description("Line end Z")]
             [Category("Location Z")]
+            [Description("Line end Z")]
             public int StartZ2
             {
                 get
@@ -1065,8 +1054,8 @@ namespace Guan
                 }
             }
 
-            [Description("Line start Z")]
             [Category("Location Z")]
+            [Description("Line start Z")]
             public int EndZ1
             {
                 get
@@ -1210,7 +1199,7 @@ namespace Guan
             public void Update()
             {
                 this.strBuffX.Clear();
-                this.strBuffX.Add("Not use index talbe");
+                this.strBuffX.Add("Index table not in use");
                 foreach (ResourceIndex resourceIndex in this.m_index.m_indexNumber)
                 {
                     this.strBuffX.Add(resourceIndex.name);
@@ -1252,7 +1241,7 @@ namespace Guan
             }
 
             [Category("Location X")]
-            [Description("Using the index table, the following values for the index number")]
+            [Description("Using the index table, following value as index")]
             [TypeConverter(typeof(ControlProperty.SingleClass.MeterAddressConverter))]
             public string UseIndexTable_X
             {
@@ -1299,9 +1288,9 @@ namespace Guan
                 }
             }
 
-            [TypeConverter(typeof(ControlProperty.SingleClass.MeterAddressConverter))]
-            [Description("Using the index table, the following values for the index number")]
             [Category("Location Y")]
+            [Description("Using the index table, following value as index")]
+            [TypeConverter(typeof(ControlProperty.SingleClass.MeterAddressConverter))]
             public string UseIndexTable_Y
             {
                 get
@@ -1347,7 +1336,7 @@ namespace Guan
             }
 
             [Category("Location Z")]
-            [Description("Using the index table, the following values for the index number")]
+            [Description("Using the index table, following value as index")]
             [TypeConverter(typeof(ControlProperty.SingleClass.MeterAddressConverter))]
             public string UseIndexTable_Z
             {
@@ -1393,8 +1382,8 @@ namespace Guan
                 }
             }
 
-            [Description("Using the index table, resource using the index table;Do not use the index table, using the graphical resources")]
             [Category("Resource")]
+            [Description("Use the index table or use the graphical resources")]
             public ControlProperty.SingleClass.useIndexEnum UseIndexTable
             {
                 get
@@ -1426,7 +1415,7 @@ namespace Guan
             }
 
             [Category("Resource")]
-            [Description("Do not use the index table, the value is invalid")]
+            [Description("Do not use the index table, invalid value")]
             public int StartIndex
             {
                 get
@@ -1442,8 +1431,8 @@ namespace Guan
                 }
             }
 
-            [Description("Do not use the index table, the value is invalid")]
             [Category("Resource")]
+            [Description("Do not use the index table, invalid value")]
             public int EndIndex
             {
                 get
@@ -1487,8 +1476,8 @@ namespace Guan
                 }
             }
 
-            [Description("Display function")]
             [Category("Property")]
+            [Description("Display function")]
             public ControlProperty.SingleClass.Fun1Enum Function
             {
                 get
@@ -1621,7 +1610,7 @@ namespace Guan
             public void Update()
             {
                 this.strBuffX.Clear();
-                this.strBuffX.Add("Not use index talbe");
+                this.strBuffX.Add("Index table not in use");
                 foreach (ResourceIndex resourceIndex in this.m_index.m_indexNumber)
                 {
                     this.strBuffX.Add(resourceIndex.name);
@@ -1662,9 +1651,9 @@ namespace Guan
                 return false;
             }
 
-            [TypeConverter(typeof(ControlProperty.SolidClass.MeterAddressConverter))]
             [Category("Location X")]
-            [Description("Using the index table, the following values for the index number")]
+            [Description("Using the index table, following value as index")]
+            [TypeConverter(typeof(ControlProperty.SolidClass.MeterAddressConverter))]
             public string UseIndexTable_X
             {
                 get
@@ -1677,8 +1666,8 @@ namespace Guan
                 }
             }
 
-            [Description("")]
             [Category("Location X")]
+            [Description("")]
             public int StartX
             {
                 get
@@ -1710,9 +1699,9 @@ namespace Guan
                 }
             }
 
-            [TypeConverter(typeof(ControlProperty.SolidClass.MeterAddressConverter))]
             [Category("Location Y")]
-            [Description("Using the index table, the following values for the index number")]
+            [Description("Using the index table, following value as index")]
+            [TypeConverter(typeof(ControlProperty.SolidClass.MeterAddressConverter))]
             public string UseIndexTable_Y
             {
                 get
@@ -1757,9 +1746,9 @@ namespace Guan
                 }
             }
 
-            [TypeConverter(typeof(ControlProperty.SolidClass.MeterAddressConverter))]
             [Category("Location Z")]
-            [Description("Using the index table, the following values for the index number")]
+            [Description("Using the index table, following value as index")]
+            [TypeConverter(typeof(ControlProperty.SolidClass.MeterAddressConverter))]
             public string UseIndexTable_Z
             {
                 get
@@ -1805,7 +1794,7 @@ namespace Guan
             }
 
             [Category("Resource")]
-            [Description("Using the index table, resource using the index table;Do not use the index table, using the graphical resources")]
+            [Description("Use the index table or use the graphical resources")]
             public ControlProperty.SolidClass.useIndexEnum UseIndexTable
             {
                 get
@@ -1822,8 +1811,8 @@ namespace Guan
                 }
             }
 
-            [TypeConverter(typeof(ControlProperty.SolidClass.MeterAddressConverter2))]
             [Category("Resource")]
+            [TypeConverter(typeof(ControlProperty.SolidClass.MeterAddressConverter2))]
             public string ResourceName
             {
                 get
@@ -1836,8 +1825,8 @@ namespace Guan
                 }
             }
 
-            [Description("Do not use the index table, the value is invalid")]
             [Category("Resource")]
+            [Description("Do not use the index table, invalid value")]
             public int StartIndex
             {
                 get
@@ -1853,8 +1842,8 @@ namespace Guan
                 }
             }
 
-            [Description("Do not use the index table, the value is invalid")]
             [Category("Resource")]
+            [Description("Do not use the index table, invalid value")]
             public int EndIndex
             {
                 get
@@ -1898,8 +1887,8 @@ namespace Guan
                 }
             }
 
-            [Description("Display function")]
             [Category("Property")]
+            [Description("Display function")]
             public ControlProperty.SolidClass.Fun1Enum Function
             {
                 get

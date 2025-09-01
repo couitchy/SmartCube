@@ -926,15 +926,6 @@ namespace Guan
             }
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             this.hScrollBar1 = new HScrollBar();
@@ -1011,8 +1002,6 @@ namespace Guan
         private ContextMenuStrip m_menuLeft = new ContextMenuStrip();
 
         private ContextMenuStrip m_menuRight = new ContextMenuStrip();
-
-        private IContainer components;
 
         private HScrollBar hScrollBar1;
 

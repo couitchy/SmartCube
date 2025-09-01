@@ -63,15 +63,6 @@ namespace Guan
             this.datBuff8 = null;
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             this.m_dz = new ControlDZElement();
@@ -99,8 +90,6 @@ namespace Guan
         private ControlEdit.ListClass m_list;
 
         private byte[] datBuff8;
-
-        private IContainer components;
 
         private ControlDZElement m_dz;
     }

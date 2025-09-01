@@ -281,21 +281,21 @@ namespace Guan
             int lenth = listByte11.GetLenth();
             if ((long)lenth > (long)((ulong)Config.outputLenLimit))
             {
-                info = "Data length is beyond!";
+                info = "Data length mismatch!";
                 return false;
             }
             if (outputCFile && !this.OutputCFile(listByte, listByte2, listByte3, listByte4, listByte5, listByte6, listByte7))
             {
-                info = "Generate C file failed!";
+                info = "C file generation failed!";
                 return false;
             }
             if (!this.OutputHexFile(listByte11))
             {
-                info = "Generate hex file failed!";
+                info = "HEX file generation failed!";
                 return false;
             }
             float num3 = (float)lenth * 100f / Config.outputLenLimit;
-            info = string.Format("Generate data succeed\r\nUsed memory:{0:F2}% ", num3);
+            info = string.Format("Generation succeeded\r\nUsed memory:{0:F2}% ", num3);
             return true;
         }
 

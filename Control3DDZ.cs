@@ -177,15 +177,6 @@ namespace Guan
             this.UpdateLeft();
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             this.vScrollBarFont = new VScrollBar();
@@ -293,8 +284,6 @@ namespace Guan
         private int topIndex;
 
         private int leftIndex;
-
-        private IContainer components;
 
         private ControlDZElement m_dzFont;
 

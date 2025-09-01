@@ -8,7 +8,7 @@ namespace Guan
         {
             get
             {
-                return "3D*8 Leds soft(customization)";
+                return "3D*8 LEDs animation editor";
             }
         }
 
@@ -192,7 +192,7 @@ namespace Guan
         {
             get
             {
-                return "Pannel Operation";
+                return "Panel Operation";
             }
         }
 
@@ -208,15 +208,15 @@ namespace Guan
         {
             get
             {
-                return "Bright Operation";
+                return "Brightness Operation";
             }
         }
 
-        public static string IndexPannel
+        public static string IndexPanel
         {
             get
             {
-                return "Pannel Index";
+                return "Panel Index";
             }
         }
 
@@ -240,7 +240,7 @@ namespace Guan
         {
             get
             {
-                return "Resources for the ultra limit, can't continue to add!";
+                return "Resources limit, can't continue to add!";
             }
         }
 
@@ -248,15 +248,15 @@ namespace Guan
         {
             get
             {
-                return "Rename fails, this name already exists!";
+                return "Rename failed, this name already exists!";
             }
         }
 
-        public static string GraphPannel
+        public static string GraphPanel
         {
             get
             {
-                return "Pannel Graph";
+                return "Panel Graph";
             }
         }
 

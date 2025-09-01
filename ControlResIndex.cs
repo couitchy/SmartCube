@@ -374,15 +374,6 @@ namespace Guan
             }
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             this.listView1 = new ListView();
@@ -434,8 +425,6 @@ namespace Guan
         private int elementSelectIndex = -1;
 
         private bool selectFlag;
-
-        private IContainer components;
 
         private ListView listView1;
 

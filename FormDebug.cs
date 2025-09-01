@@ -115,7 +115,6 @@ namespace Guan
                             }
                             continue;
                         }
-                        break;
                     }
                 }
                 for (;;)

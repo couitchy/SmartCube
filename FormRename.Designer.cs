@@ -2,15 +2,6 @@
 {
     public partial class FormRename : global::Guan.Forms
     {
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && this.components != null)
-            {
-                this.components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
         private void InitializeComponent()
         {
             new global::System.ComponentModel.ComponentResourceManager(typeof(global::Guan.FormRename));
@@ -50,8 +41,6 @@
             base.ResumeLayout(false);
             base.PerformLayout();
         }
-
-        private global::System.ComponentModel.IContainer components;
 
         private global::System.Windows.Forms.TextBox textBox1;
 
