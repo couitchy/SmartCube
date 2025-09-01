@@ -159,12 +159,12 @@
     <Compile Include="PropertyElementBright.cs" />
     <Compile Include="PropertyElementDot.cs" />
     <Compile Include="PropertyElementLine.cs" />
-    <Compile Include="PropertyElementPannel.cs" />
+    <Compile Include="PropertyElementPanel.cs" />
     <Compile Include="PropertyElementSolid.cs" />
     <Compile Include="ResourceIndex.cs" />
     <Compile Include="ResourceSingle.cs" />
     <Compile Include="ResourceSolid.cs" />
-    <Compile Include="ReSourceTree.cs" />
+    <Compile Include="ResourceTree.cs" />
     <Compile Include="ResourceType.cs" />
   </ItemGroup>
   <ItemGroup>
