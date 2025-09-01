@@ -6,15 +6,10 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-	// Token: 0x0200000E RID: 14
 	public class ControlEdit : UserControl
 	{
-		// Token: 0x14000006 RID: 6
-		// (add) Token: 0x06000095 RID: 149 RVA: 0x00008F88 File Offset: 0x00007188
-		// (remove) Token: 0x06000096 RID: 150 RVA: 0x00008FC0 File Offset: 0x000071C0
 		private event FormGuan.FileIsChanged m_fileIsChanged;
 
-		// Token: 0x06000097 RID: 151 RVA: 0x00008FF8 File Offset: 0x000071F8
 		public ControlEdit(DX9 dx, AllResource res, FormGuan.FileIsChanged fileIsChanged)
 		{
 			this.InitializeComponent();
@@ -29,13 +24,11 @@ namespace Guan
 			this.buttonCloseAll.Click += this.buttonCloseAll_Click;
 		}
 
-		// Token: 0x06000098 RID: 152 RVA: 0x00009095 File Offset: 0x00007295
 		private void buttonCloseAll_Click(object sender, EventArgs e)
 		{
 			this.CloseAll();
 		}
 
-		// Token: 0x06000099 RID: 153 RVA: 0x0000909D File Offset: 0x0000729D
 		public void CloseAll()
 		{
 			this.m_list.Clear();
@@ -44,7 +37,6 @@ namespace Guan
 			this.buttonCloseAll.Visible = false;
 		}
 
-		// Token: 0x0600009A RID: 154 RVA: 0x000090D4 File Offset: 0x000072D4
 		private void buttonClose_Click(object sender, EventArgs e)
 		{
 			TabPage selectedTab = this.tabControlEdit.SelectedTab;
@@ -59,7 +51,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600009B RID: 155 RVA: 0x00009144 File Offset: 0x00007344
 		private ControlEdit.ListClass IsInList(object obj)
 		{
 			foreach (ControlEdit.ListClass listClass in this.m_list)
@@ -72,7 +63,6 @@ namespace Guan
 			return null;
 		}
 
-		// Token: 0x0600009C RID: 156 RVA: 0x000091A8 File Offset: 0x000073A8
 		private ControlEdit.ListClass IsInList(TabPage page)
 		{
 			foreach (ControlEdit.ListClass listClass in this.m_list)
@@ -85,7 +75,6 @@ namespace Guan
 			return null;
 		}
 
-		// Token: 0x0600009D RID: 157 RVA: 0x0000920C File Offset: 0x0000740C
 		private bool ResInList(object res)
 		{
 			ControlEdit.ListClass listClass = this.IsInList(res);
@@ -97,7 +86,6 @@ namespace Guan
 			return false;
 		}
 
-		// Token: 0x0600009E RID: 158 RVA: 0x00009238 File Offset: 0x00007438
 		private void AddOnePannel(Control control, ControlEdit.ListClass list)
 		{
 			int count = this.tabControlEdit.TabPages.Count;
@@ -115,7 +103,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600009F RID: 159 RVA: 0x000092F8 File Offset: 0x000074F8
 		public void ShowSingeGraph(ResourceSingle res)
 		{
 			if (!this.ResInList(res))
@@ -129,7 +116,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000A0 RID: 160 RVA: 0x0000934C File Offset: 0x0000754C
 		public void ShowSolidGraph(ResourceSolid res)
 		{
 			if (!this.ResInList(res))
@@ -143,7 +129,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000A1 RID: 161 RVA: 0x000093A0 File Offset: 0x000075A0
 		public void ShowIndex(ResourceIndex res, FrameIndexType type)
 		{
 			if (!this.ResInList(res))
@@ -168,7 +153,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000A2 RID: 162 RVA: 0x00009418 File Offset: 0x00007618
 		public void ShowCartoon(FrameCartoonControl res)
 		{
 			if (!this.ResInList(res))
@@ -182,7 +166,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000A3 RID: 163 RVA: 0x00009468 File Offset: 0x00007668
 		public void ShowCartoonElement(FrameCartoonGroup res)
 		{
 			if (!this.ResInList(res))
@@ -196,7 +179,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000A4 RID: 164 RVA: 0x000094D4 File Offset: 0x000076D4
 		public ResourceSingle FindNameByResourceSingle(string name)
 		{
 			foreach (ResourceSingle resourceSingle in this.m_res.m_res.m_resSingle)
@@ -209,7 +191,6 @@ namespace Guan
 			return null;
 		}
 
-		// Token: 0x060000A5 RID: 165 RVA: 0x00009540 File Offset: 0x00007740
 		public ResourceSolid FindNameByResourceSolid(string name)
 		{
 			foreach (ResourceSolid resourceSolid in this.m_res.m_res.m_resSolid)
@@ -222,7 +203,6 @@ namespace Guan
 			return null;
 		}
 
-		// Token: 0x060000A6 RID: 166 RVA: 0x000095AC File Offset: 0x000077AC
 		public ResourceIndex FindNameByResourceIndex(string name, FrameIndexType resourceType)
 		{
 			if (resourceType == FrameIndexType.single)
@@ -269,7 +249,6 @@ namespace Guan
 			return null;
 		}
 
-		// Token: 0x060000A7 RID: 167 RVA: 0x000096DC File Offset: 0x000078DC
 		public void DeleteObj(object res)
 		{
 			foreach (ControlEdit.ListClass listClass in this.m_list)
@@ -290,7 +269,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000A8 RID: 168 RVA: 0x00009788 File Offset: 0x00007988
 		public void ChangeName(object res, string newName)
 		{
 			foreach (ControlEdit.ListClass listClass in this.m_list)
@@ -304,7 +282,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000A9 RID: 169 RVA: 0x000097F4 File Offset: 0x000079F4
 		public void ResourceDelete(ResourceSingle res)
 		{
 			int num = 0;
@@ -360,7 +337,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000AA RID: 170 RVA: 0x00009AA0 File Offset: 0x00007CA0
 		public void UpdateIndexTable(FrameIndexType type)
 		{
 			foreach (ControlEdit.ListClass listClass in this.m_list)
@@ -379,7 +355,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000AB RID: 171 RVA: 0x00009B28 File Offset: 0x00007D28
 		public void ResourceDelete(ResourceSolid res)
 		{
 			int num = 0;
@@ -435,7 +410,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000AC RID: 172 RVA: 0x00009DD4 File Offset: 0x00007FD4
 		public void ResourceRename(ResourceSingle res, string newName)
 		{
 			foreach (ControlEdit.ListClass listClass in this.m_list)
@@ -448,7 +422,6 @@ namespace Guan
 			this.ChangeName(res, newName);
 		}
 
-		// Token: 0x060000AD RID: 173 RVA: 0x00009E44 File Offset: 0x00008044
 		public void ResourceRename(ResourceSolid res, string newName)
 		{
 			foreach (ControlEdit.ListClass listClass in this.m_list)
@@ -461,7 +434,6 @@ namespace Guan
 			this.ChangeName(res, newName);
 		}
 
-		// Token: 0x060000AE RID: 174 RVA: 0x00009EB4 File Offset: 0x000080B4
 		public void UpdateProperty()
 		{
 			foreach (ControlEdit.ListClass listClass in this.m_list)
@@ -473,7 +445,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000AF RID: 175 RVA: 0x00009F1C File Offset: 0x0000811C
 		public void ResourceIndexDelete(FrameIndexType type, ResourceIndex res)
 		{
 			if (type == FrameIndexType.single)
@@ -519,7 +490,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000B0 RID: 176 RVA: 0x0000A01C File Offset: 0x0000821C
 		public void ResourceIndexDelete(FrameIndexType type, int index)
 		{
 			index++;
@@ -719,7 +689,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060000B1 RID: 177 RVA: 0x0000A5AC File Offset: 0x000087AC
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && this.components != null)
@@ -729,7 +698,6 @@ namespace Guan
 			base.Dispose(disposing);
 		}
 
-		// Token: 0x060000B2 RID: 178 RVA: 0x0000A5CC File Offset: 0x000087CC
 		private void InitializeComponent()
 		{
 			this.tabControlEdit = new TabControl();
@@ -767,65 +735,43 @@ namespace Guan
 			base.ResumeLayout(false);
 		}
 
-		// Token: 0x04000047 RID: 71
 		private List<ControlEdit.ListClass> m_list = new List<ControlEdit.ListClass>();
 
-		// Token: 0x04000048 RID: 72
 		private DX9 m_dx;
 
-		// Token: 0x04000049 RID: 73
 		private AllResource m_res = new AllResource();
 
-		// Token: 0x0400004B RID: 75
 		private IContainer components;
 
-		// Token: 0x0400004C RID: 76
 		private TabControl tabControlEdit;
 
-		// Token: 0x0400004D RID: 77
 		private Button buttonClose;
 
-		// Token: 0x0400004E RID: 78
 		private Button buttonCloseAll;
 
-		// Token: 0x0200000F RID: 15
 		public enum TableType
 		{
-			// Token: 0x04000050 RID: 80
 			single,
-			// Token: 0x04000051 RID: 81
 			solid,
-			// Token: 0x04000052 RID: 82
 			singleIndex,
-			// Token: 0x04000053 RID: 83
 			solidIndex,
-			// Token: 0x04000054 RID: 84
 			numberIndex,
-			// Token: 0x04000055 RID: 85
 			cartoon,
-			// Token: 0x04000056 RID: 86
 			cartoonElement
 		}
 
-		// Token: 0x02000010 RID: 16
 		public class ListClass
 		{
-			// Token: 0x04000057 RID: 87
 			public string name = "";
 
-			// Token: 0x04000058 RID: 88
 			public bool IsChange;
 
-			// Token: 0x04000059 RID: 89
 			public ControlEdit.TableType m_type;
 
-			// Token: 0x0400005A RID: 90
 			public Control control;
 
-			// Token: 0x0400005B RID: 91
 			public TabPage page;
 
-			// Token: 0x0400005C RID: 92
 			public object obj;
 		}
 	}

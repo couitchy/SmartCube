@@ -1,9 +1,7 @@
 ﻿namespace Guan
 {
-	// Token: 0x02000037 RID: 55
 	public partial class FormGuan : global::Guan.Forms
 	{
-		// Token: 0x060001E7 RID: 487 RVA: 0x00012309 File Offset: 0x00010509
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && this.components != null)
@@ -13,7 +11,6 @@
 			base.Dispose(disposing);
 		}
 
-		// Token: 0x060001E8 RID: 488 RVA: 0x00012328 File Offset: 0x00010528
 		private void InitializeComponent()
 		{
 			this.splitContainer1 = new global::System.Windows.Forms.SplitContainer();
@@ -257,88 +254,60 @@
 			base.PerformLayout();
 		}
 
-		// Token: 0x04000166 RID: 358
 		private global::System.ComponentModel.IContainer components;
 
-		// Token: 0x04000167 RID: 359
 		private global::System.Windows.Forms.SplitContainer splitContainer1;
 
-		// Token: 0x04000168 RID: 360
 		private global::System.Windows.Forms.SplitContainer splitContainer2;
 
-		// Token: 0x04000169 RID: 361
 		private global::System.Windows.Forms.GroupBox groupBoxGra;
 
-		// Token: 0x0400016A RID: 362
 		private global::System.Windows.Forms.GroupBox groupBoxIndex;
 
-		// Token: 0x0400016B RID: 363
 		private global::System.Windows.Forms.MenuStrip menuStrip1;
 
-		// Token: 0x0400016C RID: 364
 		private global::System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
 
-		// Token: 0x0400016D RID: 365
 		private global::System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
 
-		// Token: 0x0400016E RID: 366
 		private global::System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
 
-		// Token: 0x0400016F RID: 367
 		private global::System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
 
-		// Token: 0x04000170 RID: 368
 		private global::System.Windows.Forms.SplitContainer splitContainer3;
 
-		// Token: 0x04000171 RID: 369
 		private global::System.Windows.Forms.SplitContainer splitContainer4;
 
-		// Token: 0x04000172 RID: 370
 		private global::System.Windows.Forms.GroupBox groupBoxPre;
 
-		// Token: 0x04000173 RID: 371
 		private global::System.Windows.Forms.GroupBox groupBoxCartoon;
 
-		// Token: 0x04000174 RID: 372
 		private global::System.Windows.Forms.Panel panelPreview;
 
-		// Token: 0x04000175 RID: 373
 		private global::System.Windows.Forms.ToolStripMenuItem functionToolStripMenuItem;
 
-		// Token: 0x04000176 RID: 374
 		private global::System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
 
-		// Token: 0x04000177 RID: 375
 		private global::System.Windows.Forms.TreeView treeViewResource;
 
-		// Token: 0x04000178 RID: 376
 		private global::System.Windows.Forms.TreeView treeViewIndex;
 
-		// Token: 0x04000179 RID: 377
 		private global::System.Windows.Forms.TreeView treeViewCartoon;
 
-		// Token: 0x0400017A RID: 378
 		private global::System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
 
-		// Token: 0x0400017B RID: 379
 		private global::System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
 
-		// Token: 0x0400017C RID: 380
 		private global::System.Windows.Forms.ToolStripMenuItem debugToolStripMenuItem;
 
-		// Token: 0x0400017D RID: 381
 		private global::System.Windows.Forms.ToolStripMenuItem compileToolStripMenuItem;
 
-		// Token: 0x0400017E RID: 382
 		private global::System.Windows.Forms.ToolStripMenuItem InstructionsToolStripMenuItem;
 
-		// Token: 0x0400017F RID: 383
 		private global::System.Windows.Forms.ToolStripMenuItem aboutUsToolStripMenuItem;
 
-		// Token: 0x04000180 RID: 384
 		private global::System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
 
-		// Token: 0x04000181 RID: 385
 		private global::System.Windows.Forms.ToolStripMenuItem debugConfigToolStripMenuItem;
 	}
 }

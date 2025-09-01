@@ -6,16 +6,13 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-	// Token: 0x02000033 RID: 51
 	public partial class FormAbout : Forms
 	{
-		// Token: 0x060001C0 RID: 448 RVA: 0x0001076C File Offset: 0x0000E96C
 		public FormAbout()
 		{
 			this.InitializeComponent();
 		}
 
-		// Token: 0x060001C1 RID: 449 RVA: 0x0001077C File Offset: 0x0000E97C
 		private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			LinkLabel linkLabel = (LinkLabel)sender;

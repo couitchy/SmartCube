@@ -7,10 +7,8 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-	// Token: 0x02000035 RID: 53
 	public partial class FormDebug : Forms
 	{
-		// Token: 0x060001CD RID: 461 RVA: 0x00011347 File Offset: 0x0000F547
 		private void FormInit(AllResource res)
 		{
 			this.InitializeComponent();
@@ -20,14 +18,12 @@ namespace Guan
 			this.m_dx.SetBright(100);
 		}
 
-		// Token: 0x060001CE RID: 462 RVA: 0x0001137B File Offset: 0x0000F57B
 		public FormDebug(AllResource res)
 		{
 			this.FormInit(res);
 			this.StartDebug();
 		}
 
-		// Token: 0x060001CF RID: 463 RVA: 0x00011390 File Offset: 0x0000F590
 		public FormDebug(AllResource res, FrameCartoonGroup group)
 		{
 			this.FormInit(res);
@@ -35,7 +31,6 @@ namespace Guan
 			this.StartDebug();
 		}
 
-		// Token: 0x060001D0 RID: 464 RVA: 0x000113AC File Offset: 0x0000F5AC
 		public FormDebug(AllResource res, FrameCartoonControl control)
 		{
 			this.FormInit(res);
@@ -43,7 +38,6 @@ namespace Guan
 			this.StartDebug();
 		}
 
-		// Token: 0x060001D1 RID: 465 RVA: 0x000113C8 File Offset: 0x0000F5C8
 		private void StartDebug()
 		{
 			if (this.m_thread == null || !this.m_thread.IsAlive)
@@ -54,7 +48,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001D2 RID: 466 RVA: 0x00011418 File Offset: 0x0000F618
 		private void ThreadFunction()
 		{
 			byte[] array = new byte[64];
@@ -166,25 +159,19 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001D3 RID: 467 RVA: 0x00011780 File Offset: 0x0000F980
 		private void FormDebug_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			this.m_thread.Abort();
 		}
 
-		// Token: 0x04000154 RID: 340
 		private AllResource m_res;
 
-		// Token: 0x04000155 RID: 341
 		private Thread m_thread;
 
-		// Token: 0x04000156 RID: 342
 		private DX9 m_dx;
 
-		// Token: 0x04000157 RID: 343
 		private FrameCartoonGroup m_group;
 
-		// Token: 0x04000158 RID: 344
 		private FrameCartoonControl m_control;
 	}
 }

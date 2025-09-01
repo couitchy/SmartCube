@@ -7,15 +7,10 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-	// Token: 0x02000037 RID: 55
 	public partial class FormGuan : Forms
 	{
-		// Token: 0x1400000E RID: 14
-		// (add) Token: 0x060001D9 RID: 473 RVA: 0x0001199C File Offset: 0x0000FB9C
-		// (remove) Token: 0x060001DA RID: 474 RVA: 0x000119D4 File Offset: 0x0000FBD4
 		public event FormGuan.FileIsChanged m_fileIsChanged;
 
-		// Token: 0x060001DB RID: 475 RVA: 0x00011A09 File Offset: 0x0000FC09
 		private void FormInit()
 		{
 			this.InitializeComponent();
@@ -25,13 +20,11 @@ namespace Guan
 			this.ControlInit();
 		}
 
-		// Token: 0x060001DC RID: 476 RVA: 0x00011A3B File Offset: 0x0000FC3B
 		public FormGuan()
 		{
 			this.FormInit();
 		}
 
-		// Token: 0x060001DD RID: 477 RVA: 0x00011A78 File Offset: 0x0000FC78
 		public FormGuan(string path)
 		{
 			this.FormInit();
@@ -42,7 +35,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001DE RID: 478 RVA: 0x00011AD4 File Offset: 0x0000FCD4
 		private void FormGuan_m_fileIsChanged(bool flag)
 		{
 			if (flag)
@@ -61,7 +53,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001DF RID: 479 RVA: 0x00011B28 File Offset: 0x0000FD28
 		private void ControlInit()
 		{
 			ControlDX controlDX = new ControlDX(this.panelPreview);
@@ -77,7 +68,6 @@ namespace Guan
 			this.compileToolStripMenuItem.Enabled = Config.enableOutput;
 		}
 
-		// Token: 0x060001E0 RID: 480 RVA: 0x00011C45 File Offset: 0x0000FE45
 		private void UpdateAllControl()
 		{
 			this.m_resourceTree.UpdateList();
@@ -86,7 +76,6 @@ namespace Guan
 			this.m_edit.CloseAll();
 		}
 
-		// Token: 0x060001E1 RID: 481 RVA: 0x00011C74 File Offset: 0x0000FE74
 		private bool LoadFile(bool selectFile)
 		{
 			try
@@ -142,7 +131,6 @@ namespace Guan
 			return true;
 		}
 
-		// Token: 0x060001E2 RID: 482 RVA: 0x00011E84 File Offset: 0x00010084
 		private bool SaveFile(bool selectFile)
 		{
 			try
@@ -171,7 +159,6 @@ namespace Guan
 			return true;
 		}
 
-		// Token: 0x060001E3 RID: 483 RVA: 0x00011F2C File Offset: 0x0001012C
 		private void ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			ToolStripMenuItem toolStripMenuItem = (ToolStripMenuItem)sender;
@@ -332,13 +319,11 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001E4 RID: 484 RVA: 0x00012241 File Offset: 0x00010441
 		private void FormGuan_DragEnter(object sender, DragEventArgs e)
 		{
 			e.Effect = DragDropEffects.Link;
 		}
 
-		// Token: 0x060001E5 RID: 485 RVA: 0x0001224C File Offset: 0x0001044C
 		private void FormGuan_DragDrop(object sender, DragEventArgs e)
 		{
 			if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -356,7 +341,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001E6 RID: 486 RVA: 0x000122B8 File Offset: 0x000104B8
 		private void FormGuan_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			if (this.fileIsChanged)
@@ -378,35 +362,24 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0400015D RID: 349
 		private DX9 m_dx1 = new DX9();
 
-		// Token: 0x0400015E RID: 350
 		private AllResourceHead m_head = new AllResourceHead();
 
-		// Token: 0x0400015F RID: 351
 		private AllResource m_res = new AllResource();
 
-		// Token: 0x04000160 RID: 352
 		private ReSourceTree m_resourceTree;
 
-		// Token: 0x04000161 RID: 353
 		private IndexTree1 m_indexTree;
 
-		// Token: 0x04000162 RID: 354
 		private CartoonTree m_controlTree;
 
-		// Token: 0x04000163 RID: 355
 		private ControlEdit m_edit;
 
-		// Token: 0x04000164 RID: 356
 		private string m_path = "";
 
-		// Token: 0x04000165 RID: 357
 		private bool fileIsChanged;
 
-		// Token: 0x02000038 RID: 56
-		// (Invoke) Token: 0x060001EA RID: 490
 		public delegate void FileIsChanged(bool flag);
 	}
 }

@@ -6,25 +6,14 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-	// Token: 0x0200002B RID: 43
 	public class ControlTimershaft : UserControl
 	{
-		// Token: 0x1400000A RID: 10
-		// (add) Token: 0x06000181 RID: 385 RVA: 0x0000D9A8 File Offset: 0x0000BBA8
-		// (remove) Token: 0x06000182 RID: 386 RVA: 0x0000D9E0 File Offset: 0x0000BBE0
 		public event ControlTimershaft.SelectElementChanged m_elementChanged;
 
-		// Token: 0x1400000B RID: 11
-		// (add) Token: 0x06000183 RID: 387 RVA: 0x0000DA18 File Offset: 0x0000BC18
-		// (remove) Token: 0x06000184 RID: 388 RVA: 0x0000DA50 File Offset: 0x0000BC50
 		public event ControlTimershaft.SelectIndexChanged m_indexChanged;
 
-		// Token: 0x1400000C RID: 12
-		// (add) Token: 0x06000185 RID: 389 RVA: 0x0000DA88 File Offset: 0x0000BC88
-		// (remove) Token: 0x06000186 RID: 390 RVA: 0x0000DAC0 File Offset: 0x0000BCC0
 		private event FormGuan.FileIsChanged m_fileIsChanged;
 
-		// Token: 0x06000187 RID: 391 RVA: 0x0000DAF8 File Offset: 0x0000BCF8
 		public ControlTimershaft()
 		{
 			this.InitializeComponent();
@@ -44,7 +33,6 @@ namespace Guan
 			base.MouseWheel += this.ControlTimershaft_MouseWheel;
 		}
 
-		// Token: 0x06000188 RID: 392 RVA: 0x0000DD00 File Offset: 0x0000BF00
 		private void ControlTimershaft_MouseWheel(object sender, MouseEventArgs e)
 		{
 			try
@@ -69,20 +57,17 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000189 RID: 393 RVA: 0x0000DDFC File Offset: 0x0000BFFC
 		public void SetEvent(FormGuan.FileIsChanged fileIsChanged)
 		{
 			this.m_fileIsChanged = fileIsChanged;
 		}
 
-		// Token: 0x0600018A RID: 394 RVA: 0x0000DE05 File Offset: 0x0000C005
 		public void SetElement(List<FrameCartoonElement> list)
 		{
 			this.m_element = null;
 			this.m_element = list;
 		}
 
-		// Token: 0x0600018B RID: 395 RVA: 0x0000DE18 File Offset: 0x0000C018
 		public void UpdateFrameCount(uint count)
 		{
 			if (count >= 0U && this.MaxFrameNum != count)
@@ -126,7 +111,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600018C RID: 396 RVA: 0x0000DF57 File Offset: 0x0000C157
 		public void UpdateFrame()
 		{
 			if (base.Visible)
@@ -135,7 +119,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600018D RID: 397 RVA: 0x0000DF68 File Offset: 0x0000C168
 		private void m_menuRight_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
 			if (e.ClickedItem.Equals(this.m_menuRight.Items[0]))
@@ -198,7 +181,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600018E RID: 398 RVA: 0x0000E1DC File Offset: 0x0000C3DC
 		private void m_menuLeft_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
 			if (e.ClickedItem.Equals(this.m_menuLeft.Items[0]))
@@ -332,19 +314,16 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600018F RID: 399 RVA: 0x0000E620 File Offset: 0x0000C820
 		private int GetRightCenter(int index)
 		{
 			return this.LeftLinePosition + 8 * index;
 		}
 
-		// Token: 0x06000190 RID: 400 RVA: 0x0000E62C File Offset: 0x0000C82C
 		private int GetLeftTextTop(int index)
 		{
 			return 20 + index * 20;
 		}
 
-		// Token: 0x06000191 RID: 401 RVA: 0x0000E638 File Offset: 0x0000C838
 		private Rectangle GetLeftTextRect(int index, int width)
 		{
 			return new Rectangle
@@ -356,7 +335,6 @@ namespace Guan
 			};
 		}
 
-		// Token: 0x06000192 RID: 402 RVA: 0x0000E678 File Offset: 0x0000C878
 		private Size GetMaxSize()
 		{
 			Size size = default(Size);
@@ -366,7 +344,6 @@ namespace Guan
 			return size;
 		}
 
-		// Token: 0x06000193 RID: 403 RVA: 0x0000E6CC File Offset: 0x0000C8CC
 		private void UpdateScrollBar(Size size)
 		{
 			if (this.ThisSize.Width >= size.Width)
@@ -395,7 +372,6 @@ namespace Guan
 			this.startY = this.vScrollBar1.Value;
 		}
 
-		// Token: 0x06000194 RID: 404 RVA: 0x0000E7C0 File Offset: 0x0000C9C0
 		private void GetThisSize()
 		{
 			this.ThisSize = base.Size;
@@ -403,7 +379,6 @@ namespace Guan
 			this.ThisSize.Height = this.ThisSize.Height - this.hScrollBar1.Height;
 		}
 
-		// Token: 0x06000195 RID: 405 RVA: 0x0000E814 File Offset: 0x0000CA14
 		private void OnPaint()
 		{
 			Graphics graphics = base.CreateGraphics();
@@ -411,7 +386,6 @@ namespace Guan
 			this.ControlTimershaft_Paint(this, paintEventArgs);
 		}
 
-		// Token: 0x06000196 RID: 406 RVA: 0x0000E840 File Offset: 0x0000CA40
 		private void ControlTimershaft_Paint(object sender, PaintEventArgs e)
 		{
 			try
@@ -512,7 +486,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000197 RID: 407 RVA: 0x0000EE40 File Offset: 0x0000D040
 		private int GetRightIndex(Point point)
 		{
 			int num = 0;
@@ -528,7 +501,6 @@ namespace Guan
 			return -1;
 		}
 
-		// Token: 0x06000198 RID: 408 RVA: 0x0000EE88 File Offset: 0x0000D088
 		private ControlTimershaft.MovingStatus PointToStatus(Point point)
 		{
 			if (point.X >= this.LeftLinePosition - 3 && point.X <= this.LeftLinePosition + 3)
@@ -590,7 +562,6 @@ namespace Guan
 			return ControlTimershaft.MovingStatus.NoMoving;
 		}
 
-		// Token: 0x06000199 RID: 409 RVA: 0x0000F060 File Offset: 0x0000D260
 		private int LeftSelect(Point point)
 		{
 			if (point.Y > this.startY)
@@ -608,7 +579,6 @@ namespace Guan
 			return -1;
 		}
 
-		// Token: 0x0600019A RID: 410 RVA: 0x0000F0D8 File Offset: 0x0000D2D8
 		private int GetElementMax(int index1, int index2)
 		{
 			if (this.m_element.Count <= index1 || this.m_element[index1].property.Count <= index2)
@@ -623,7 +593,6 @@ namespace Guan
 			return this.m_element[index1].property[index2 + 1].startIndex;
 		}
 
-		// Token: 0x0600019B RID: 411 RVA: 0x0000F168 File Offset: 0x0000D368
 		private int GetElementMin(int index1, int index2)
 		{
 			if (this.m_element.Count <= index1 || this.m_element[index1].property.Count <= index2)
@@ -638,7 +607,6 @@ namespace Guan
 			return this.m_element[index1].property[index2 - 1].startIndex + this.m_element[index1].property[index2 - 1].lenth;
 		}
 
-		// Token: 0x0600019C RID: 412 RVA: 0x0000F1FC File Offset: 0x0000D3FC
 		private Rectangle GetRightRect(int index)
 		{
 			return new Rectangle
@@ -650,7 +618,6 @@ namespace Guan
 			};
 		}
 
-		// Token: 0x0600019D RID: 413 RVA: 0x0000F248 File Offset: 0x0000D448
 		private void ControlTimershaft_MouseMove(object sender, MouseEventArgs e)
 		{
 			Point location = e.Location;
@@ -792,7 +759,6 @@ namespace Guan
 			this.Cursor = Cursors.Default;
 		}
 
-		// Token: 0x0600019E RID: 414 RVA: 0x0000F6A4 File Offset: 0x0000D8A4
 		private bool IsInList(Point point)
 		{
 			if (point.X > this.LeftLinePosition && point.Y > 20 + this.startY)
@@ -839,7 +805,6 @@ namespace Guan
 			return false;
 		}
 
-		// Token: 0x0600019F RID: 415 RVA: 0x0000F848 File Offset: 0x0000DA48
 		private void ControlTimershaft_MouseDown(object sender, MouseEventArgs e)
 		{
 			Point location = e.Location;
@@ -933,7 +898,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001A0 RID: 416 RVA: 0x0000FB5F File Offset: 0x0000DD5F
 		private void ControlTimershaft_MouseUp(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)
@@ -946,7 +910,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001A1 RID: 417 RVA: 0x0000FB8C File Offset: 0x0000DD8C
 		private void hScrollBar1_ValueChanged(object sender, EventArgs e)
 		{
 			if (this.hScrollBar1.Enabled)
@@ -955,7 +918,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001A2 RID: 418 RVA: 0x0000FBA1 File Offset: 0x0000DDA1
 		private void vScrollBar1_ValueChanged(object sender, EventArgs e)
 		{
 			if (this.vScrollBar1.Enabled)
@@ -964,7 +926,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001A3 RID: 419 RVA: 0x0000FBB6 File Offset: 0x0000DDB6
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && this.components != null)
@@ -974,7 +935,6 @@ namespace Guan
 			base.Dispose(disposing);
 		}
 
-		// Token: 0x060001A4 RID: 420 RVA: 0x0000FBD8 File Offset: 0x0000DDD8
 		private void InitializeComponent()
 		{
 			this.hScrollBar1 = new HScrollBar();
@@ -1010,126 +970,82 @@ namespace Guan
 			base.ResumeLayout(false);
 		}
 
-		// Token: 0x04000101 RID: 257
 		private const int MinLeftLine = 50;
 
-		// Token: 0x04000102 RID: 258
 		private const int MaxLeftLine = 250;
 
-		// Token: 0x04000103 RID: 259
 		private const int TopLinePosition = 20;
 
-		// Token: 0x04000104 RID: 260
 		private const int FrameSpacing = 8;
 
-		// Token: 0x04000108 RID: 264
 		private ControlTimershaft.MovingStatus m_movingStatus;
 
-		// Token: 0x04000109 RID: 265
 		private ControlTimershaft.SelectElement m_selectBuff = default(ControlTimershaft.SelectElement);
 
-		// Token: 0x0400010A RID: 266
 		private ControlTimershaft.SelectElement m_selectStatus = default(ControlTimershaft.SelectElement);
 
-		// Token: 0x0400010B RID: 267
 		private ControlTimershaft.SelectElement m_selectRight = default(ControlTimershaft.SelectElement);
 
-		// Token: 0x0400010C RID: 268
 		private List<FrameCartoonElement> m_element = new List<FrameCartoonElement>();
 
-		// Token: 0x0400010D RID: 269
 		private Size ThisSize = default(Size);
 
-		// Token: 0x0400010E RID: 270
 		private int LeftLinePosition = 100;
 
-		// Token: 0x0400010F RID: 271
 		private int startX;
 
-		// Token: 0x04000110 RID: 272
 		private int startY;
 
-		// Token: 0x04000111 RID: 273
 		private int LeftSelectIndex = -1;
 
-		// Token: 0x04000112 RID: 274
 		private int RightTopSelectIndex = -1;
 
-		// Token: 0x04000113 RID: 275
 		private int RightTopSelectBuff = -1;
 
-		// Token: 0x04000114 RID: 276
 		private uint MaxFrameNum;
 
-		// Token: 0x04000115 RID: 277
 		private Font m_font = new Font("Arial", 12f, FontStyle.Regular);
 
-		// Token: 0x04000116 RID: 278
 		private Font m_fontNum = new Font("Arial", 9f, FontStyle.Regular);
 
-		// Token: 0x04000117 RID: 279
 		private ContextMenuStrip m_menuLeft = new ContextMenuStrip();
 
-		// Token: 0x04000118 RID: 280
 		private ContextMenuStrip m_menuRight = new ContextMenuStrip();
 
-		// Token: 0x04000119 RID: 281
 		private IContainer components;
 
-		// Token: 0x0400011A RID: 282
 		private HScrollBar hScrollBar1;
 
-		// Token: 0x0400011B RID: 283
 		private VScrollBar vScrollBar1;
 
-		// Token: 0x0200002C RID: 44
-		// (Invoke) Token: 0x060001A6 RID: 422
 		public delegate void SelectElementChanged(FrameCartoonType type, FrameCartoonProperty obj);
 
-		// Token: 0x0200002D RID: 45
-		// (Invoke) Token: 0x060001AA RID: 426
 		public delegate void SelectIndexChanged(int index);
 
-		// Token: 0x0200002E RID: 46
 		private enum MovingStatus
 		{
-			// Token: 0x0400011D RID: 285
 			NoMoving,
-			// Token: 0x0400011E RID: 286
 			Split,
-			// Token: 0x0400011F RID: 287
 			SizeChange,
-			// Token: 0x04000120 RID: 288
 			PositionChange,
-			// Token: 0x04000121 RID: 289
 			RightTop
 		}
 
-		// Token: 0x0200002F RID: 47
 		private struct SelectElement
 		{
-			// Token: 0x04000122 RID: 290
 			public int eleNum;
 
-			// Token: 0x04000123 RID: 291
 			public int proNum;
 
-			// Token: 0x04000124 RID: 292
 			public int index;
 
-			// Token: 0x04000125 RID: 293
 			public ControlTimershaft.SelectElement.status m_status;
 
-			// Token: 0x02000030 RID: 48
 			public enum status
 			{
-				// Token: 0x04000127 RID: 295
 				nostatus,
-				// Token: 0x04000128 RID: 296
 				select,
-				// Token: 0x04000129 RID: 297
 				left,
-				// Token: 0x0400012A RID: 298
 				right
 			}
 		}

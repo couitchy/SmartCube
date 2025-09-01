@@ -6,15 +6,10 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-	// Token: 0x02000029 RID: 41
 	public class ControlResIndex : UserControl
 	{
-		// Token: 0x14000008 RID: 8
-		// (add) Token: 0x0600015F RID: 351 RVA: 0x0000C7E4 File Offset: 0x0000A9E4
-		// (remove) Token: 0x06000160 RID: 352 RVA: 0x0000C81C File Offset: 0x0000AA1C
 		private event FormGuan.FileIsChanged m_fileIsChanged;
 
-		// Token: 0x06000161 RID: 353 RVA: 0x0000C854 File Offset: 0x0000AA54
 		public ControlResIndex(FrameIndexType type, ControlEdit edit, ResourceIndex res, FrameResource resList, FormGuan.FileIsChanged fileIsChanged)
 		{
 			this.InitializeComponent();
@@ -78,13 +73,11 @@ namespace Guan
 			this.RefListView();
 		}
 
-		// Token: 0x06000162 RID: 354 RVA: 0x0000CB46 File Offset: 0x0000AD46
 		private void m_combobox_LostFocus(object sender, EventArgs e)
 		{
 			this.HideControls();
 		}
 
-		// Token: 0x06000163 RID: 355 RVA: 0x0000CB50 File Offset: 0x0000AD50
 		private void RefListView()
 		{
 			this.listView1.BeginUpdate();
@@ -134,13 +127,11 @@ namespace Guan
 			this.listView1.EndUpdate();
 		}
 
-		// Token: 0x06000164 RID: 356 RVA: 0x0000CD72 File Offset: 0x0000AF72
 		private void m_buttonAdd_LostFocus(object sender, EventArgs e)
 		{
 			this.HideControls();
 		}
 
-		// Token: 0x06000165 RID: 357 RVA: 0x0000CD7C File Offset: 0x0000AF7C
 		private void m_buttonAdd_Click(object sender, EventArgs e)
 		{
 			if (this.elementSelectIndex >= 0 && this.m_res.m_element.Count < Config.MaxIndexElement)
@@ -155,19 +146,16 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000166 RID: 358 RVA: 0x0000CDEA File Offset: 0x0000AFEA
 		private void m_buttonSub_LostFocus(object sender, EventArgs e)
 		{
 			this.HideControls();
 		}
 
-		// Token: 0x06000167 RID: 359 RVA: 0x0000CDF2 File Offset: 0x0000AFF2
 		private void DeleteElement()
 		{
 			this.m_edit.ResourceIndexDelete(this.m_type, this.m_res);
 		}
 
-		// Token: 0x06000168 RID: 360 RVA: 0x0000CE0C File Offset: 0x0000B00C
 		private void m_buttonSub_Click(object sender, EventArgs e)
 		{
 			if (this.elementSelectIndex >= 0)
@@ -183,7 +171,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000169 RID: 361 RVA: 0x0000CE64 File Offset: 0x0000B064
 		private void GetTextboxValue()
 		{
 			if (this.m_type == FrameIndexType.number)
@@ -207,7 +194,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600016A RID: 362 RVA: 0x0000CF1C File Offset: 0x0000B11C
 		private void m_textbox_LostFocus(object sender, EventArgs e)
 		{
 			if (this.elementSelectIndex >= 0)
@@ -219,7 +205,6 @@ namespace Guan
 			this.HideControls();
 		}
 
-		// Token: 0x0600016B RID: 363 RVA: 0x0000CF9A File Offset: 0x0000B19A
 		private void m_textbox_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (ClassCalc.TextBoxKeyPress(-15, 15, (TextBox)sender, e))
@@ -228,7 +213,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600016C RID: 364 RVA: 0x0000CFB4 File Offset: 0x0000B1B4
 		private void m_combobox_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (this.elementSelectIndex >= 0)
@@ -243,7 +227,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600016D RID: 365 RVA: 0x0000D016 File Offset: 0x0000B216
 		public void ResourceRename(ResourceSingle res, string newName)
 		{
 			if (this.m_type == FrameIndexType.single)
@@ -252,7 +235,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600016E RID: 366 RVA: 0x0000D026 File Offset: 0x0000B226
 		public void ResourceRename(ResourceSolid res, string newName)
 		{
 			if (this.m_type == FrameIndexType.solid)
@@ -261,13 +243,11 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600016F RID: 367 RVA: 0x0000D037 File Offset: 0x0000B237
 		public void ResourceDelete()
 		{
 			this.RefListView();
 		}
 
-		// Token: 0x06000170 RID: 368 RVA: 0x0000D040 File Offset: 0x0000B240
 		private void ShowControls(Rectangle rect)
 		{
 			if (this.m_type == FrameIndexType.number)
@@ -331,7 +311,6 @@ namespace Guan
 			this.selectFlag = true;
 		}
 
-		// Token: 0x06000171 RID: 369 RVA: 0x0000D388 File Offset: 0x0000B588
 		private void HideControls()
 		{
 			if (this.m_type == FrameIndexType.number)
@@ -352,12 +331,10 @@ namespace Guan
 			this.selectFlag = false;
 		}
 
-		// Token: 0x06000172 RID: 370 RVA: 0x0000D43A File Offset: 0x0000B63A
 		private void listView1_Click(object sender, EventArgs e)
 		{
 		}
 
-		// Token: 0x06000173 RID: 371 RVA: 0x0000D43C File Offset: 0x0000B63C
 		private void listView1_DoubleClick(object sender, EventArgs e)
 		{
 			if (this.selectFlag)
@@ -384,7 +361,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000174 RID: 372 RVA: 0x0000D4C4 File Offset: 0x0000B6C4
 		private void buttonAddNew_Click(object sender, EventArgs e)
 		{
 			if (this.m_res.m_element.Count < Config.MaxIndexElement)
@@ -398,7 +374,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000175 RID: 373 RVA: 0x0000D517 File Offset: 0x0000B717
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && this.components != null)
@@ -408,7 +383,6 @@ namespace Guan
 			base.Dispose(disposing);
 		}
 
-		// Token: 0x06000176 RID: 374 RVA: 0x0000D538 File Offset: 0x0000B738
 		private void InitializeComponent()
 		{
 			this.listView1 = new ListView();
@@ -439,46 +413,32 @@ namespace Guan
 			base.ResumeLayout(false);
 		}
 
-		// Token: 0x040000EA RID: 234
 		private FrameIndexType m_type;
 
-		// Token: 0x040000EB RID: 235
 		private ResourceIndex m_res;
 
-		// Token: 0x040000EC RID: 236
 		private FrameResource m_resList;
 
-		// Token: 0x040000ED RID: 237
 		private ControlEdit m_edit;
 
-		// Token: 0x040000EF RID: 239
 		private Label m_label = new Label();
 
-		// Token: 0x040000F0 RID: 240
 		private TextBox m_textbox;
 
-		// Token: 0x040000F1 RID: 241
 		private ComboBox m_combobox;
 
-		// Token: 0x040000F2 RID: 242
 		private Button m_buttonAdd;
 
-		// Token: 0x040000F3 RID: 243
 		private Button m_buttonSub;
 
-		// Token: 0x040000F4 RID: 244
 		private int elementSelectIndex = -1;
 
-		// Token: 0x040000F5 RID: 245
 		private bool selectFlag;
 
-		// Token: 0x040000F6 RID: 246
 		private IContainer components;
 
-		// Token: 0x040000F7 RID: 247
 		private ListView listView1;
 
-		// Token: 0x040000F8 RID: 248
 		private Button buttonAddNew;
 	}
 }

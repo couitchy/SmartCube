@@ -4,15 +4,10 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-	// Token: 0x02000002 RID: 2
 	internal class CartoonTree
 	{
-		// Token: 0x14000001 RID: 1
-		// (add) Token: 0x06000001 RID: 1 RVA: 0x00002050 File Offset: 0x00000250
-		// (remove) Token: 0x06000002 RID: 2 RVA: 0x00002088 File Offset: 0x00000288
 		private event FormGuan.FileIsChanged m_fileIsChanged;
 
-		// Token: 0x06000003 RID: 3 RVA: 0x000020C0 File Offset: 0x000002C0
 		public CartoonTree(AllResource res, FrameControl control, TreeView tree, ControlEdit edit, FormGuan.FileIsChanged fileIsChanged)
 		{
 			this.m_res = res;
@@ -41,7 +36,6 @@ namespace Guan
 			this.m_menu.ItemClicked += this.m_menu_ItemClicked;
 		}
 
-		// Token: 0x06000004 RID: 4 RVA: 0x000022AC File Offset: 0x000004AC
 		private void m_tree_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.Control)
@@ -71,7 +65,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000005 RID: 5 RVA: 0x00002304 File Offset: 0x00000504
 		private void m_tree_DragOver(object sender, DragEventArgs e)
 		{
 			TreeView treeView = (TreeView)sender;
@@ -82,7 +75,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000006 RID: 6 RVA: 0x00002340 File Offset: 0x00000540
 		private void m_tree_ItemDrag(object sender, ItemDragEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)
@@ -91,7 +83,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000007 RID: 7 RVA: 0x00002364 File Offset: 0x00000564
 		private void m_tree_DragDrop(object sender, DragEventArgs e)
 		{
 			if (e.Data.GetDataPresent(typeof(TreeNode)))
@@ -179,7 +170,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000008 RID: 8 RVA: 0x00002754 File Offset: 0x00000954
 		private void m_tree_DragEnter(object sender, DragEventArgs e)
 		{
 			object data = e.Data.GetData(typeof(TreeNode));
@@ -191,7 +181,6 @@ namespace Guan
 			e.Effect = DragDropEffects.None;
 		}
 
-		// Token: 0x06000009 RID: 9 RVA: 0x0000278C File Offset: 0x0000098C
 		public void UpdateList()
 		{
 			this.m_tree.Nodes.Clear();
@@ -207,7 +196,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600000A RID: 10 RVA: 0x00002868 File Offset: 0x00000A68
 		private void m_tree_DoubleClick(object sender, EventArgs e)
 		{
 			TreeNode selectedNode = this.m_tree.SelectedNode;
@@ -228,7 +216,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600000B RID: 11 RVA: 0x0000292C File Offset: 0x00000B2C
 		private void m_menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
 			if (e.ClickedItem.Equals(this.m_menu.Items[0]))
@@ -375,7 +362,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600000C RID: 12 RVA: 0x00002E84 File Offset: 0x00001084
 		private void DebugList()
 		{
 			TreeNode selectedNode = this.m_tree.SelectedNode;
@@ -406,7 +392,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600000D RID: 13 RVA: 0x00002F5C File Offset: 0x0000115C
 		private void UpList()
 		{
 			TreeNode treeNode = this.m_tree.SelectedNode;
@@ -453,7 +438,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600000E RID: 14 RVA: 0x00003148 File Offset: 0x00001348
 		private void DownList()
 		{
 			TreeNode treeNode = this.m_tree.SelectedNode;
@@ -500,7 +484,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600000F RID: 15 RVA: 0x00003370 File Offset: 0x00001570
 		private void Copy()
 		{
 			TreeNode selectedNode = this.m_tree.SelectedNode;
@@ -529,7 +512,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000010 RID: 16 RVA: 0x00003430 File Offset: 0x00001630
 		private void Paste()
 		{
 			object obj = Clipboard.GetData(Config.ControlCopyString);
@@ -572,7 +554,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000011 RID: 17 RVA: 0x00003584 File Offset: 0x00001784
 		private void m_tree_MouseDown(object sender, MouseEventArgs e)
 		{
 			TreeNode nodeAt = this.m_tree.GetNodeAt(e.X, e.Y);
@@ -602,19 +583,14 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x04000001 RID: 1
 		private FrameControl m_control;
 
-		// Token: 0x04000002 RID: 2
 		private TreeView m_tree;
 
-		// Token: 0x04000003 RID: 3
 		private ControlEdit m_edit;
 
-		// Token: 0x04000005 RID: 5
 		private ContextMenuStrip m_menu = new ContextMenuStrip();
 
-		// Token: 0x04000006 RID: 6
 		private AllResource m_res;
 	}
 }

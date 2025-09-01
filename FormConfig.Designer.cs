@@ -1,9 +1,7 @@
 ﻿namespace Guan
 {
-	// Token: 0x02000034 RID: 52
 	public partial class FormConfig : global::Guan.Forms
 	{
-		// Token: 0x060001CB RID: 459 RVA: 0x00010F1C File Offset: 0x0000F11C
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && this.components != null)
@@ -13,7 +11,6 @@
 			base.Dispose(disposing);
 		}
 
-		// Token: 0x060001CC RID: 460 RVA: 0x00010F3C File Offset: 0x0000F13C
 		private void InitializeComponent()
 		{
 			this.label1 = new global::System.Windows.Forms.Label();
@@ -88,28 +85,20 @@
 			base.PerformLayout();
 		}
 
-		// Token: 0x0400014C RID: 332
 		private global::System.ComponentModel.IContainer components;
 
-		// Token: 0x0400014D RID: 333
 		private global::System.Windows.Forms.Label label1;
 
-		// Token: 0x0400014E RID: 334
 		private global::System.Windows.Forms.TextBox textBoxConfig;
 
-		// Token: 0x0400014F RID: 335
 		private global::System.Windows.Forms.Label label2;
 
-		// Token: 0x04000150 RID: 336
 		private global::System.Windows.Forms.Label label3;
 
-		// Token: 0x04000151 RID: 337
 		private global::System.Windows.Forms.ComboBox comboBoxSpeed;
 
-		// Token: 0x04000152 RID: 338
 		private global::System.Windows.Forms.CheckBox checkBoxKey;
 
-		// Token: 0x04000153 RID: 339
 		private global::System.Windows.Forms.CheckBox checkBoxAD;
 	}
 }

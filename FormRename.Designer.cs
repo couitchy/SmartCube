@@ -1,9 +1,7 @@
 ﻿namespace Guan
 {
-	// Token: 0x02000039 RID: 57
 	public partial class FormRename : global::Guan.Forms
 	{
-		// Token: 0x060001F0 RID: 496 RVA: 0x00013373 File Offset: 0x00011573
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && this.components != null)
@@ -13,7 +11,6 @@
 			base.Dispose(disposing);
 		}
 
-		// Token: 0x060001F1 RID: 497 RVA: 0x00013394 File Offset: 0x00011594
 		private void InitializeComponent()
 		{
 			new global::System.ComponentModel.ComponentResourceManager(typeof(global::Guan.FormRename));
@@ -54,16 +51,12 @@
 			base.PerformLayout();
 		}
 
-		// Token: 0x04000184 RID: 388
 		private global::System.ComponentModel.IContainer components;
 
-		// Token: 0x04000185 RID: 389
 		private global::System.Windows.Forms.TextBox textBox1;
 
-		// Token: 0x04000186 RID: 390
 		private global::System.Windows.Forms.Label label1;
 
-		// Token: 0x04000187 RID: 391
 		private global::System.Windows.Forms.Button buttonOK;
 	}
 }

@@ -3,15 +3,10 @@ using System.Collections.Generic;
 
 namespace Guan
 {
-	// Token: 0x02000006 RID: 6
 	internal class ClassLanguage
 	{
-		// Token: 0x14000002 RID: 2
-		// (add) Token: 0x0600003A RID: 58 RVA: 0x000067B0 File Offset: 0x000049B0
-		// (remove) Token: 0x0600003B RID: 59 RVA: 0x000067E4 File Offset: 0x000049E4
 		public static event ClassLanguage.LanguageIsChanged LanguageEvent;
 
-		// Token: 0x0600003C RID: 60 RVA: 0x00006817 File Offset: 0x00004A17
 		public static void SetLanguage(ClassLanguage.LanguageType lType)
 		{
 			if (ClassLanguage.m_isFirstSet || ClassLanguage.m_language != lType)
@@ -25,7 +20,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600003D RID: 61 RVA: 0x00006848 File Offset: 0x00004A48
 		public static void InitDictionary()
 		{
 			ClassLanguage.m_dictionary.Add("Config_Title", new string[] { "光立方数据生成软件", "", "" });
@@ -101,7 +95,6 @@ namespace Guan
 			ClassLanguage.m_dictionary.Add("Shaft_F_Bright", new string[] { "亮度操作", "", "" });
 		}
 
-		// Token: 0x0600003E RID: 62 RVA: 0x0000767C File Offset: 0x0000587C
 		public static string GetString(string name)
 		{
 			string[] array;
@@ -112,31 +105,21 @@ namespace Guan
 			return "";
 		}
 
-		// Token: 0x0400000B RID: 11
 		private const int maxLanguage = 3;
 
-		// Token: 0x0400000D RID: 13
 		private static ClassLanguage.LanguageType m_language = ClassLanguage.LanguageType.Simplified;
 
-		// Token: 0x0400000E RID: 14
 		private static bool m_isFirstSet = true;
 
-		// Token: 0x0400000F RID: 15
 		private static Dictionary<string, string[]> m_dictionary = new Dictionary<string, string[]>();
 
-		// Token: 0x02000007 RID: 7
 		public enum LanguageType
 		{
-			// Token: 0x04000011 RID: 17
 			Simplified,
-			// Token: 0x04000012 RID: 18
 			Traditional,
-			// Token: 0x04000013 RID: 19
 			English
 		}
 
-		// Token: 0x02000008 RID: 8
-		// (Invoke) Token: 0x06000041 RID: 65
 		public delegate void LanguageIsChanged();
 	}
 }

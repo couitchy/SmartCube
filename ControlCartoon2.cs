@@ -5,15 +5,10 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-	// Token: 0x0200000D RID: 13
 	public class ControlCartoon2 : UserControl
 	{
-		// Token: 0x14000005 RID: 5
-		// (add) Token: 0x06000083 RID: 131 RVA: 0x00008524 File Offset: 0x00006724
-		// (remove) Token: 0x06000084 RID: 132 RVA: 0x0000855C File Offset: 0x0000675C
 		private event FormGuan.FileIsChanged m_fileIsChanged;
 
-		// Token: 0x06000085 RID: 133 RVA: 0x00008594 File Offset: 0x00006794
 		public ControlCartoon2(FrameCartoonGroup group, FrameResource res, FrameIndex resIndex, DX9 dx, FormGuan.FileIsChanged fileIsChanged)
 		{
 			this.InitializeComponent();
@@ -44,7 +39,6 @@ namespace Guan
 			this.m_timershaft.m_indexChanged += this.m_timershaft_m_indexChanged;
 		}
 
-		// Token: 0x06000086 RID: 134 RVA: 0x00008788 File Offset: 0x00006988
 		private void GetLoopValue()
 		{
 			try
@@ -65,13 +59,11 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000087 RID: 135 RVA: 0x00008804 File Offset: 0x00006A04
 		private void textBoxCount_LostFocus(object sender, EventArgs e)
 		{
 			this.GetLoopValue();
 		}
 
-		// Token: 0x06000088 RID: 136 RVA: 0x0000880C File Offset: 0x00006A0C
 		private void textBoxCount_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (ClassCalc.TextBoxKeyPress(0, 1000, this.textBoxCount, e))
@@ -80,13 +72,11 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000089 RID: 137 RVA: 0x00008828 File Offset: 0x00006A28
 		private void m_timershaft_m_indexChanged(int index)
 		{
 			ClassCalc.SingleFrameToDX(this.m_group, this.m_res, this.m_resIndex, index, this.m_dx);
 		}
 
-		// Token: 0x0600008A RID: 138 RVA: 0x00008848 File Offset: 0x00006A48
 		private void m_timershaft_m_elementChanged(FrameCartoonType type, FrameCartoonProperty obj)
 		{
 			if (obj != null)
@@ -97,7 +87,6 @@ namespace Guan
 			this.m_Property.HideStatus();
 		}
 
-		// Token: 0x0600008B RID: 139 RVA: 0x00008868 File Offset: 0x00006A68
 		private void checkBoxClean_CheckedChanged(object sender, EventArgs e)
 		{
 			if (this.m_group.cleanDisplay != this.checkBoxClean.Checked)
@@ -110,13 +99,11 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600008C RID: 140 RVA: 0x000088B7 File Offset: 0x00006AB7
 		private void textBoxDelay_LostFocus(object sender, EventArgs e)
 		{
 			this.UpdateDelay();
 		}
 
-		// Token: 0x0600008D RID: 141 RVA: 0x000088BF File Offset: 0x00006ABF
 		private void textBoxDelay_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (ClassCalc.TextBoxKeyPress(5, 5000, this.textBoxDelay, e))
@@ -125,7 +112,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600008E RID: 142 RVA: 0x000088DC File Offset: 0x00006ADC
 		private void UpdateDelay()
 		{
 			try
@@ -146,13 +132,11 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600008F RID: 143 RVA: 0x00008958 File Offset: 0x00006B58
 		private void textBoxFrameCount_LostFocus(object sender, EventArgs e)
 		{
 			this.UpdateCount();
 		}
 
-		// Token: 0x06000090 RID: 144 RVA: 0x00008960 File Offset: 0x00006B60
 		private void UpdateCount()
 		{
 			try
@@ -174,7 +158,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000091 RID: 145 RVA: 0x000089F4 File Offset: 0x00006BF4
 		private void textBoxFrameCount_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (ClassCalc.TextBoxKeyPress(0, 5000, this.textBoxFrameCount, e))
@@ -183,13 +166,11 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000092 RID: 146 RVA: 0x00008A10 File Offset: 0x00006C10
 		public void ResourceRename()
 		{
 			this.m_Property.ResourceUpdate();
 		}
 
-		// Token: 0x06000093 RID: 147 RVA: 0x00008A1D File Offset: 0x00006C1D
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && this.components != null)
@@ -199,7 +180,6 @@ namespace Guan
 			base.Dispose(disposing);
 		}
 
-		// Token: 0x06000094 RID: 148 RVA: 0x00008A3C File Offset: 0x00006C3C
 		private void InitializeComponent()
 		{
 			this.labelFrameCount = new Label();
@@ -291,52 +271,36 @@ namespace Guan
 			base.PerformLayout();
 		}
 
-		// Token: 0x04000036 RID: 54
 		private FrameCartoonGroup m_group;
 
-		// Token: 0x04000037 RID: 55
 		private FrameResource m_res;
 
-		// Token: 0x04000038 RID: 56
 		private FrameIndex m_resIndex;
 
-		// Token: 0x04000039 RID: 57
 		private DX9 m_dx;
 
-		// Token: 0x0400003B RID: 59
 		private ControlProperty m_Property;
 
-		// Token: 0x0400003C RID: 60
 		private IContainer components;
 
-		// Token: 0x0400003D RID: 61
 		private ControlTimershaft m_timershaft;
 
-		// Token: 0x0400003E RID: 62
 		private Label labelFrameCount;
 
-		// Token: 0x0400003F RID: 63
 		private TextBox textBoxFrameCount;
 
-		// Token: 0x04000040 RID: 64
 		private Label labelFrameInterval;
 
-		// Token: 0x04000041 RID: 65
 		private TextBox textBoxDelay;
 
-		// Token: 0x04000042 RID: 66
 		private CheckBox checkBoxClean;
 
-		// Token: 0x04000043 RID: 67
 		private Panel panelPro;
 
-		// Token: 0x04000044 RID: 68
 		private TextBox textBoxCount;
 
-		// Token: 0x04000045 RID: 69
 		private Label labelLoopCount;
 
-		// Token: 0x04000046 RID: 70
 		private Label label4;
 	}
 }

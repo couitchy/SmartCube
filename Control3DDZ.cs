@@ -5,15 +5,10 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-	// Token: 0x0200000B RID: 11
 	public class Control3DDZ : UserControl
 	{
-		// Token: 0x14000003 RID: 3
-		// (add) Token: 0x06000066 RID: 102 RVA: 0x000077A0 File Offset: 0x000059A0
-		// (remove) Token: 0x06000067 RID: 103 RVA: 0x000077D8 File Offset: 0x000059D8
 		private event FormGuan.FileIsChanged m_fileIsChanged;
 
-		// Token: 0x06000068 RID: 104 RVA: 0x00007810 File Offset: 0x00005A10
 		public Control3DDZ(DX9 dx, ControlEdit parent, ControlEdit.ListClass list, FormGuan.FileIsChanged fileIsChanged)
 		{
 			this.InitializeComponent();
@@ -25,13 +20,11 @@ namespace Guan
 			this.HideControl();
 		}
 
-		// Token: 0x06000069 RID: 105 RVA: 0x00007882 File Offset: 0x00005A82
 		private void Control3DDZ_Paint(object sender, PaintEventArgs e)
 		{
 			this.UpdateDX();
 		}
 
-		// Token: 0x0600006A RID: 106 RVA: 0x0000788C File Offset: 0x00005A8C
 		public void ShowControl(ResourceSolid res)
 		{
 			this.m_res = res;
@@ -51,7 +44,6 @@ namespace Guan
 			base.Visible = true;
 		}
 
-		// Token: 0x0600006B RID: 107 RVA: 0x000079BD File Offset: 0x00005BBD
 		public void UpdateDX()
 		{
 			ClassCalc.Buffer3DToDX(this.datBuff64, this.m_dx);
@@ -59,7 +51,6 @@ namespace Guan
 			this.m_dx.OnPaint();
 		}
 
-		// Token: 0x0600006C RID: 108 RVA: 0x000079E8 File Offset: 0x00005BE8
 		private void m_dzFont_m_wheel(int value)
 		{
 			int num = this.vScrollBarFont.Value - value / 100;
@@ -74,7 +65,6 @@ namespace Guan
 			this.vScrollBarFont.Value = num;
 		}
 
-		// Token: 0x0600006D RID: 109 RVA: 0x00007A20 File Offset: 0x00005C20
 		private void m_dzLeft_m_wheel(int value)
 		{
 			int num = this.vScrollBarLeft.Value - value / 100;
@@ -89,7 +79,6 @@ namespace Guan
 			this.vScrollBarLeft.Value = num;
 		}
 
-		// Token: 0x0600006E RID: 110 RVA: 0x00007A58 File Offset: 0x00005C58
 		private void m_dzTop_m_wheel(int value)
 		{
 			int num = this.vScrollBarTop.Value - value / 100;
@@ -104,7 +93,6 @@ namespace Guan
 			this.vScrollBarTop.Value = num;
 		}
 
-		// Token: 0x0600006F RID: 111 RVA: 0x00007A90 File Offset: 0x00005C90
 		private void m_dzLeft_m_dataChanged()
 		{
 			ClassCalc.BufferSingleToBuffer3D(this.datBuff64, this.datBuffLeft, this.leftIndex, FrameView.left);
@@ -118,7 +106,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000070 RID: 112 RVA: 0x00007AFC File Offset: 0x00005CFC
 		private void m_dzTop_m_dataChanged()
 		{
 			ClassCalc.BufferSingleToBuffer3D(this.datBuff64, this.datBuffTop, this.topIndex, FrameView.top);
@@ -132,7 +119,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000071 RID: 113 RVA: 0x00007B68 File Offset: 0x00005D68
 		private void m_dzFont_m_dataChanged()
 		{
 			ClassCalc.BufferSingleToBuffer3D(this.datBuff64, this.datBuffFont, this.fontIndex, FrameView.font);
@@ -146,35 +132,30 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000072 RID: 114 RVA: 0x00007BD1 File Offset: 0x00005DD1
 		public void HideControl()
 		{
 			base.Visible = false;
 			this.datBuff64 = null;
 		}
 
-		// Token: 0x06000073 RID: 115 RVA: 0x00007BE1 File Offset: 0x00005DE1
 		private void UpdateFont()
 		{
 			ClassCalc.Buffer3DToBufferSingle(this.datBuff64, this.datBuffFont, this.fontIndex, FrameView.font);
 			this.m_dzFont.OnPaint();
 		}
 
-		// Token: 0x06000074 RID: 116 RVA: 0x00007C06 File Offset: 0x00005E06
 		private void UpdateTop()
 		{
 			ClassCalc.Buffer3DToBufferSingle(this.datBuff64, this.datBuffTop, this.topIndex, FrameView.top);
 			this.m_dzTop.OnPaint();
 		}
 
-		// Token: 0x06000075 RID: 117 RVA: 0x00007C2B File Offset: 0x00005E2B
 		private void UpdateLeft()
 		{
 			ClassCalc.Buffer3DToBufferSingle(this.datBuff64, this.datBuffLeft, this.leftIndex, FrameView.left);
 			this.m_dzLeft.OnPaint();
 		}
 
-		// Token: 0x06000076 RID: 118 RVA: 0x00007C50 File Offset: 0x00005E50
 		private void vScrollBarFont_ValueChanged(object sender, EventArgs e)
 		{
 			this.fontIndex = this.vScrollBarFont.Value;
@@ -182,7 +163,6 @@ namespace Guan
 			this.UpdateFont();
 		}
 
-		// Token: 0x06000077 RID: 119 RVA: 0x00007C8B File Offset: 0x00005E8B
 		private void vScrollBarTop_ValueChanged(object sender, EventArgs e)
 		{
 			this.topIndex = this.vScrollBarTop.Value;
@@ -190,7 +170,6 @@ namespace Guan
 			this.UpdateTop();
 		}
 
-		// Token: 0x06000078 RID: 120 RVA: 0x00007CC6 File Offset: 0x00005EC6
 		private void vScrollBarLeft_ValueChanged(object sender, EventArgs e)
 		{
 			this.leftIndex = this.vScrollBarLeft.Value;
@@ -198,7 +177,6 @@ namespace Guan
 			this.UpdateLeft();
 		}
 
-		// Token: 0x06000079 RID: 121 RVA: 0x00007D01 File Offset: 0x00005F01
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && this.components != null)
@@ -208,7 +186,6 @@ namespace Guan
 			base.Dispose(disposing);
 		}
 
-		// Token: 0x0600007A RID: 122 RVA: 0x00007D20 File Offset: 0x00005F20
 		private void InitializeComponent()
 		{
 			this.vScrollBarFont = new VScrollBar();
@@ -295,67 +272,46 @@ namespace Guan
 			base.PerformLayout();
 		}
 
-		// Token: 0x0400001B RID: 27
 		private DX9 m_dx;
 
-		// Token: 0x0400001C RID: 28
 		private ResourceSolid m_res;
 
-		// Token: 0x0400001D RID: 29
 		private ControlEdit m_parent;
 
-		// Token: 0x0400001E RID: 30
 		private ControlEdit.ListClass m_list;
 
-		// Token: 0x04000020 RID: 32
 		private byte[] datBuff64;
 
-		// Token: 0x04000021 RID: 33
 		private byte[] datBuffFont = new byte[8];
 
-		// Token: 0x04000022 RID: 34
 		private byte[] datBuffTop = new byte[8];
 
-		// Token: 0x04000023 RID: 35
 		private byte[] datBuffLeft = new byte[8];
 
-		// Token: 0x04000024 RID: 36
 		private int fontIndex;
 
-		// Token: 0x04000025 RID: 37
 		private int topIndex;
 
-		// Token: 0x04000026 RID: 38
 		private int leftIndex;
 
-		// Token: 0x04000027 RID: 39
 		private IContainer components;
 
-		// Token: 0x04000028 RID: 40
 		private ControlDZElement m_dzFont;
 
-		// Token: 0x04000029 RID: 41
 		private ControlDZElement m_dzTop;
 
-		// Token: 0x0400002A RID: 42
 		private ControlDZElement m_dzLeft;
 
-		// Token: 0x0400002B RID: 43
 		private VScrollBar vScrollBarFont;
 
-		// Token: 0x0400002C RID: 44
 		private VScrollBar vScrollBarTop;
 
-		// Token: 0x0400002D RID: 45
 		private VScrollBar vScrollBarLeft;
 
-		// Token: 0x0400002E RID: 46
 		private Label labelFont;
 
-		// Token: 0x0400002F RID: 47
 		private Label labelTop;
 
-		// Token: 0x04000030 RID: 48
 		private Label labelLeft;
 	}
 }

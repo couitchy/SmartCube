@@ -7,17 +7,14 @@ using Guan.Properties;
 
 namespace Guan
 {
-	// Token: 0x02000004 RID: 4
 	internal class ClassHex
 	{
-		// Token: 0x0600002B RID: 43 RVA: 0x00005198 File Offset: 0x00003398
 		public ClassHex(AllResourceHead head, AllResource res)
 		{
 			this.m_head = head;
 			this.m_res = res;
 		}
 
-		// Token: 0x0600002C RID: 44 RVA: 0x000051B0 File Offset: 0x000033B0
 		public bool IsChangeOK(bool outputCFile, out string info)
 		{
 			info = "";
@@ -302,7 +299,6 @@ namespace Guan
 			return true;
 		}
 
-		// Token: 0x0600002D RID: 45 RVA: 0x00005F88 File Offset: 0x00004188
 		private bool OutputCFile(ClassHex.listByte head, ClassHex.listByte singleRes, ClassHex.listByte solidRes, ClassHex.listByte singleIndex, ClassHex.listByte solidIndex, ClassHex.listByte numberIndex, ClassHex.listByte control)
 		{
 			try
@@ -419,7 +415,6 @@ namespace Guan
 			return false;
 		}
 
-		// Token: 0x0600002E RID: 46 RVA: 0x00006468 File Offset: 0x00004668
 		private string WriteBlack(uint dat)
 		{
 			ushort num = (ushort)(dat >> 16);
@@ -429,7 +424,6 @@ namespace Guan
 			return text + string.Format("{0:X4}{1:X2}\r\n", num, b);
 		}
 
-		// Token: 0x0600002F RID: 47 RVA: 0x000064B0 File Offset: 0x000046B0
 		private bool OutputHexFile(ClassHex.listByte dat)
 		{
 			uint outputLenMax = Config.outputLenMax;
@@ -489,34 +483,27 @@ namespace Guan
 			return true;
 		}
 
-		// Token: 0x04000007 RID: 7
 		private AllResource m_res;
 
-		// Token: 0x04000008 RID: 8
 		private AllResourceHead m_head;
 
-		// Token: 0x02000005 RID: 5
 		private class listByte
 		{
-			// Token: 0x06000030 RID: 48 RVA: 0x00006678 File Offset: 0x00004878
 			public listByte()
 			{
 				this.Clear();
 			}
 
-			// Token: 0x06000031 RID: 49 RVA: 0x00006691 File Offset: 0x00004891
 			public void Clear()
 			{
 				this.m_list.Clear();
 			}
 
-			// Token: 0x06000032 RID: 50 RVA: 0x0000669E File Offset: 0x0000489E
 			public int GetLenth()
 			{
 				return this.m_list.Count;
 			}
 
-			// Token: 0x06000033 RID: 51 RVA: 0x000066AC File Offset: 0x000048AC
 			public void GetData(ClassHex.listByte buff)
 			{
 				foreach (byte b in buff.m_list)
@@ -525,7 +512,6 @@ namespace Guan
 				}
 			}
 
-			// Token: 0x06000034 RID: 52 RVA: 0x00006700 File Offset: 0x00004900
 			public void GetData(byte[] buff)
 			{
 				foreach (byte b in buff)
@@ -534,20 +520,17 @@ namespace Guan
 				}
 			}
 
-			// Token: 0x06000035 RID: 53 RVA: 0x00006728 File Offset: 0x00004928
 			public void GetData(byte buff)
 			{
 				this.m_list.Add(buff);
 			}
 
-			// Token: 0x06000036 RID: 54 RVA: 0x00006736 File Offset: 0x00004936
 			public void GetData(ushort buff)
 			{
 				this.m_list.Add((byte)(buff >> 8));
 				this.m_list.Add((byte)buff);
 			}
 
-			// Token: 0x06000037 RID: 55 RVA: 0x00006754 File Offset: 0x00004954
 			public void GetData(uint buff)
 			{
 				this.m_list.Add((byte)(buff >> 24));
@@ -556,16 +539,13 @@ namespace Guan
 				this.m_list.Add((byte)buff);
 			}
 
-			// Token: 0x06000038 RID: 56 RVA: 0x00006792 File Offset: 0x00004992
 			public void GetData(bool flag)
 			{
 				this.m_list.Add((byte)(flag ? 1 : 0));
 			}
 
-			// Token: 0x04000009 RID: 9
 			private const bool IsBigEnding = true;
 
-			// Token: 0x0400000A RID: 10
 			public List<byte> m_list = new List<byte>();
 		}
 	}

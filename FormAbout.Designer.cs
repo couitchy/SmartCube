@@ -1,9 +1,7 @@
 ﻿namespace Guan
 {
-	// Token: 0x02000033 RID: 51
 	public partial class FormAbout : global::Guan.Forms
 	{
-		// Token: 0x060001C2 RID: 450 RVA: 0x000107E8 File Offset: 0x0000E9E8
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && this.components != null)
@@ -13,7 +11,6 @@
 			base.Dispose(disposing);
 		}
 
-		// Token: 0x060001C3 RID: 451 RVA: 0x00010808 File Offset: 0x0000EA08
 		private void InitializeComponent()
 		{
 			this.label4 = new global::System.Windows.Forms.Label();
@@ -78,22 +75,16 @@
 			base.PerformLayout();
 		}
 
-		// Token: 0x04000140 RID: 320
 		private global::System.ComponentModel.IContainer components;
 
-		// Token: 0x04000141 RID: 321
 		private global::System.Windows.Forms.Label label4;
 
-		// Token: 0x04000142 RID: 322
 		private global::System.Windows.Forms.Label label3;
 
-		// Token: 0x04000143 RID: 323
 		private global::System.Windows.Forms.Label label2;
 
-		// Token: 0x04000144 RID: 324
 		private global::System.Windows.Forms.LinkLabel linkLabel1;
 
-		// Token: 0x04000145 RID: 325
 		private global::System.Windows.Forms.LinkLabel linkLabel2;
 	}
 }

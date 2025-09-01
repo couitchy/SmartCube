@@ -3,15 +3,10 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-	// Token: 0x0200003A RID: 58
 	internal class IndexTree1
 	{
-		// Token: 0x1400000F RID: 15
-		// (add) Token: 0x060001F2 RID: 498 RVA: 0x000135A4 File Offset: 0x000117A4
-		// (remove) Token: 0x060001F3 RID: 499 RVA: 0x000135DC File Offset: 0x000117DC
 		private event FormGuan.FileIsChanged m_fileIsChanged;
 
-		// Token: 0x060001F4 RID: 500 RVA: 0x00013614 File Offset: 0x00011814
 		public IndexTree1(FrameIndex res, TreeView tree, ControlEdit edit, FormGuan.FileIsChanged fileIsChanged)
 		{
 			this.m_res = res;
@@ -32,7 +27,6 @@ namespace Guan
 			this.m_menu.ItemClicked += this.m_menu_ItemClicked;
 		}
 
-		// Token: 0x060001F5 RID: 501 RVA: 0x0001375B File Offset: 0x0001195B
 		private void m_tree_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.Control)
@@ -49,7 +43,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001F6 RID: 502 RVA: 0x00013788 File Offset: 0x00011988
 		public void UpdateList()
 		{
 			this.m_tree.Nodes[0].Nodes.Clear();
@@ -69,7 +62,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001F7 RID: 503 RVA: 0x000138D0 File Offset: 0x00011AD0
 		private void m_tree_DoubleClick(object sender, EventArgs e)
 		{
 			TreeNode selectedNode = this.m_tree.SelectedNode;
@@ -89,7 +81,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001F8 RID: 504 RVA: 0x00013958 File Offset: 0x00011B58
 		private void NodeAdd(ResourceIndex res, FrameIndexType thisType)
 		{
 			switch (thisType)
@@ -111,7 +102,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001F9 RID: 505 RVA: 0x00013A18 File Offset: 0x00011C18
 		private void Fun_Add()
 		{
 			TreeNode selectedNode = this.m_tree.SelectedNode;
@@ -184,7 +174,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001FA RID: 506 RVA: 0x00013B94 File Offset: 0x00011D94
 		private void Fun_Rename()
 		{
 			TreeNode selectedNode = this.m_tree.SelectedNode;
@@ -229,7 +218,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001FB RID: 507 RVA: 0x00013CA0 File Offset: 0x00011EA0
 		private void Fun_Delete()
 		{
 			TreeNode selectedNode = this.m_tree.SelectedNode;
@@ -277,7 +265,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001FC RID: 508 RVA: 0x00013E10 File Offset: 0x00012010
 		private void Copy()
 		{
 			TreeNode selectedNode = this.m_tree.SelectedNode;
@@ -322,7 +309,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001FD RID: 509 RVA: 0x00013EF0 File Offset: 0x000120F0
 		private void Paste()
 		{
 			try
@@ -448,7 +434,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001FE RID: 510 RVA: 0x00014278 File Offset: 0x00012478
 		private void m_menu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
 		{
 			this.m_menu.Hide();
@@ -478,7 +463,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x060001FF RID: 511 RVA: 0x00014348 File Offset: 0x00012548
 		private void m_tree_MouseDown(object sender, MouseEventArgs e)
 		{
 			TreeNode nodeAt = this.m_tree.GetNodeAt(e.X, e.Y);
@@ -507,16 +491,12 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x04000188 RID: 392
 		private FrameIndex m_res;
 
-		// Token: 0x04000189 RID: 393
 		private TreeView m_tree;
 
-		// Token: 0x0400018A RID: 394
 		private ControlEdit m_edit;
 
-		// Token: 0x0400018C RID: 396
 		private ContextMenuStrip m_menu = new ContextMenuStrip();
 	}
 }

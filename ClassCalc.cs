@@ -3,10 +3,8 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-	// Token: 0x02000003 RID: 3
 	internal class ClassCalc
 	{
-		// Token: 0x06000012 RID: 18 RVA: 0x0000370C File Offset: 0x0000190C
 		public static void BufferSingleRote90(byte[] buff)
 		{
 			byte[] array = new byte[8];
@@ -34,7 +32,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000013 RID: 19 RVA: 0x000037A0 File Offset: 0x000019A0
 		public static void BufferSingleRote180(byte[] buff)
 		{
 			byte[] array = new byte[8];
@@ -62,7 +59,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000014 RID: 20 RVA: 0x00003838 File Offset: 0x00001A38
 		public static void BufferSingleRote270(byte[] buff)
 		{
 			byte[] array = new byte[8];
@@ -90,7 +86,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000015 RID: 21 RVA: 0x000038CC File Offset: 0x00001ACC
 		public static void BufferAboutMirror(byte[] buff)
 		{
 			byte[] array = new byte[8];
@@ -116,7 +111,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000016 RID: 22 RVA: 0x00003950 File Offset: 0x00001B50
 		public static void BufferUpdownMirror(byte[] buff)
 		{
 			byte[] array = new byte[8];
@@ -130,7 +124,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000017 RID: 23 RVA: 0x00003994 File Offset: 0x00001B94
 		public static void BufferSolidRote90(byte[] buff)
 		{
 			byte[] array = new byte[64];
@@ -161,7 +154,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000018 RID: 24 RVA: 0x00003A4C File Offset: 0x00001C4C
 		public static void BufferSolidRote180(byte[] buff)
 		{
 			byte[] array = new byte[64];
@@ -192,7 +184,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000019 RID: 25 RVA: 0x00003B0C File Offset: 0x00001D0C
 		public static void BufferSolidRote270(byte[] buff)
 		{
 			byte[] array = new byte[64];
@@ -223,7 +214,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600001A RID: 26 RVA: 0x00003BC4 File Offset: 0x00001DC4
 		public static void BufferSolidAboutMirror(byte[] buff)
 		{
 			byte[] array = new byte[64];
@@ -252,7 +242,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600001B RID: 27 RVA: 0x00003C64 File Offset: 0x00001E64
 		public static void BufferSolidUpdownMirror(byte[] buff)
 		{
 			byte[] array = new byte[64];
@@ -269,7 +258,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600001C RID: 28 RVA: 0x00003CB8 File Offset: 0x00001EB8
 		public static void Buffer3DToBufferSingle(byte[] buff3D, byte[] buffSingle, int index, FrameView view)
 		{
 			for (int i = 0; i < buffSingle.Length; i++)
@@ -328,7 +316,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600001D RID: 29 RVA: 0x00003DF0 File Offset: 0x00001FF0
 		public static void BufferSingleToBuffer3D(byte[] buff3D, byte[] buffSingle, int index, FrameView view)
 		{
 			switch (view)
@@ -398,7 +385,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600001E RID: 30 RVA: 0x00003F88 File Offset: 0x00002188
 		public static void Buffer3DToDX(byte[] buffSingle, DX9 dx)
 		{
 			for (int i = 0; i < 8; i++)
@@ -420,7 +406,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x0600001F RID: 31 RVA: 0x00003FE4 File Offset: 0x000021E4
 		public static void BufferSingleToDX(byte[] buff, DX9 dx, int index, FrameView view, PaintMode mode)
 		{
 			switch (view)
@@ -493,7 +478,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000020 RID: 32 RVA: 0x0000411C File Offset: 0x0000231C
 		public static void PointToBuffer3D(byte[] buff3D, int x, int y, int z, FrameView view, PaintMode mode)
 		{
 			if (x >= 0 && x < 8 && y >= 0 && y < 8 && z >= 0 && z < 8)
@@ -563,7 +547,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000021 RID: 33 RVA: 0x000042EC File Offset: 0x000024EC
 		public static void LineToBuffer3D(byte[] buff3D, int x1, int y1, int z1, int x2, int y2, int z2, FrameView view, PaintMode mode)
 		{
 			try
@@ -649,7 +632,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000022 RID: 34 RVA: 0x000044B8 File Offset: 0x000026B8
 		public static void PannelToBuffer3D(byte[] buff3D, byte[] buffSingle, int x, int y, int z, FrameView view, PaintFun fun, PaintMode mode)
 		{
 			try
@@ -748,7 +730,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000023 RID: 35 RVA: 0x0000469C File Offset: 0x0000289C
 		public static void SolidToBuffer3D(byte[] buff3D, byte[] buffSolid, int x, int y, int z, FrameView view, PaintFun fun, PaintMode mode)
 		{
 			try
@@ -864,7 +845,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000024 RID: 36 RVA: 0x000048DC File Offset: 0x00002ADC
 		public static bool GetDotPosition(FrameIndex m_index, int start, int end, int len, int valueIndex, int frameIndex, ref int value)
 		{
 			try
@@ -894,7 +874,6 @@ namespace Guan
 			return true;
 		}
 
-		// Token: 0x06000025 RID: 37 RVA: 0x0000497C File Offset: 0x00002B7C
 		public static bool GetResBuff(FrameIndex m_index, ResourceType type, int start, int end, int len, int valueIndex, int frameIndex, ref int value)
 		{
 			try
@@ -940,7 +919,6 @@ namespace Guan
 			return true;
 		}
 
-		// Token: 0x06000026 RID: 38 RVA: 0x00004A90 File Offset: 0x00002C90
 		public static bool GetBright(PropertyElementBright m_bright, int frameIndex, ref int value)
 		{
 			try
@@ -964,14 +942,12 @@ namespace Guan
 			return true;
 		}
 
-		// Token: 0x06000027 RID: 39 RVA: 0x00004AF8 File Offset: 0x00002CF8
 		public static void SingleFrameToDX(FrameCartoonGroup m_group, FrameResource m_res, FrameIndex m_index, int frameIndex, DX9 dx)
 		{
 			byte[] array = new byte[64];
 			ClassCalc.SingleFrameToDX(array, m_group, m_res, m_index, frameIndex, dx);
 		}
 
-		// Token: 0x06000028 RID: 40 RVA: 0x00004B1C File Offset: 0x00002D1C
 		public static void SingleFrameToDX(byte[] disBuff, FrameCartoonGroup m_group, FrameResource m_res, FrameIndex m_index, int frameIndex, DX9 dx)
 		{
 			if ((long)frameIndex < (long)((ulong)m_group.frameCount))
@@ -1087,7 +1063,6 @@ namespace Guan
 			}
 		}
 
-		// Token: 0x06000029 RID: 41 RVA: 0x00005088 File Offset: 0x00003288
 		public static bool TextBoxKeyPress(int MinNum, int MaxNum, TextBox box, KeyPressEventArgs e)
 		{
 			if (e.KeyChar == '\r')

@@ -6,10 +6,8 @@ using Guan.Properties;
 
 namespace Guan
 {
-	// Token: 0x02000036 RID: 54
 	public partial class FormDescription : Forms
 	{
-		// Token: 0x060001D6 RID: 470 RVA: 0x00011830 File Offset: 0x0000FA30
 		public FormDescription()
 		{
 			this.InitializeComponent();
