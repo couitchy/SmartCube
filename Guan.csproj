@@ -93,11 +93,17 @@
     <Compile Include="FormAbout.Designer.cs">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormConfig.cs">
+    <Compile Include="FormConfigHw.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormConfig.Designer.cs">
-      <DependentUpon>FormConfig.cs</DependentUpon>
+    <Compile Include="FormConfigHw.Designer.cs">
+      <DependentUpon>FormConfigHw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConfigSw.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfigSw.Designer.cs">
+      <DependentUpon>FormConfigSw.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDebug.cs">
       <SubType>Form</SubType>
@@ -174,8 +180,11 @@
     <EmbeddedResource Include="FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormConfig.resx">
-      <DependentUpon>FormConfig.cs</DependentUpon>
+    <EmbeddedResource Include="FormConfigHw.resx">
+      <DependentUpon>FormConfigHw.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConfigSw.resx">
+      <DependentUpon>FormConfigSw.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDebug.resx">
       <DependentUpon>FormDebug.cs</DependentUpon>

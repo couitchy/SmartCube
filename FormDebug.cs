@@ -16,6 +16,7 @@ namespace Guan
             this.m_dx = new DX9();
             this.m_dx.InitializeGraphics(this);
             this.m_dx.SetBright(100);
+            this.m_isMonochrome = res.m_isMonochrome;
         }
 
         public FormDebug(AllResource res)
@@ -66,7 +67,7 @@ namespace Guan
                     int num2 = 0;
                     while ((long)num2 < (long)((ulong)group.frameCount))
                     {
-                        ClassCalc.SingleFrameToDX(array, group, this.m_res.m_res, this.m_res.m_index, num2, this.m_dx);
+                        ClassCalc.SingleFrameToDX(array, group, this.m_res.m_res, this.m_res.m_index, num2, this.m_dx, this.m_isMonochrome);
                         int num3 = (int)(group.delay * this.m_res.m_head.defaultSpeed);
                         while (Environment.TickCount - num < num3)
                         {
@@ -101,7 +102,7 @@ namespace Guan
                                     int num5 = 0;
                                     while ((long)num5 < (long)((ulong)frameCartoonGroup.frameCount))
                                     {
-                                        ClassCalc.SingleFrameToDX(array, frameCartoonGroup, this.m_res.m_res, this.m_res.m_index, num5, this.m_dx);
+                                        ClassCalc.SingleFrameToDX(array, frameCartoonGroup, this.m_res.m_res, this.m_res.m_index, num5, this.m_dx, this.m_isMonochrome);
                                         int num6 = (int)(frameCartoonGroup.delay * this.m_res.m_head.defaultSpeed);
                                         while (Environment.TickCount - num < num6)
                                         {
@@ -138,7 +139,7 @@ namespace Guan
                                     int num9 = 0;
                                     while ((long)num9 < (long)((ulong)frameCartoonGroup2.frameCount))
                                     {
-                                        ClassCalc.SingleFrameToDX(array, frameCartoonGroup2, this.m_res.m_res, this.m_res.m_index, num9, this.m_dx);
+                                        ClassCalc.SingleFrameToDX(array, frameCartoonGroup2, this.m_res.m_res, this.m_res.m_index, num9, this.m_dx, this.m_isMonochrome);
                                         int num10 = (int)(frameCartoonGroup2.delay * this.m_res.m_head.defaultSpeed);
                                         while (Environment.TickCount - num < num10)
                                         {
@@ -168,6 +169,8 @@ namespace Guan
         private Thread m_thread;
 
         private DX9 m_dx;
+
+        private bool m_isMonochrome;
 
         private FrameCartoonGroup m_group;
 

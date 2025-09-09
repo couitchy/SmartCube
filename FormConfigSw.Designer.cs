@@ -1,6 +1,6 @@
 ﻿namespace Guan
 {
-    public partial class FormConfig : global::Guan.Forms
+    public partial class FormConfigSw : global::Guan.Forms
     {
         private void InitializeComponent()
         {

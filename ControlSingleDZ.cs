@@ -9,10 +9,11 @@ namespace Guan
     {
         private event FormGuan.FileIsChanged m_fileIsChanged;
 
-        public ControlSingleDZ(DX9 dx, ControlEdit parent, ControlEdit.ListClass list, FormGuan.FileIsChanged fileIsChanged)
+        public ControlSingleDZ(DX9 dx, bool mono, ControlEdit parent, ControlEdit.ListClass list, FormGuan.FileIsChanged fileIsChanged)
         {
             this.InitializeComponent();
             this.m_dx = dx;
+            this.m_isMonochrome = mono;
             this.m_parent = parent;
             this.m_list = list;
             this.m_fileIsChanged = fileIsChanged;
@@ -28,7 +29,7 @@ namespace Guan
 
         private void m_dz_m_dataChanged()
         {
-            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, 0, FrameView.front, PaintMode.Copy);
+            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, this.m_isMonochrome, 0, FrameView.front, PaintMode.Copy);
             this.m_dx.OnPaint();
             if (this.m_fileIsChanged != null)
             {
@@ -42,7 +43,7 @@ namespace Guan
             this.datBuff8 = this.m_res.buff;
             this.m_dx.SetBright(100);
             this.m_dx.ClrBuffer();
-            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, 0, FrameView.front, PaintMode.Copy);
+            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, this.m_isMonochrome, 0, FrameView.front, PaintMode.Copy);
             this.m_dx.OnPaint();
             this.m_dz.ShowControl(this.datBuff8);
             base.Visible = true;
@@ -51,7 +52,7 @@ namespace Guan
         public void UpdateDX()
         {
             this.m_dx.ClrBuffer();
-            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, 0, FrameView.front, PaintMode.Copy);
+            ClassCalc.BufferSingleToDX(this.datBuff8, this.m_dx, this.m_isMonochrome, 0, FrameView.front, PaintMode.Copy);
             this.m_dx.SetBright(100);
             this.m_dx.OnPaint();
         }
@@ -82,6 +83,8 @@ namespace Guan
         }
 
         private DX9 m_dx;
+
+        private bool m_isMonochrome;
 
         private ControlEdit m_parent;
 

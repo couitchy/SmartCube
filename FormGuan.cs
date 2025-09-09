@@ -159,7 +159,7 @@ namespace Guan
                     this.m_path = saveFileDialog.FileName;
                     this.m_format = saveFileDialog.FilterIndex;
                 }
-                FileStream fileStream = new FileStream(this.m_path, FileMode.OpenOrCreate);
+                FileStream fileStream = new FileStream(this.m_path, FileMode.Create);
                 switch (this.m_format)
                 {
                     case 1:
@@ -321,10 +321,16 @@ namespace Guan
                     formDebug.ShowDialog();
                     return;
                 }
-                if (toolStripMenuItem.Equals(this.debugConfigToolStripMenuItem))
+                if (toolStripMenuItem.Equals(this.softwareConfigToolStripMenuItem))
                 {
-                    FormConfig formConfig = new FormConfig(this.m_head, this.m_res.m_head, this.m_fileIsChanged);
-                    formConfig.ShowDialog();
+                    FormConfigSw formConfigSw = new FormConfigSw(this.m_head, this.m_res.m_head, this.m_fileIsChanged);
+                    formConfigSw.ShowDialog();
+                    return;
+                }
+                if (toolStripMenuItem.Equals(this.hardwareConfigToolStripMenuItem))
+                {
+                    FormConfigHw formConfigHw = new FormConfigHw(this.m_res);
+                    formConfigHw.ShowDialog();
                     return;
                 }
                 if (toolStripMenuItem.Equals(this.InstructionsToolStripMenuItem))
@@ -392,7 +398,7 @@ namespace Guan
             this.panelPreview.Controls.Add(controlDX);
             this.m_dx1.InitializeGraphics(controlDX);
             this.m_dx1.SetBright(100);
-            this.m_edit = new ControlEdit(this.m_dx1, this.m_res, this.m_fileIsChanged);
+            this.m_edit = new ControlEdit(this.m_dx1, this.m_res.m_isMonochrome, this.m_res, this.m_fileIsChanged);
             this.m_edit.Location = new Point(5, 10);
             this.splitContainer3.Panel2.Controls.Add(this.m_edit);
             this.m_resourceTree = new ReSourceTree(this.m_res.m_res, this.treeViewResource, this.m_edit, this.m_fileIsChanged);

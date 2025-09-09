@@ -34,16 +34,16 @@ namespace Guan
             this.m_blueMaterial.Diffuse = this.m_colorBlue;
         }
 
-        public void SetPoint(int x, int y, int z, bool flag)
+        public void SetPoint(int x, int y, int z, bool flag, bool mono)
         {
             int num = z * 64 + y * 8 + x;
-            this.Pixels[num] = this.FindState(x, y, z, flag);
+            this.Pixels[num] = this.FindState(x, y, z, flag, mono);
         }
 
-        public void SetPointNot(int x, int y, int z)
+        public void SetPointNot(int x, int y, int z, bool mono)
         {
             int num = z * 64 + y * 8 + x;
-            this.Pixels[num] = this.FindState(x, y, z, (this.Pixels[num] == PixelState.Off));
+            this.Pixels[num] = this.FindState(x, y, z, (this.Pixels[num] == PixelState.Off), mono);
         }
 
         public PixelState GetPoint(int x, int y, int z)
@@ -52,7 +52,7 @@ namespace Guan
             return this.Pixels[num];
         }
 
-        private PixelState FindState(int x, int y, int z, bool on)
+        private PixelState FindState(int x, int y, int z, bool on, bool mono)
         {
             if (!on)
             {
@@ -60,7 +60,9 @@ namespace Guan
             }
             else
             {
-                if ( x == 0 || x == 7 || z == 0 || z == 7)
+                if (mono)
+                    return PixelState.Blue;
+                else if (x == 0 || x == 7 || z == 0 || z == 7)
                     return PixelState.Blue;
                 else if ( z % 2 != 0)
                     return PixelState.Green;

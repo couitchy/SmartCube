@@ -20,5 +20,7 @@ namespace Guan
         public FrameIndex m_index = new FrameIndex();
 
         public FrameControl m_control = new FrameControl();
+
+        public bool m_isMonochrome = true;
     }
 }

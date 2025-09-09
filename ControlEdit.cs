@@ -10,11 +10,12 @@ namespace Guan
     {
         private event FormGuan.FileIsChanged m_fileIsChanged;
 
-        public ControlEdit(DX9 dx, AllResource res, FormGuan.FileIsChanged fileIsChanged)
+        public ControlEdit(DX9 dx, bool mono, AllResource res, FormGuan.FileIsChanged fileIsChanged)
         {
             this.InitializeComponent();
             this.Dock = DockStyle.Fill;
             this.m_dx = dx;
+            this.m_isMonochrome = mono;
             this.m_res = res;
             this.m_fileIsChanged = fileIsChanged;
             this.tabControlEdit.Visible = false;
@@ -110,7 +111,7 @@ namespace Guan
                 ControlEdit.ListClass listClass = new ControlEdit.ListClass();
                 listClass.name = res.name;
                 listClass.obj = res;
-                ControlSingleDZ controlSingleDZ = new ControlSingleDZ(this.m_dx, this, listClass, this.m_fileIsChanged);
+                ControlSingleDZ controlSingleDZ = new ControlSingleDZ(this.m_dx, this.m_isMonochrome, this, listClass, this.m_fileIsChanged);
                 controlSingleDZ.ShowControl(res);
                 this.AddOnePanel(controlSingleDZ, listClass);
             }
@@ -123,7 +124,7 @@ namespace Guan
                 ControlEdit.ListClass listClass = new ControlEdit.ListClass();
                 listClass.name = res.name;
                 listClass.obj = res;
-                Control3DDZ control3DDZ = new Control3DDZ(this.m_dx, this, listClass, this.m_fileIsChanged);
+                Control3DDZ control3DDZ = new Control3DDZ(this.m_dx, this.m_isMonochrome, this, listClass, this.m_fileIsChanged);
                 control3DDZ.ShowControl(res);
                 this.AddOnePanel(control3DDZ, listClass);
             }
@@ -173,7 +174,7 @@ namespace Guan
                 ControlEdit.ListClass listClass = new ControlEdit.ListClass();
                 listClass.name = res.name;
                 listClass.obj = res;
-                Control control = new ControlCartoon2(res, this.m_res.m_res, this.m_res.m_index, this.m_dx, this.m_fileIsChanged);
+                Control control = new ControlCartoon2(res, this.m_res.m_res, this.m_res.m_index, this.m_dx, this.m_isMonochrome, this.m_fileIsChanged);
                 listClass.m_type = ControlEdit.TableType.cartoonElement;
                 this.AddOnePanel(control, listClass);
             }
@@ -729,6 +730,8 @@ namespace Guan
         private List<ControlEdit.ListClass> m_list = new List<ControlEdit.ListClass>();
 
         private DX9 m_dx;
+
+        private bool m_isMonochrome;
 
         private AllResource m_res = new AllResource();
 

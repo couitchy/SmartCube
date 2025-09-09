@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-    public partial class FormConfig : Forms
+    public partial class FormConfigSw : Forms
     {
         private event FormGuan.FileIsChanged m_fileIsChanged;
 
-        public FormConfig(AllResourceHead head, FrameHead head2, FormGuan.FileIsChanged fileIsChanged)
+        public FormConfigSw(AllResourceHead head, FrameHead head2, FormGuan.FileIsChanged fileIsChanged)
         {
             this.InitializeComponent();
             this.m_head = head;

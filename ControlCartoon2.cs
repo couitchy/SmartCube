@@ -9,7 +9,7 @@ namespace Guan
     {
         private event FormGuan.FileIsChanged m_fileIsChanged;
 
-        public ControlCartoon2(FrameCartoonGroup group, FrameResource res, FrameIndex resIndex, DX9 dx, FormGuan.FileIsChanged fileIsChanged)
+        public ControlCartoon2(FrameCartoonGroup group, FrameResource res, FrameIndex resIndex, DX9 dx, bool mono, FormGuan.FileIsChanged fileIsChanged)
         {
             this.InitializeComponent();
             this.Dock = DockStyle.Fill;
@@ -17,6 +17,7 @@ namespace Guan
             this.m_res = res;
             this.m_resIndex = resIndex;
             this.m_dx = dx;
+            this.m_isMonochrome = mono;
             this.m_fileIsChanged = fileIsChanged;
             this.m_timershaft.SetEvent(this.m_fileIsChanged);
             this.m_timershaft.SetElement(group.ele);
@@ -74,7 +75,7 @@ namespace Guan
 
         private void m_timershaft_m_indexChanged(int index)
         {
-            ClassCalc.SingleFrameToDX(this.m_group, this.m_res, this.m_resIndex, index, this.m_dx);
+            ClassCalc.SingleFrameToDX(this.m_group, this.m_res, this.m_resIndex, index, this.m_dx, m_isMonochrome);
         }
 
         private void m_timershaft_m_elementChanged(FrameCartoonType type, FrameCartoonProperty obj)
@@ -269,6 +270,8 @@ namespace Guan
         private FrameIndex m_resIndex;
 
         private DX9 m_dx;
+
+        private bool m_isMonochrome;
 
         private ControlProperty m_Property;
 

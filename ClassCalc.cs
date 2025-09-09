@@ -385,7 +385,7 @@ namespace Guan
             }
         }
 
-        public static void Buffer3DToDX(byte[] buffSingle, DX9 dx)
+        public static void Buffer3DToDX(byte[] buffSingle, DX9 dx, bool mono)
         {
             for (int i = 0; i < 8; i++)
             {
@@ -395,18 +395,18 @@ namespace Guan
                     {
                         if (((int)buffSingle[(j << 3) + k] & (128 >> i)) != 0)
                         {
-                            dx.SetPoint(i, j, k, true);
+                            dx.SetPoint(i, j, k, true, mono);
                         }
                         else
                         {
-                            dx.SetPoint(i, j, k, false);
+                            dx.SetPoint(i, j, k, false, mono);
                         }
                     }
                 }
             }
         }
 
-        public static void BufferSingleToDX(byte[] buff, DX9 dx, int index, FrameView view, PaintMode mode)
+        public static void BufferSingleToDX(byte[] buff, DX9 dx, bool mono, int index, FrameView view, PaintMode mode)
         {
             switch (view)
             {
@@ -420,12 +420,12 @@ namespace Guan
                         {
                             if (mode == PaintMode.Copy || mode == PaintMode.OnlySet)
                             {
-                                dx.SetPoint(i, j, index, true);
+                                dx.SetPoint(i, j, index, true, mono);
                             }
                         }
                         else if (mode == PaintMode.Copy || mode == PaintMode.OnlyClr)
                         {
-                            dx.SetPoint(i, j, index, false);
+                            dx.SetPoint(i, j, index, false, mono);
                         }
                     }
                 }
@@ -441,12 +441,12 @@ namespace Guan
                         {
                             if (mode == PaintMode.Copy || mode == PaintMode.OnlySet)
                             {
-                                dx.SetPoint(k, 7 - index, l, true);
+                                dx.SetPoint(k, 7 - index, l, true, mono);
                             }
                         }
                         else if (mode == PaintMode.Copy || mode == PaintMode.OnlyClr)
                         {
-                            dx.SetPoint(k, 7 - index, l, false);
+                            dx.SetPoint(k, 7 - index, l, false, mono);
                         }
                     }
                 }
@@ -462,12 +462,12 @@ namespace Guan
                         {
                             if (mode == PaintMode.Copy || mode == PaintMode.OnlySet)
                             {
-                                dx.SetPoint(index, n, 7 - m, true);
+                                dx.SetPoint(index, n, 7 - m, true, mono);
                             }
                         }
                         else if (mode == PaintMode.Copy || mode == PaintMode.OnlyClr)
                         {
-                            dx.SetPoint(index, n, 7 - m, false);
+                            dx.SetPoint(index, n, 7 - m, false, mono);
                         }
                     }
                 }
@@ -942,13 +942,13 @@ namespace Guan
             return true;
         }
 
-        public static void SingleFrameToDX(FrameCartoonGroup m_group, FrameResource m_res, FrameIndex m_index, int frameIndex, DX9 dx)
+        public static void SingleFrameToDX(FrameCartoonGroup m_group, FrameResource m_res, FrameIndex m_index, int frameIndex, DX9 dx, bool mono)
         {
             byte[] array = new byte[64];
-            ClassCalc.SingleFrameToDX(array, m_group, m_res, m_index, frameIndex, dx);
+            ClassCalc.SingleFrameToDX(array, m_group, m_res, m_index, frameIndex, dx, mono);
         }
 
-        public static void SingleFrameToDX(byte[] disBuff, FrameCartoonGroup m_group, FrameResource m_res, FrameIndex m_index, int frameIndex, DX9 dx)
+        public static void SingleFrameToDX(byte[] disBuff, FrameCartoonGroup m_group, FrameResource m_res, FrameIndex m_index, int frameIndex, DX9 dx, bool mono)
         {
             if ((long)frameIndex < (long)((ulong)m_group.frameCount))
             {
@@ -1058,7 +1058,7 @@ namespace Guan
                         }
                     }
                 }
-                ClassCalc.Buffer3DToDX(disBuff, dx);
+                ClassCalc.Buffer3DToDX(disBuff, dx, mono);
                 dx.OnPaint();
             }
         }

@@ -9,10 +9,11 @@ namespace Guan
     {
         private event FormGuan.FileIsChanged m_fileIsChanged;
 
-        public Control3DDZ(DX9 dx, ControlEdit parent, ControlEdit.ListClass list, FormGuan.FileIsChanged fileIsChanged)
+        public Control3DDZ(DX9 dx, bool mono, ControlEdit parent, ControlEdit.ListClass list, FormGuan.FileIsChanged fileIsChanged)
         {
             this.InitializeComponent();
             this.m_dx = dx;
+            this.m_isMonochrome = mono;
             this.m_parent = parent;
             this.m_list = list;
             this.m_fileIsChanged = fileIsChanged;
@@ -46,7 +47,7 @@ namespace Guan
 
         public void UpdateDX()
         {
-            ClassCalc.Buffer3DToDX(this.datBuff64, this.m_dx);
+            ClassCalc.Buffer3DToDX(this.datBuff64, this.m_dx, this.m_isMonochrome);
             this.m_dx.SetBright(100);
             this.m_dx.OnPaint();
         }
@@ -96,7 +97,7 @@ namespace Guan
         private void m_dzLeft_m_dataChanged()
         {
             ClassCalc.BufferSingleToBuffer3D(this.datBuff64, this.datBuffLeft, this.leftIndex, FrameView.left);
-            ClassCalc.BufferSingleToDX(this.datBuffLeft, this.m_dx, this.leftIndex, FrameView.left, PaintMode.Copy);
+            ClassCalc.BufferSingleToDX(this.datBuffLeft, this.m_dx, this.m_isMonochrome, this.leftIndex, FrameView.left, PaintMode.Copy);
             this.UpdateTop();
             this.UpdateFont();
             this.m_dx.OnPaint();
@@ -109,7 +110,7 @@ namespace Guan
         private void m_dzTop_m_dataChanged()
         {
             ClassCalc.BufferSingleToBuffer3D(this.datBuff64, this.datBuffTop, this.topIndex, FrameView.top);
-            ClassCalc.BufferSingleToDX(this.datBuffTop, this.m_dx, this.topIndex, FrameView.top, PaintMode.Copy);
+            ClassCalc.BufferSingleToDX(this.datBuffTop, this.m_dx, this.m_isMonochrome, this.topIndex, FrameView.top, PaintMode.Copy);
             this.UpdateFont();
             this.UpdateLeft();
             this.m_dx.OnPaint();
@@ -122,7 +123,7 @@ namespace Guan
         private void m_dzFont_m_dataChanged()
         {
             ClassCalc.BufferSingleToBuffer3D(this.datBuff64, this.datBuffFront, this.frontIndex, FrameView.front);
-            ClassCalc.BufferSingleToDX(this.datBuffFront, this.m_dx, this.frontIndex, FrameView.front, PaintMode.Copy);
+            ClassCalc.BufferSingleToDX(this.datBuffFront, this.m_dx, this.m_isMonochrome, this.frontIndex, FrameView.front, PaintMode.Copy);
             this.UpdateTop();
             this.UpdateLeft();
             this.m_dx.OnPaint();
@@ -264,6 +265,8 @@ namespace Guan
         }
 
         private DX9 m_dx;
+
+        private bool m_isMonochrome;
 
         private ResourceSolid m_res;
 

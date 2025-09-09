@@ -27,7 +27,8 @@
             this.functionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.debugConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.softwareConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hardwareConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.InstructionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -311,17 +312,25 @@
             // configToolStripMenuItem
             // 
             this.configToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.debugConfigToolStripMenuItem});
+            this.softwareConfigToolStripMenuItem,
+            this.hardwareConfigToolStripMenuItem});
             this.configToolStripMenuItem.Name = "configToolStripMenuItem";
             this.configToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.configToolStripMenuItem.Text = "Config";
             // 
-            // debugConfigToolStripMenuItem
+            // softwareConfigToolStripMenuItem
             // 
-            this.debugConfigToolStripMenuItem.Name = "debugConfigToolStripMenuItem";
-            this.debugConfigToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.debugConfigToolStripMenuItem.Text = "Debug config";
-            this.debugConfigToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
+            this.softwareConfigToolStripMenuItem.Name = "softwareConfigToolStripMenuItem";
+            this.softwareConfigToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.softwareConfigToolStripMenuItem.Text = "Software config";
+            this.softwareConfigToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
+            // 
+            // hardwareConfigToolStripMenuItem
+            // 
+            this.hardwareConfigToolStripMenuItem.Name = "hardwareConfigToolStripMenuItem";
+            this.hardwareConfigToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.hardwareConfigToolStripMenuItem.Text = "Hardware config";
+            this.hardwareConfigToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -438,6 +447,8 @@
 
         private global::System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
 
-        private global::System.Windows.Forms.ToolStripMenuItem debugConfigToolStripMenuItem;
+        private global::System.Windows.Forms.ToolStripMenuItem softwareConfigToolStripMenuItem;
+
+        private global::System.Windows.Forms.ToolStripMenuItem hardwareConfigToolStripMenuItem;
     }
 }
