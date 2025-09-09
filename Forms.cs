@@ -8,7 +8,7 @@ namespace Guan
     {
         public Forms()
         {
-            base.Icon = Resources.光立方;
+            base.Icon = Resources.Logo;
         }
     }
 }

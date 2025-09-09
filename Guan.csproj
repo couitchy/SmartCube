@@ -161,6 +161,9 @@
     <Compile Include="PropertyElementLine.cs" />
     <Compile Include="PropertyElementPanel.cs" />
     <Compile Include="PropertyElementSolid.cs" />
+    <Compile Include="RemapSerializationBinder.cs" />
+    <Compile Include="RemapSurrogate.cs" />
+    <Compile Include="RemapSurrogateSelector.cs" />
     <Compile Include="ResourceIndex.cs" />
     <Compile Include="ResourceSingle.cs" />
     <Compile Include="ResourceSolid.cs" />

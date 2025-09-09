@@ -77,11 +77,11 @@ namespace Guan.Properties
             }
         }
 
-        internal static Icon 光立方
+        internal static Icon Logo
         {
             get
             {
-                object @object = Resources.ResourceManager.GetObject("光立方", Resources.resourceCulture);
+                object @object = Resources.ResourceManager.GetObject("Logo", Resources.resourceCulture);
                 return (Icon)@object;
             }
         }

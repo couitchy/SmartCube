@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -63,6 +65,12 @@ namespace Guan
 
         private bool LoadFile(bool selectFile)
         {
+            var mapTypes = new Dictionary<string, Type> {
+                { "Guan.PropertyElementPannel", typeof(Guan.PropertyElementPanel) }
+            };
+            var mapMembers = new Dictionary<string, string> {
+                { "lenth", "length" }
+            };
             try
             {
                 if (selectFile || this.m_path == "")
@@ -83,7 +91,13 @@ namespace Guan
                 switch (this.m_format)
                 {
                     case 1:
-                        BinaryFormatter binaryFormatter = new BinaryFormatter();
+                        BinaryFormatter binaryFormatter = new BinaryFormatter{ Binder = new RemapSerializationBinder(mapTypes), SurrogateSelector = new RemapSurrogateSelector {
+                            { new RemapSurrogate<PropertyElementBright>(mapMembers) },
+                            { new RemapSurrogate<PropertyElementDot>(mapMembers) },
+                            { new RemapSurrogate<PropertyElementLine>(mapMembers) },
+                            { new RemapSurrogate<PropertyElementPanel>(mapMembers) },
+                            { new RemapSurrogate<PropertyElementSolid>(mapMembers) } }
+                        };
                         allResource = (AllResource)binaryFormatter.Deserialize(fileStream);
                         break;
                     case 2:

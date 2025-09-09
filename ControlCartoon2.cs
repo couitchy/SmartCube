@@ -106,7 +106,7 @@ namespace Guan
 
         private void textBoxDelay_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (ClassCalc.TextBoxKeyPress(5, 5000, this.textBoxDelay, e))
+            if (ClassCalc.TextBoxKeyPress(1, 5000, this.textBoxDelay, e))
             {
                 this.UpdateDelay();
             }
