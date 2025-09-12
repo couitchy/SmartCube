@@ -1454,33 +1454,33 @@
        光立方为主。</value>
   </data>
   <data name="Instructions_en" xml:space="preserve">
-    <value>1. The tool made of light buddhistmas software, 
-need to use to form a complete set of hardwareTo use them.
+    <value>1. This tool is designed for light cube software
+and requires the corresponding hardware.
 
 
-2. The animation to run way from above in the 
-animation group in sequence,When all groups of 
-animation after the operation, automatically from scratch.
+2. Animations are executed sequentially from the top of the
+animation group to the bottom. When all animation groups have
+finished running, they automatically restart from the beginning.
 
 
-3. The animation in the operation, 
-the starting point of all coordinates are toward their ownThe 
-bottom left corner for the origin, 
-that is, X, Y, Z is 0 (perspective is changed,
-This value indicates the position will be different).
+3. During animation operations, all coordinate systems begin with
+the bottom-left corner facing the user's own coordinate system,
+with the X, Y, and Z coordinates all at 0 (the positions represented
+by these values ​​will change if the viewing angle changes).
 
 
-4. Animation group and index table copy operation, 
-please do not hold in multiple software Line, 
-it will lead to errors because of the resources are not identical.
+4. Do not copy animation groups and index tables across multiple
+instances of this program, as this may cause errors due to
+different resource ids.
 
 
 Note: 
-1) the drawing, hold down the CTRL key and click 
-   keyboard drawing board, is made To clear of painting.
-2) animation group list option position can directly the mouse move.
-3) the speed of the computer simulation and practical, in real, 
-   pleaseLight cube is given priority to.</value>
+1) while drawing, hold down the Ctrl key on your keyboard and
+   click the drawing board to clear previously drawn points.
+2) you can move the options in the animation group list
+   directly with your mouse.
+3) computer rendering speed may differ from actual speed;
+   please refer to the actual light cube.</value>
   </data>
   <data name="Tail" xml:space="preserve">
     <value>:10E8FE007265626F6F7400494150205265626F6F8E

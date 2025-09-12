@@ -31,8 +31,8 @@ namespace Guan
             this.m_menu.Items.Add("Clear");
             this.m_menu.Items.Add("Display all");
             this.m_menu.Items.Add("Display inverse");
-            this.m_menu.Items.Add("Copy(CTRL+C)");
-            this.m_menu.Items.Add("Paste(CTRL+V)");
+            this.m_menu.Items.Add("Copy (Ctrl+C)");
+            this.m_menu.Items.Add("Paste (Ctrl+V)");
             this.m_menu.Items.Add("Clockwise rotation");
             this.m_menu.Items.Add("Anticlockwise rotation");
             this.m_menu.Items.Add("Left/right mirror");

@@ -28,10 +28,10 @@ namespace Guan
             this.m_menu.Items.Add("Add " + Config.CartoonElement);
             this.m_menu.Items.Add("Rename");
             this.m_menu.Items.Add("Delete");
-            this.m_menu.Items.Add("Up(U)");
-            this.m_menu.Items.Add("Down(D)");
-            this.m_menu.Items.Add("Copy(CTRL+C)");
-            this.m_menu.Items.Add("Paste(CTRL+V)");
+            this.m_menu.Items.Add("Up (U)");
+            this.m_menu.Items.Add("Down (D)");
+            this.m_menu.Items.Add("Copy (Ctrl+C)");
+            this.m_menu.Items.Add("Paste (Ctrl+V)");
             this.m_menu.Items.Add("Run");
             this.m_menu.ItemClicked += this.m_menu_ItemClicked;
         }

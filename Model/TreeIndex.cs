@@ -22,8 +22,8 @@ namespace Guan
             this.m_menu.Items.Add("Add index tables");
             this.m_menu.Items.Add("Rename");
             this.m_menu.Items.Add("Delete");
-            this.m_menu.Items.Add("Copy(CTRL+C)");
-            this.m_menu.Items.Add("Paste(CTRL+V)");
+            this.m_menu.Items.Add("Copy (Ctrl+C)");
+            this.m_menu.Items.Add("Paste (Ctrl+V)");
             this.m_menu.ItemClicked += this.m_menu_ItemClicked;
         }
 
