@@ -401,9 +401,9 @@ namespace Guan
             this.m_edit = new ControlEdit(this.m_dx1, this.m_res.m_isMonochrome, this.m_res, this.m_fileIsChanged);
             this.m_edit.Location = new Point(5, 10);
             this.splitContainer3.Panel2.Controls.Add(this.m_edit);
-            this.m_resourceTree = new ReSourceTree(this.m_res.m_res, this.treeViewResource, this.m_edit, this.m_fileIsChanged);
-            this.m_indexTree = new IndexTree1(this.m_res.m_index, this.treeViewIndex, this.m_edit, this.m_fileIsChanged);
-            this.m_controlTree = new CartoonTree(this.m_res, this.m_res.m_control, this.treeViewCartoon, this.m_edit, this.m_fileIsChanged);
+            this.m_resourceTree = new TreeResource(this.m_res.m_res, this.treeViewResource, this.m_edit, this.m_fileIsChanged);
+            this.m_indexTree = new TreeIndex(this.m_res.m_index, this.treeViewIndex, this.m_edit, this.m_fileIsChanged);
+            this.m_controlTree = new TreeCartoon(this.m_res, this.m_res.m_control, this.treeViewCartoon, this.m_edit, this.m_fileIsChanged);
             this.compileToolStripMenuItem.Enabled = Config.enableOutput;
         }
 
@@ -413,11 +413,11 @@ namespace Guan
 
         private AllResource m_res;
 
-        private ReSourceTree m_resourceTree;
+        private TreeResource m_resourceTree;
 
-        private IndexTree1 m_indexTree;
+        private TreeIndex m_indexTree;
 
-        private CartoonTree m_controlTree;
+        private TreeCartoon m_controlTree;
 
         private ControlEdit m_edit;
 

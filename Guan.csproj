@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="Model\AllResource.cs" />
     <Compile Include="Model\AllResourceHead.cs" />
-    <Compile Include="Model\CartoonTree.cs" />
+    <Compile Include="Model\TreeCartoon.cs" />
     <Compile Include="Engine\ClassCalc.cs" />
     <Compile Include="Engine\ClassHex.cs" />
     <Compile Include="Helpers\ClassLanguage.cs" />
@@ -147,7 +147,7 @@
     <Compile Include="Model\FrameIndexType.cs" />
     <Compile Include="Model\FrameResource.cs" />
     <Compile Include="Model\FrameView.cs" />
-    <Compile Include="Model\IndexTree1.cs" />
+    <Compile Include="Model\TreeIndex.cs" />
     <Compile Include="Enums\PaintFun.cs" />
     <Compile Include="Enums\PaintMode.cs" />
     <Compile Include="Program.cs" />
@@ -173,7 +173,7 @@
     <Compile Include="Model\ResourceIndex.cs" />
     <Compile Include="Model\ResourceSingle.cs" />
     <Compile Include="Model\ResourceSolid.cs" />
-    <Compile Include="Model\ResourceTree.cs" />
+    <Compile Include="Model\TreeResource.cs" />
     <Compile Include="Enums\ResourceType.cs" />
   </ItemGroup>
   <ItemGroup>

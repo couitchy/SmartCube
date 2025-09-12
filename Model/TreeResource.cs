@@ -3,11 +3,11 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-    internal class ReSourceTree
+    internal class TreeResource
     {
         private event FormGuan.FileIsChanged m_fileIsChanged;
 
-        public ReSourceTree(FrameResource res, TreeView tree, ControlEdit edit, FormGuan.FileIsChanged fileIsChanged)
+        public TreeResource(FrameResource res, TreeView tree, ControlEdit edit, FormGuan.FileIsChanged fileIsChanged)
         {
             this.m_res = res;
             this.m_tree = tree;

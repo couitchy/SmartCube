@@ -4,11 +4,11 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-    internal class CartoonTree
+    internal class TreeCartoon
     {
         private event FormGuan.FileIsChanged m_fileIsChanged;
 
-        public CartoonTree(AllResource res, FrameControl control, TreeView tree, ControlEdit edit, FormGuan.FileIsChanged fileIsChanged)
+        public TreeCartoon(AllResource res, FrameControl control, TreeView tree, ControlEdit edit, FormGuan.FileIsChanged fileIsChanged)
         {
             this.m_res = res;
             this.m_control = control;

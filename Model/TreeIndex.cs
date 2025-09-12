@@ -3,11 +3,11 @@ using System.Windows.Forms;
 
 namespace Guan
 {
-    internal class IndexTree1
+    internal class TreeIndex
     {
         private event FormGuan.FileIsChanged m_fileIsChanged;
 
-        public IndexTree1(FrameIndex res, TreeView tree, ControlEdit edit, FormGuan.FileIsChanged fileIsChanged)
+        public TreeIndex(FrameIndex res, TreeView tree, ControlEdit edit, FormGuan.FileIsChanged fileIsChanged)
         {
             this.m_res = res;
             this.m_tree = tree;
