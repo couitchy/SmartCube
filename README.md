@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://github.com/user-attachments/assets/cfdb777e-c900-4052-9543-d589d46c9ea3" height="300" alt="1" />
   <img src="https://github.com/user-attachments/assets/9898b83a-9d1b-4e87-83ad-3b6a657197f7" height="300" alt="2" />
-  <img src="https://github.com/user-attachments/assets/43ac7cb6-3215-4f48-aeeb-fe6b59db309d" height="300" alt="3" />
+  <img src="https://github.com/user-attachments/assets/0295f679-c10b-4a06-a79c-60edb092d623" height="300" alt="3" />
 </p>
 
 # SmartCube
