@@ -19,12 +19,12 @@ namespace Guan
         {
             info = "";
             ListByte listByte = new ListByte();
-            listByte.AppendData(2769809749U);
+            listByte.AppendData((uint)2769809749);
             listByte.AppendData(this.m_res.m_head.version);
-            listByte.AppendData(1029);
-            uint num = this.m_head.config;
-            num = ((num - 1U) & 255U) | ((num - 256U) & 65280U) | ((num - 65536U) & 16711680U) | ((num - 16777216U) & 4278190080U);
-            listByte.AppendData(num);
+            listByte.AppendData((ushort)1029);
+            uint config = m_head.config;
+            config = ((config - 1) & 0x00FF) | ((config - 0x0100) & 0xFF00) | ((config - 0x010000) & 0xFF0000) | ((config - 0x01000000) & 0xFF000000);
+            listByte.AppendData(config);
             listByte.AppendData(this.m_res.m_head.defaultSpeed);
             if (Config.EnableEnhanced)
             {
@@ -32,9 +32,9 @@ namespace Guan
             }
             else
             {
-                listByte.AppendData(0U);
+                listByte.AppendData((uint)0);
             }
-            listByte.AppendData(0U);
+            listByte.AppendData((uint)0);
             ListByte listByte2 = new ListByte();
             foreach (ResourceSingle resourceSingle in this.m_res.m_res.m_resSingle)
             {
@@ -59,7 +59,7 @@ namespace Guan
                         }
                         if (listByte4.GetLength() % 4 != 0)
                         {
-                            listByte4.AppendData(0);
+                            listByte4.AppendData((ushort)0);
                         }
                     }
                 }
@@ -78,7 +78,7 @@ namespace Guan
                         }
                         if (listByte5.GetLength() % 4 != 0)
                         {
-                            listByte5.AppendData(0);
+                            listByte5.AppendData((ushort)0);
                         }
                     }
                 }
@@ -97,7 +97,7 @@ namespace Guan
                         }
                         if (listByte6.GetLength() % 4 != 0)
                         {
-                            listByte6.AppendData(0);
+                            listByte6.AppendData((ushort)0);
                         }
                     }
                 }
@@ -120,9 +120,9 @@ namespace Guan
                             listByte9.AppendData((ushort)frameCartoonGroup.delay);
                             listByte9.AppendData((ushort)frameCartoonGroup.loopCount);
                             listByte9.AppendData(frameCartoonGroup.cleanDisplay);
-                            listByte9.AppendData(0);
+                            listByte9.AppendData((byte)0);
                             listByte9.AppendData((ushort)frameCartoonGroup.ele.Count);
-                            listByte9.AppendData(0);
+                            listByte9.AppendData((ushort)0);
                             if (frameCartoonGroup.ele.Count > 0)
                             {
                                 foreach (FrameCartoonElement frameCartoonElement in frameCartoonGroup.ele)
@@ -148,7 +148,7 @@ namespace Guan
                                             listByte10.AppendData((byte)propertyElementDot.endZ);
                                             listByte10.AppendData((byte)propertyElementDot.view);
                                             listByte10.AppendData((byte)propertyElementDot.fun2);
-                                            listByte10.AppendData(0);
+                                            listByte10.AppendData((byte)0);
                                         }
                                         else if (frameCartoonElement.m_type == FrameCartoonType.line)
                                         {
@@ -170,9 +170,9 @@ namespace Guan
                                             listByte10.AppendData((byte)propertyElementLine.endZ2);
                                             listByte10.AppendData((byte)propertyElementLine.view);
                                             listByte10.AppendData((byte)propertyElementLine.fun2);
-                                            listByte10.AppendData(0);
-                                            listByte10.AppendData(0);
-                                            listByte10.AppendData(0);
+                                            listByte10.AppendData((byte)0);
+                                            listByte10.AppendData((byte)0);
+                                            listByte10.AppendData((byte)0);
                                         }
                                         else if (frameCartoonElement.m_type == FrameCartoonType.panel)
                                         {
@@ -189,11 +189,11 @@ namespace Guan
                                             listByte10.AppendData((byte)propertyElementPanel.resIndexStart);
                                             if (propertyElementPanel.useIndex)
                                             {
-                                                listByte10.AppendData((ushort)(propertyElementPanel.res | 32768));
+                                                listByte10.AppendData((ushort)(propertyElementPanel.res | 0x8000));
                                             }
                                             else
                                             {
-                                                listByte10.AppendData((ushort)(propertyElementPanel.res & 32767));
+                                                listByte10.AppendData((ushort)(propertyElementPanel.res & 0x7FFF));
                                             }
                                             listByte10.AppendData((byte)propertyElementPanel.resIndexEnd);
                                             listByte10.AppendData((byte)propertyElementPanel.view);
@@ -215,11 +215,11 @@ namespace Guan
                                             listByte10.AppendData((byte)propertyElementSolid.resIndexStart);
                                             if (propertyElementSolid.useIndex)
                                             {
-                                                listByte10.AppendData((ushort)(propertyElementSolid.res | 32768));
+                                                listByte10.AppendData((ushort)(propertyElementSolid.res | 0x8000));
                                             }
                                             else
                                             {
-                                                listByte10.AppendData((ushort)(propertyElementSolid.res & 32767));
+                                                listByte10.AppendData((ushort)(propertyElementSolid.res & 0x7FFF));
                                             }
                                             listByte10.AppendData((byte)propertyElementSolid.resIndexEnd);
                                             listByte10.AppendData((byte)propertyElementSolid.view);
@@ -252,23 +252,23 @@ namespace Guan
                 info = "No Cartoon!";
                 return false;
             }
-            int num2 = listByte.GetLength() + 24;
-            listByte.AppendData((ushort)num2);
-            listByte.AppendData((ushort)this.m_res.m_res.m_resSingle.Count);
-            num2 += listByte2.GetLength();
-            listByte.AppendData((ushort)num2);
-            listByte.AppendData((ushort)this.m_res.m_res.m_resSolid.Count);
-            num2 += listByte3.GetLength();
-            listByte.AppendData((ushort)num2);
-            listByte.AppendData((ushort)this.m_res.m_index.m_indexSingle.Count);
-            num2 += listByte4.GetLength();
-            listByte.AppendData((ushort)num2);
-            listByte.AppendData((ushort)this.m_res.m_index.m_indexSolid.Count);
-            num2 += listByte5.GetLength();
-            listByte.AppendData((ushort)num2);
-            listByte.AppendData((ushort)this.m_res.m_index.m_indexNumber.Count);
-            num2 += listByte6.GetLength();
-            listByte.AppendData((ushort)num2);
+            int num = listByte.GetLength() + 24;
+            listByte.AppendData((ushort)num);
+            listByte.AppendData((ushort)m_res.m_res.m_resSingle.Count);
+            num += listByte2.GetLength();
+            listByte.AppendData((ushort)num);
+            listByte.AppendData((ushort)m_res.m_res.m_resSolid.Count);
+            num += listByte3.GetLength();
+            listByte.AppendData((ushort)num);
+            listByte.AppendData((ushort)m_res.m_index.m_indexSingle.Count);
+            num += listByte4.GetLength();
+            listByte.AppendData((ushort)num);
+            listByte.AppendData((ushort)m_res.m_index.m_indexSolid.Count);
+            num += listByte5.GetLength();
+            listByte.AppendData((ushort)num);
+            listByte.AppendData((ushort)m_res.m_index.m_indexNumber.Count);
+            num += listByte6.GetLength();
+            listByte.AppendData((ushort)num);
             listByte.AppendData((ushort)this.m_res.m_control.m_cartoon.Count);
             ListByte listByte11 = new ListByte();
             listByte11.AppendData(listByte);
@@ -279,7 +279,7 @@ namespace Guan
             listByte11.AppendData(listByte6);
             listByte11.AppendData(listByte7);
             int length = listByte11.GetLength();
-            if ((long)length > (long)((ulong)Config.outputLenLimit))
+            if (length > Config.outputLenLimit)
             {
                 info = "Data length mismatch!";
                 return false;
@@ -294,8 +294,8 @@ namespace Guan
                 info = "HEX file generation failed!";
                 return false;
             }
-            float num3 = (float)length * 100f / Config.outputLenLimit;
-            info = string.Format("Generation succeeded\r\nUsed memory:{0:F2}% ", num3);
+            float num2 = (float)length * 100f / (float)Config.outputLenLimit;
+            info = string.Format("Generation succeeded\r\nUsed memory: {0:F2}% ", num2);
             return true;
         }
 
@@ -397,7 +397,7 @@ namespace Guan
                 {
                     FileStream fileStream = new FileStream(Environment.CurrentDirectory + "\\data.c", FileMode.Create);
                     StreamWriter streamWriter = new StreamWriter(fileStream, Encoding.Default);
-                    fileStream.SetLength(0L);
+                    fileStream.SetLength(0);
                     streamWriter.Write(text);
                     streamWriter.Close();
                     fileStream.Close();
@@ -415,7 +415,7 @@ namespace Guan
             return false;
         }
 
-        private string WriteBlack(uint dat)
+        private string WriteBlock(uint dat)
         {
             ushort num = (ushort)(dat >> 16);
             string text = ":02000004";
@@ -429,27 +429,27 @@ namespace Guan
             uint outputLenMax = Config.outputLenMax;
             uint num = Config.outputStartVale;
             Random random = new Random(42);
-            while ((long)dat.GetLength() < (long)((ulong)outputLenMax))
+            while (dat.GetLength() < outputLenMax)
             {
                 dat.AppendData((byte)random.Next(0, 255));
             }
             string text = "";
             string text2 = "";
             byte b = 0;
-            for (uint num2 = 0U; num2 < outputLenMax; num2 += 1U)
+            for (uint num2 = 0; num2 < outputLenMax; num2++)
             {
-                if (num2 % 16U == 0U)
+                if (num2 % 16 == 0)
                 {
                     ushort num3 = (ushort)num;
                     text2 = "";
-                    if (num3 == 65535)
+                    if (num3 == ushort.MaxValue)
                     {
                         ushort num4 = 0;
                         num3 += num4;
                     }
                     if (num3 == 0)
                     {
-                        text2 += this.WriteBlack(num);
+                        text2 += this.WriteBlock(num);
                     }
                     text2 = text2 + ":10" + string.Format("{0:X4}", num3);
                     text2 += "00";
@@ -457,19 +457,19 @@ namespace Guan
                 }
                 text2 += string.Format("{0:X2}", dat.m_list[(int)num2]);
                 b += dat.m_list[(int)num2];
-                if (num2 % 16U == 15U)
+                if (num2 % 16 == 15)
                 {
                     b = (byte)(1 + ~b);
                     text2 += string.Format("{0:X2}\r\n", b);
                     text += text2;
                 }
-                num += 1U;
+                num++;
             }
             try
             {
                 FileStream fileStream = new FileStream(Environment.CurrentDirectory + "\\output.hex", FileMode.Create);
                 StreamWriter streamWriter = new StreamWriter(fileStream, Encoding.Default);
-                fileStream.SetLength(0L);
+                fileStream.SetLength(0);
                 streamWriter.Write(Resources.Head);
                 streamWriter.Write(text);
                 streamWriter.Write(Resources.Tail);
