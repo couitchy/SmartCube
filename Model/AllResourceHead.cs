@@ -16,7 +16,7 @@ namespace Guan
             DisableDislay,
             TestMode,
             DisableJTAG = 8,
-            OutPutCFile = 16
+            OutputCFile = 16
         }
     }
 }

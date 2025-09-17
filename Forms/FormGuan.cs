@@ -306,7 +306,7 @@ namespace Guan
                 {
                     ClassHex classHex = new ClassHex(this.m_head, this.m_res);
                     string text;
-                    bool flag = classHex.IsChangeOK(this.m_head.GetBit(AllResourceHead.bitValue.OutPutCFile), out text);
+                    bool flag = classHex.IsChangeOK(this.m_head.GetBit(AllResourceHead.bitValue.OutputCFile), out text);
                     MessageBox.Show(text, flag ? "Success" : "Failure");
                     return;
                 }
