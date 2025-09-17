@@ -254,19 +254,19 @@ namespace Guan
             }
             int num = listByte.GetLength() + 24;
             listByte.AppendData((ushort)num);
-            listByte.AppendData((ushort)m_res.m_res.m_resSingle.Count);
+            listByte.AppendData((ushort)this.m_res.m_res.m_resSingle.Count);
             num += listByte2.GetLength();
             listByte.AppendData((ushort)num);
-            listByte.AppendData((ushort)m_res.m_res.m_resSolid.Count);
+            listByte.AppendData((ushort)this.m_res.m_res.m_resSolid.Count);
             num += listByte3.GetLength();
             listByte.AppendData((ushort)num);
-            listByte.AppendData((ushort)m_res.m_index.m_indexSingle.Count);
+            listByte.AppendData((ushort)this.m_res.m_index.m_indexSingle.Count);
             num += listByte4.GetLength();
             listByte.AppendData((ushort)num);
-            listByte.AppendData((ushort)m_res.m_index.m_indexSolid.Count);
+            listByte.AppendData((ushort)this.m_res.m_index.m_indexSolid.Count);
             num += listByte5.GetLength();
             listByte.AppendData((ushort)num);
-            listByte.AppendData((ushort)m_res.m_index.m_indexNumber.Count);
+            listByte.AppendData((ushort)this.m_res.m_index.m_indexNumber.Count);
             num += listByte6.GetLength();
             listByte.AppendData((ushort)num);
             listByte.AppendData((ushort)this.m_res.m_control.m_cartoon.Count);
